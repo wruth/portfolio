@@ -25,11 +25,14 @@
         "_": false,
         "Backbone": false,
         "JST": false,
+        "dust": true,
+        "$": true,
         "beforeEach": false,
         "describe": false,
         "it": false,
         "assert": true,
         "expect": true,
         "should": true
-    }
+    },
+    "maxerr": 1000
 }

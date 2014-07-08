@@ -45,15 +45,15 @@ module.exports = function (grunt) {
                     '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-                    '<%= yeoman.app %>/scripts/templates/*.{ejs,mustache,hbs}',
+                    '<%= yeoman.app %>/scripts/templates/*.dust',
                     'test/spec/**/*.js'
                 ]
             },
-            jst: {
+            dustjs: {
                 files: [
-                    '<%= yeoman.app %>/scripts/templates/*.ejs'
+                    '<%= yeoman.app %>/scripts/templates/*.dust'
                 ],
-                tasks: ['jst']
+                tasks: ['dust']
             },
             test: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
@@ -226,10 +226,10 @@ module.exports = function (grunt) {
                 }]
             }
         },
-        jst: {
+        dustjs: {
             compile: {
                 files: {
-                    '.tmp/scripts/templates.js': ['<%= yeoman.app %>/scripts/templates/*.ejs']
+                    '.tmp/scripts/templates.js': ['<%= yeoman.app %>/scrips/templates/*.dust']
                 }
             }
         },
@@ -248,10 +248,6 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('createDefaultTemplate', function () {
-        grunt.file.write('.tmp/scripts/templates.js', 'this.JST = this.JST || {};');
-    });
-
     grunt.registerTask('server', function (target) {
         grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
         grunt.task.run(['serve' + (target ? ':' + target : '')]);
@@ -265,8 +261,7 @@ module.exports = function (grunt) {
         if (target === 'test') {
             return grunt.task.run([
                 'clean:server',
-                'createDefaultTemplate',
-                'jst',
+                'dustjs',
                 'compass:server',
                 'connect:test',
                 'open:test',
@@ -276,8 +271,7 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'clean:server',
-            'createDefaultTemplate',
-            'jst',
+            'dustjs',
             'compass:server',
             'connect:livereload',
             'open:server',
@@ -289,8 +283,7 @@ module.exports = function (grunt) {
         isConnected = Boolean(isConnected);
         var testTasks = [
                 'clean:server',
-                'createDefaultTemplate',
-                'jst',
+                'dustjs',
                 'compass',
                 'connect:test',
                 'mocha',
@@ -307,8 +300,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'createDefaultTemplate',
-        'jst',
+        'dustjs',
         'compass:dist',
         'useminPrepare',
         'imagemin',
