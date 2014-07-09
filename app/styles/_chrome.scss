@@ -1,0 +1,14 @@
+body {
+    background: #666;
+}
+
+#main-section {
+    position: absolute;
+    width: $contentWidth;
+    top: $navHeight;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: 0px auto;
+    background: #333;
+}
