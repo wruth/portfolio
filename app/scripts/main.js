@@ -2,13 +2,17 @@
 
 
 window.Portfolio = {
-    Models: {},
-    Collections: {},
-    Views: {},
-    Routers: {},
+    models: {},
+    collections: {},
+    views: {},
+    routers: {},
+
     init: function () {
         'use strict';
-        console.log('Hello from Backbone!');
+        console.log('Hello from Portfolio!');
+
+        this.router = new this.routers.PortfolioRouter();
+        Backbone.history.start();
     }
 };
 
