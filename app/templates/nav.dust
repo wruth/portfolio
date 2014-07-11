@@ -1,0 +1,5 @@
+<ul class="navList">
+    {#navList}
+        <li><a href="{route}">{label}</a></li>
+    {/navList}
+</ul>

@@ -3,5 +3,25 @@
     top: 0px;
     width: 100%;
     height: $navHeight;
-    background: #000;
+    background: #222;
+
+    .nav-container {
+        width: $contentWidth;
+        height: $navHeight;
+        margin: 0px auto;
+        background: #000;
+
+        nav {
+            float: right;
+            height: $navHeight;
+                li {
+                    display: inline-block;
+
+                a {
+                    text-decoration: none;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
 }

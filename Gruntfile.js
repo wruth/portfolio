@@ -229,7 +229,7 @@ module.exports = function (grunt) {
         dustjs: {
             compile: {
                 files: {
-                    '.tmp/scripts/templates.js': ['<%= yeoman.app %>/scrips/templates/*.dust']
+                    '.tmp/scripts/templates.js': ['<%= yeoman.app %>/templates/*.dust']
                 }
             }
         },
@@ -255,7 +255,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
-            return grunt.task.run(['build', 'open:server', 'connect:dist:keepalive']);
+            return grunt.task.run(['build:dist', 'open:server', 'connect:dist:keepalive']);
         }
 
         if (target === 'test') {
@@ -298,6 +298,7 @@ module.exports = function (grunt) {
         }
     });
 
+    /*
     grunt.registerTask('build', [
         'clean:dist',
         'dustjs',
@@ -312,6 +313,42 @@ module.exports = function (grunt) {
         'rev',
         'usemin'
     ]);
+    */
+
+   grunt.registerTask('build', function (target) {
+
+        if (target === 'dev') {
+            grunt.task.run([
+                'clean:dist',
+                'dustjs',
+                'compass:dist',
+                'useminPrepare',
+                'imagemin',
+                'htmlmin',
+                'concat',
+                'copy',
+                'usemin'
+            ]);
+        }
+        else if (target === 'dist') {
+            grunt.task.run([
+                'clean:dist',
+                'dustjs',
+                'compass:dist',
+                'useminPrepare',
+                'imagemin',
+                'htmlmin',
+                'concat',
+                'cssmin',
+                'uglify',
+                'copy',
+                'rev',
+                'usemin'
+            ]);
+
+        }
+   });
+
 
     grunt.registerTask('default', [
         'jshint',
