@@ -1,5 +1,6 @@
 <ul class="navList">
-    {#navList}
-        <li><a href="{route}">{label}</a></li>
-    {/navList}
+    {#.}
+        <li {?active}class="active"{/active}><a href="{route}">{label}</a></li>
+    {/.}
+    <li class="contact">contact</li>
 </ul>

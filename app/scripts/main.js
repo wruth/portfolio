@@ -9,16 +9,16 @@ window.Portfolio = {
 
     init: function () {
         'use strict';
-        var navModel = new Backbone.Model(),
+        var navCollection = new this.collections.NavCollection(),
             $nav = $('#main-header nav'),
             navView = new this.views.NavView({
-                model: navModel,
+                collection: navCollection,
                 el: $nav[0]
             });
 
         console.log('Hello from Portfolio!');
 
-        this.router = new this.routers.PortfolioRouter({navModel: navModel});
+        this.router = new this.routers.PortfolioRouter({navCollection: navCollection});
 
         Backbone.history.start();
     }

@@ -2,7 +2,7 @@
 
     Portfolio.routers.PortfolioRouter = Backbone.Router.extend({
 
-        navModel: null,
+        navCollection: null,
 
         routes: {
             '': 'about',
@@ -12,7 +12,7 @@
 
         initialize: function (options) {
             console.log('initializing router!');
-            this.navModel = options.navModel;
+            this.navCollection = options.navCollection;
         },
 
         //
@@ -21,17 +21,17 @@
 
         about: function () {
             console.log('about!');
-            this.navModel.set('activePage', 'about');
+            this.navCollection.setActivePage('about');
         },
 
         resume: function () {
             console.log('resume!');
-            this.navModel.set('activePage', 'resume');
+            this.navCollection.setActivePage('resume');
         },
 
         portfolio: function () {
             console.log('portfolio!');
-            this.navModel.set('activePage', 'portfolio');
+            this.navCollection.setActivePage('portfolio');
         }
     });
 
