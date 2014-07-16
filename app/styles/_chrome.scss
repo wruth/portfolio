@@ -1,14 +1,9 @@
-*, :before, :after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
 
 body {
     background: url('/images/stamped_60px.png') #666 repeat fixed;
 }
 
-#main-section {
+#main-container {
     position: absolute;
     width: $contentWidth;
     top: $navHeight;
@@ -17,4 +12,29 @@ body {
     right: 0px;
     margin: 0px auto;
     background: #222;
+    padding-top: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .resume-section {
+        h2 {
+            margin-bottom: 5px;
+        }
+        p, ul {
+            font-family: $bodyFont;
+            font-size: 13px;
+            line-height: 1.3;
+            color: $lightGrey;
+        }
+
+        p, li {
+            margin-bottom: 5px;
+        }
+
+        ul {
+            list-style: square outside;
+            margin-left: 15px;
+        }
+
+    }
 }

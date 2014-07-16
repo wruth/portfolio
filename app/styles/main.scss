@@ -2,14 +2,22 @@
 // http://compass-style.org/reference/compass/reset/utilities/
 @import "compass/reset";
 @import "compass/utilities/general/clearfix";
+@import "compass/css3/box-shadow";
 @import "compass/css3/images";
+
+@import "variables";
 
 // reset styles
 @import "reset";
 
-@import "variables";
+@import "typography";
+
+
+@import "grid";
+
 
 @import "fonts";
 
 @import "nav";
 @import "chrome";
+@import "resume";

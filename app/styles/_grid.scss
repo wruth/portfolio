@@ -1,0 +1,3 @@
+@import "digi-grid/src/grid";
+
+@include grid-system-complete($columns: 12, $rows: 0, $gridWidth: 960px, $gutterWidth: 20px, $leading: 10px);

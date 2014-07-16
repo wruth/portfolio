@@ -1,0 +1,26 @@
+<header class="row leading-2">
+    <h1 class="col-10 prefix-1 suffix-1">resume</h1>
+</header>
+
+{#.}
+    <div class="row leading-2">
+        <section class="resume-section col-7 prefix-4 suffix-1">
+            <h2>{title}</h2>
+            {?body}
+                <p>{body}</p>
+            {/body}
+            {#subsections}
+                <h3>{title} {date}</h3>
+                <p>{intro}</p>
+                <ul>
+                    {#items}
+                        <li><strong>{role}:</strong>{description}</li>
+                    {/items}
+                </ul>
+            {/subsections}
+        </section>
+    </div>
+{/.}
+
+
+<p class="references">references available upon request</p>

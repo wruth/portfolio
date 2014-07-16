@@ -4,6 +4,8 @@
     width: 100%;
     height: $navHeight;
     background: #000;
+    z-index: 10;
+    @include single-box-shadow(#000, 0, 0, 10px);
 
     .nav-container {
         width: $contentWidth;
@@ -15,15 +17,15 @@
             height: $navHeight;
             color: $keyYellow;
             font-family: futuramedium;
-            font-size: 26px;
+            font-size: 34px;
             line-height: $navHeight;
-            text-transform: uppercase;
 
             .slash {
                 color: $mediumGrey;
             }
 
             .engineer {
+                text-transform: uppercase;
                 color: $lightGrey;
                 font-size: 13px;
                 letter-spacing: 0.1em;
@@ -71,14 +73,6 @@
                     padding-left: 0px;
                     padding-right: 0px;
                     margin-left: 30px;
-
-                    &:hover {
-                        color: $lightGrey;
-                    }
-
-                    &:active {
-                        color: #fff;
-                    }
                 }
             }
         }

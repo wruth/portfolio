@@ -1,0 +1,92 @@
+[
+    {
+        "title": "postion desired",
+        "body": "Senior Software Engineer, Front End Architect/Lead."
+    },
+    {
+        "title": "my objective",
+        "body": "To guide and inspire a project team in delivering solid and delightfully engaging user experiences. To challenge myself and others to excel. To deliver the right solutions on time and on budget. And to never stop learning and sharing skills and expertise."
+    },
+    {
+        "title": "career highlights",
+        "subsections": [
+            {
+                "title": "Fluid Inc., San Francisco",
+                "date": "[2006 – present]",
+                "intro": "Fluid is a leading e-commerce interactive agency, producing award-winning work for major brand retailers. In addition to helping develop Fluid’s on-demand ecommerce product suite, I have been a key contributor to many of Fluid’s most notable and innovative projects. Standouts include:",
+                "items": [
+                    {
+                        "role": "Front End Lead",
+                        "description": "Led an elite team of front end developers to build a T-Commerce (Television) shopping platform for a major electronics brand Fluid has partnered with. Worked closely with the Back End Lead to establish the REST/JSON API contract. Built app using Marionette on top of Backbone JS with dust templating and Common JS modules via Browserify. Assisted the PM with managing the expectations of very tough client who demanded  close oversight and aggressive timelines. Helped direct and coordinate offshore development shop to complete project. Delivered final product of this $3.1 million dollar revenue project on time, leading to it being one of Fluid’s most profitable engagements."
+                    },
+                    {
+                        "role": "Co-Architect/Front End Lead",
+                        "description": "Team built a micro-site hosted by Home Depot for JELD-WEN Windows & Doors. Created a filtering product wizard that assists users in choosing models and features from multiple complex product lines. This project employs a similar client- side stack to the T-Commerce project."
+                    },
+                    {
+                        "role": "Co-Developer / iOS Engineering",
+                        "description": "Helped build Craftsman TORQUE Magazine, a rich and immersive iPad app, on top of an innovative custom magazine/catalogue infrastructure that allows dynamic content to be more quickly viewable. Developed in Objective-C using the UIKit framework. Created a custom PDF view for presentation of rich content provided by the visual design team. Engineered custom views for displaying Facebook and Twitter feeds. Created UIView implementations that incorporate hand-tooled CALayers and low level CoreGraphics based drawing."
+                    },
+                    {
+                        "role": "Front End Lead",
+                        "description": "Drove client-side development of Kenmore Live Studio, a complex Facebook Fan Page based app featuring live video streaming of events in Kenmore’s Chicago Studio. Wrote app in Pure MVC on top of Flex to enable heavy social integration, including Twitter updates, FB Page timeline updates, and FB Calendar Event display."
+                    }
+                ]
+            },
+            {
+                "title": "DigitalThink / Convergys, San Francisco",
+                "date": "[2000 – 2006]",
+                "intro": "DigitalThink (later Convergys) was an early innovator in the e-learning space, providing a broad catalog of technical online training to companies in the Fortune 1000. Beginning with creating compelling instructional illustrations, I moved quickly into a leading role designing engineering approaches for custom e-learning courseware. Achievements included:",
+                "items": [
+                    {
+                        "role": "Architect / Lead Developer",
+                        "description": "Created a Flash-based  of XML-driven content aggregation and sequencing engine (pre-Flex!). Then managed scaling this solution for developing a curriculum of compliance courseware for LRN, a Southern California e-learning provider."
+                    },
+                    {
+                        "role": "Architect / Team Trainer",
+                        "description": "developed presentation engine for a course catalog for EDS using XML and Flash supporting a suite of custom learning content modules. Designed an efficiently scalable solution for mass localization. Oversaw onsite training of remote team in Hyderabad, India in core OOP principles and for building out this solution."
+                    },
+                    {
+                        "role": "Solution Architect",
+                        "description": "Created reusable Flash-based course shell for Novartis account. Solution utilized MVC design pattern, providing easy re-skinning and extension of business logic. Developed a modular ActionScript AICC service component to enable more robust communication between the content and the Learning Management System."
+                    },
+                    {
+                        "role": "Visual Design Lead",
+                        "description": "Managed Visual Design team creating web-based training courses for Red Hat Linux, Programming Fundamentals, JavaServerPages, and JDBC, among others. Created a clean and engaging visual treatment and grammar. Detailed the treatment’s specifications in a Visual Style Guide, enabling a high degree of design consistency among team members. Guided team by analyzing and synthesizing complex abstract technical concepts and processes into concise layouts."
+                    }
+                ]
+            },
+            {
+                "title": "Biomed Arts Associates, Inc., San Francisco",
+                "date": "[1982 - 2000]",
+                "intro": "Biomed Arts was a medical/scientific audio-visual production shop. Biomed's clients included numerous prominent Biotech companies, as well as many labs and researchers from UCSF. I drove Biomed to implement a digital workflow, as well as training myself to become the in-house web production expert.Significant areas of expertise included:",
+                "items": [
+                    {
+                        "role": "Web Development",
+                        "description": "Analyzed client requirements, created site architectures, developed content and took through coding, deployment, and maintenance stages."
+                    },
+                    {
+                        "role": "Technical Proficiency",
+                        "description": "Developed expert ability in PhotoShop, Illustrator, traditional photo-typesetting, and other production tools. Performed scanning, image adjustments, retouching, and compositing. Output of digital content to various presentational media."
+                    },
+                    {
+                        "role": "Programming",
+                        "description": "Utilized PostScript to develop a precision graphing program, capable of rendering various standard scientific graphs and charts."
+                    },
+                    {
+                        "role": "Art Direction",
+                        "description": "Managed projects including corporate identity design. Handled one, two and four-color work for cards, brochures, advertisements, catalogues and large-format posters."
+                    },
+                    {
+                        "role": "Digital Department Creation",
+                        "description": "Helped create digital production capability. Defined workflow requirements and hardware and software specifications. Performed troubleshooting of hardware, software and client files."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "education",
+        "body": "Interdisciplinary art major, San Francisco State University, 1982. Emphasis in Photography and Graphic Design."
+    }
+]

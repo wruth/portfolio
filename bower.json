@@ -6,7 +6,8 @@
     "backbone": "~1.1.0",
     "modernizr": "~2.7.1",
     "dustjs-linkedin": "~2.4.0",
-    "dustjs-linkedin-helpers": "~1.2.0"
+    "dustjs-linkedin-helpers": "~1.2.0",
+    "digi-grid": "~1.2.2"
   },
   "devDependencies": {}
 }

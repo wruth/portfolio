@@ -2,5 +2,5 @@
     {#.}
         <li {?active}class="active"{/active}><a href="{route}">{label}</a></li>
     {/.}
-    <li class="contact">contact</li>
+    <li class="contact"><a>contact</a></li>
 </ul>
