@@ -21,7 +21,11 @@ p, li {
     line-height: 1.5;
     @include rem-px(margin, 0, 0, 1rem);
 
-    word-break: break-all;
+    //
+    // firefox ends up breaking text w/o hyphens very aggressively with this,
+    // which looks terrible!
+    //
+    //word-break: break-all;
 
     /* Non standard for webkit */
     word-break: break-word;
