@@ -1,4 +1,62 @@
+// implementing recommendations from
+// http://webdesign.tutsplus.com/articles/a-web-designers-typographic-boilerplate--webdesign-15234
+
 body, input, button {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+}
+
+html {
+    font: 100%/1.5 Arial, sans-serif;
+}
+
+h1 { @include font-size($sz-x-large); }
+h2 { @include font-size($sz-large); }
+h3 { @include font-size($sz-medium); }
+h4 { @include font-size($sz-regular); }
+h5 { @include font-size($sz-small); }
+h6 { @include font-size($sz-x-small); }
+
+p, li {
+    line-height: 1.5;
+    @include rem-px(margin, 0, 0, 1rem);
+
+    word-break: break-all;
+
+    /* Non standard for webkit */
+    word-break: break-word;
+
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+// TODO: consider hyperlink styling
+
+strong { font-weight: bold; }
+em     { font-style: italic; }
+
+code, pre {
+    font-family: monospace, serif;
+    @include font-size($sz-regular);
+}
+
+@media print {
+
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    p, h2, h3 {
+        orphans: 3; /* http://css-tricks.com/almanac/properties/o/orphans/ */
+        widows: 3;  /* http://css-tricks.com/almanac/properties/w/widows/ */
+    }
+
+    h2, h3 {
+        page-break-after: avoid;
+    }
 }

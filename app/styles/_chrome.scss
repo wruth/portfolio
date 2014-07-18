@@ -3,6 +3,24 @@ body {
     background: url('/images/stamped_60px.png') #666 repeat fixed;
 }
 
+h1 {
+    color: $keyYellow;
+    font-family: $headerFont;
+    text-transform: capitalize;
+}
+
+h2 {
+    color: $keyYellow;
+    font-family: $headerFont;
+    text-transform: capitalize;
+}
+
+h3 {
+    color: $keyYellow;
+    font-family: $headerFont;
+    text-transform: capitalize;
+}
+
 #main-container {
     position: absolute;
     width: $contentWidth;
@@ -10,30 +28,25 @@ body {
     bottom: 0px;
     left: 0px;
     right: 0px;
-    margin: 0px auto;
+    margin: 0 auto;
     background: #222;
-    padding-top: 20px;
+    @include rem-px(padding-top, 2rem);
     overflow-y: auto;
     overflow-x: hidden;
 
     .resume-section {
         h2 {
-            margin-bottom: 5px;
+            @include rem-px(margin-bottom, 0.5rem);
         }
         p, ul {
             font-family: $bodyFont;
-            font-size: 13px;
-            line-height: 1.3;
+            @include font-size($sz-regular);
             color: $lightGrey;
-        }
-
-        p, li {
-            margin-bottom: 5px;
         }
 
         ul {
             list-style: square outside;
-            margin-left: 15px;
+            @include rem-px(margin-left, 1rem);
         }
 
     }

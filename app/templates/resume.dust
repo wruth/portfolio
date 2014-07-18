@@ -12,7 +12,7 @@
                 <p>{intro}</p>
                 <ul>
                     {#items}
-                        <li><strong>{role}:</strong>{description}</li>
+                        <li><strong>{role}:&nbsp;&nbsp;</strong>{description}</li>
                     {/items}
                 </ul>
             {/subsections}

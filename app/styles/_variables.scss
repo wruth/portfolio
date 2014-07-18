@@ -1,5 +1,5 @@
 // metrics
-$navHeight: 40px;
+$navHeight: 3rem;
 $contentWidth: 960px;
 
 // colors
@@ -12,3 +12,16 @@ $lightGrey: #aaa;
 // fonts
 $headerFont: 'futuramedium';
 $bodyFont: 'gillsans';
+
+//
+// typographic rem mnemonics
+// (this is an interleaved fibinacci sequence, starting from 4, 6 and 5, 8)
+//
+$sz-xx-small:  0.5;    // 8/16
+$sz-x-small:   0.625;  // 10/16
+$sz-small:     0.8125; // 13/16
+$sz-regular:   1.0;    // 16/16
+$sz-medium:    1.3125; // 21/16
+$sz-large:     1.625;  // 26/16
+$sz-x-large:   2.125;  // 34/16
+$sz-xx-large:  2.625;  // 42/16

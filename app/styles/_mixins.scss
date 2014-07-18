@@ -1,0 +1,55 @@
+
+@mixin font-size ($decimalSize) {
+    font-size: $decimalSize * 16px;
+    font-size: $decimalSize * 1rem;
+}
+
+/**
+ * Values for property in REM and PX with 1rem = 16px adapted from mixin by Karl
+ * Merkli, and Josh Broton. This custom version will pass through any units that
+ * are not rem or em. Unlike some other variants it will not reverse convert px
+ * to rem.
+ * http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+ * http://joshbroton.com/quick-fix-sass-mixins-for-rem-values-with-px-fallback/
+ *
+ * @inlcude rem-px(STRING PROPERTY, REMVAL1, REMVAL2, REMVAL3, REMVAL4)
+ * @inlcude rem-px(margin, 1, 1, 2, 1.5) outputs or
+ * @include rem-px(margin, 1rem, 1rem, 2rem, 1.5rem) outputs:
+ * margin: 16px 16px 32px 24px;
+ * margin: 1rem 1rem 2rem 1.5rem;
+ */
+@function strip-unit ($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+@mixin rem-px ($property, $values...) {
+    $max: length($values);
+    $pxValues: '';
+    $remValues: '';
+
+    @for $i from 1 through $max {
+        $rawValue: nth($values, $i);
+        $value: strip-unit($rawValue);
+        $unit: unit($rawValue);
+
+        @if $value != 0 {
+            @if $unit == rem or $unit == em {
+                $pxValues: #{$pxValues + $value*16}px;
+            } @else {
+                $pxValues: #{$pxValues + $rawValue};
+            }
+            $remValues: #{$remValues + $rawValue};
+        } @else {
+            $pxValues: #{$pxValues + $value*16};
+            $remValues: #{$remValues + $value};
+        }
+
+        @if $i < $max {
+            $pxValues: #{$pxValues + " "};
+            $remValues: #{$remValues + " "};
+        }
+    }
+
+    #{$property}: $pxValues;
+    #{$property}: $remValues;
+}
