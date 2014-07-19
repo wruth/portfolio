@@ -20,5 +20,6 @@
     </div>
 {/.}
 
-
-<p class="references">references available upon request</p>
+<div class="row leading-2">
+    <p class="references col-7 prefix-4 suffix-1">references available upon request</p>
+</div>

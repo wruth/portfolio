@@ -16,8 +16,8 @@
             float: left;
             height: $navHeight;
             color: $keyYellow;
-            font-family: futuramedium;
-            @include font-size($sz-x-large);
+            font-family: futuralight;
+            @include font-size($sz-xx-large);
             @include rem-px(line-height, $navHeight);
 
             .slash {
@@ -39,7 +39,7 @@
             li {
                 display: inline-block;
                 @include rem-px(padding, 0, 0.625rem);
-                font-family: eurostileboldextendedtwo;
+                font-family: $menuFont;
                 @include font-size($sz-small);
                 text-transform: uppercase;
                 letter-spacing: 0.1em;

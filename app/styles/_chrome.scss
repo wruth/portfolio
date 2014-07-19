@@ -4,9 +4,9 @@ body {
 }
 
 h1 {
-    color: $keyYellow;
-    font-family: $headerFont;
-    text-transform: capitalize;
+   color: $mediumGrey;
+   font-family: $menuFont;
+   text-transform: uppercase;
 }
 
 h2 {
@@ -51,20 +51,9 @@ h3 {
         }
     }
 
-    .resume-section {
-        h2 {
-            @include rem-px(margin-bottom, 0.5rem);
-        }
-        p, ul {
-            font-family: $bodyFont;
-            @include font-size($sz-regular);
-            color: $lightGrey;
-        }
-
-        ul {
-            list-style: square outside;
-            @include rem-px(margin-left, 1rem);
-        }
-
+    p, ul {
+        font-family: $bodyFont;
+        @include font-size($sz-regular);
+        color: $lightGrey;
     }
 }
