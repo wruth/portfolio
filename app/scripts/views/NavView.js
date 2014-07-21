@@ -27,6 +27,8 @@
 
     Portfolio.views.NavView = Backbone.View.extend({
 
+        tagName: 'nav',
+
         events: {
             'click .contact': _handleContact
         },
