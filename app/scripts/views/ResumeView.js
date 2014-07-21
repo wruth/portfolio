@@ -4,7 +4,7 @@
 
         tagName: 'section',
 
-        className: 'container-12',
+        className: 'resume container-12',
 
         initialize: function (options) {
             _.bindAll(this, 'render');

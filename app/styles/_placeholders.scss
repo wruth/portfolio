@@ -1,0 +1,15 @@
+
+%aside-background {
+
+    &:before {
+        position: absolute;
+        visibility: visible;
+        top: 71px;
+        bottom: 0;
+        width: 310px;
+        height: 100%;
+        content: '';
+        @include background-image(linear-gradient(left, $darkGrey 10px, #111));
+        @include border-top-right-radius(8rem);
+    }
+}

@@ -1,8 +1,5 @@
 {>page-header name="resume" /}
 
-<div class="left-well">
-</div>
-
 {#.}
     <div class="row leading-2">
         {?aside}
