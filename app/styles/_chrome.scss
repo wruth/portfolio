@@ -21,6 +21,12 @@ h3 {
     text-transform: capitalize;
 }
 
+h5 {
+    color: #999;
+    font-family: $subheaderFont;
+    text-transform: capitalize;
+}
+
 #main-container {
     position: absolute;
     width: $contentWidth;

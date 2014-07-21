@@ -25,7 +25,7 @@
                     },
                     {
                         "role": "Co-Developer / iOS Engineering",
-                        "description": "Helped build Craftsman TORQUE Magazine, a rich and immersive iPad app, on top of an innovative custom magazine/catalogue infrastructure that allows dynamic content to be more quickly viewable. Developed in Objective-C using the UIKit framework. Created a custom PDF view for presentation of rich content provided by the visual design team. Engineered custom views for displaying Facebook and Twitter feeds. Created UIView implementations that incorporate hand-tooled CALayers and low level CoreGraphics based drawing."
+                        "description": "Helped build Craftsman TORQUE Magazine, a rich and immersive iPad app, on top of an innovative custom magazine/catalogue infrastructure that allows dynamic content to be more quickly viewable. Developed in Objective-C using the UIKit framework. Created a custom PDF view for presentation of rich content provided by the visual design team. Engineered custom views for displaying Facebook and Twitter feeds. Created UIView implementations that incorporate hand-tooled CALayers and low level Core Graphics based drawing."
                     },
                     {
                         "role": "Front End Lead",
@@ -81,6 +81,101 @@
                         "role": "Digital Department Creation",
                         "description": "Helped create digital production capability. Defined workflow requirements and hardware and software specifications. Performed troubleshooting of hardware, software and client files."
                     }
+                ]
+            }
+        ],
+        "aside": [
+            {
+                "title": "selected clients",
+                "items": [
+                    "Reebok",
+                    "Craftsman",
+                    "Kenmore",
+                    "Calvin Klein",
+                    "The North Face",
+                    "Clorox",
+                    "Levis",
+                    "Microsoft",
+                    "JELD-WEN",
+                    "Red Hat Linux",
+                    "Novartis Pharmaceuticals"
+                ]
+            },
+            {
+                "title": "web development",
+                "items": [
+                    "JavaScript",
+                    "OOD",
+                    "JSON",
+                    "XML",
+                    "XSLT",
+                    "HTML5",
+                    "CSS3",
+                    "SASS",
+                    "LESS",
+                    "Grunt",
+                    "Require JS",
+                    "Common JS",
+                    "Backbone JS",
+                    "dust",
+                    "Marionette",
+                    "Underscore",
+                    "JQuery",
+                    "UML",
+                    "Jasmine",
+                    "REST",
+                    "SOAP",
+                    "Facebook",
+                    "Twitter"
+                ]
+            },
+            {
+                "title": "flash development",
+                "items": [
+                    "AS3",
+                    "Flex/MXML",
+                    "Pure MVC",
+                    "Robot Legs",
+                    "AS3 Signals"
+                ]
+            },
+            {
+                "title": "cocoa/iOS development",
+                "items": [
+                    "Core Graphics",
+                    "Core Animation",
+                    "Core Data",
+                    "UIKit"
+                ]
+            },
+            {
+                "title": "languages",
+                "items": [
+                    "PostScript",
+                    "ECMA Script",
+                    "Java",
+                    "C",
+                    "Objective-C"
+                ]
+            },
+            {
+                "title": "VCS",
+                "items": [
+                    "CVS",
+                    "SVN",
+                    "Hg",
+                    "Git"
+                ]
+            },
+            {
+                "title": "tools",
+                "items": [
+                    "Photoshop",
+                    "Illustrator",
+                    "Sublime",
+                    "Eclipse",
+                    "bash",
+                    "XCode"
                 ]
             }
         ]

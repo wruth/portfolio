@@ -1,5 +1,15 @@
 
 #main-container {
+
+    .left-well {
+        position: absolute;
+        top: 71px;
+        bottom: 0;
+        width: 310px;
+        @include background-image(linear-gradient(left, $darkGrey 10px, #111));
+        @include border-top-right-radius(8rem);
+    }
+
     .resume-section {
         h2 {
             @include rem-px(margin-bottom, 0.5rem);
@@ -8,10 +18,31 @@
         ul {
             list-style: square outside;
             @include rem-px(margin-left, 1rem);
+
+            strong {
+                font-family: $subheaderFont;
+            }
+        }
+    }
+
+    aside {
+        text-align: right;
+
+        @include rem-px(padding-right, 3rem);
+
+        ul {
+            @include rem-px(margin-bottom, 1rem);
+            color: $mediumGrey;
+        }
+
+        li {
+            @include font-size($sz-small);
+            margin-bottom: 0;
         }
     }
 
     .references {
+        font-family: $subheaderFont;
         text-transform: uppercase;
     }
 }

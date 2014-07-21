@@ -1,8 +1,23 @@
 {>page-header name="resume" /}
 
+<div class="left-well">
+</div>
+
 {#.}
     <div class="row leading-2">
-        <section class="resume-section col-7 prefix-4 suffix-1">
+        {?aside}
+            <aside class="col-3 prefix-1">
+                {#aside}
+                    <h5>{title}</h5>
+                    <ul>
+                        {#items}
+                            <li>{.}</li>
+                        {/items}
+                    </ul>
+                {/aside}
+            </aside>
+        {/aside}
+        <section class="resume-section col-7 {^aside}prefix-4 {/aside}suffix-1">
             <h2>{title}</h2>
             {?body}
                 <p>{body}</p>
