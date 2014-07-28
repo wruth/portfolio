@@ -1,0 +1,101 @@
+[
+    {
+        "title": "T-Commerce",
+        "client": "NDA",
+        "role": "Front End Lead",
+        "date": "Summer–Fall 2013",
+        "description": "Led front end build of a T-Commerce (Television) shopping platform for a major electronics brand. Architected to scale to support thousands of brands, and provide economical brand on-boarding.",
+        "images":  [],
+        "tech": [
+            "Backbone.js",
+            "Marionette",
+            "dust",
+            "SASS",
+            "CommonJS"
+        ]
+    },
+    {
+        "title": "JELD-WEN Home Depot Micro Site",
+        "client": "JELD-WEN",
+        "role": "Co-Architect/Front End Lead",
+        "date": "2012, 2013",
+        "description": "Team built a micro-site hosted by Home Depot for JELD-WEN Windows & Doors. Created a filtering product wizard that assists users in choosing models and features from multiple complex product lines.",
+        "images":  [],
+        "tech": [
+            "Backbone.js",
+            "dust",
+            "LESS",
+            "Joomla!"
+        ],
+        "link": "http://homedepot.jeld-wen.com/"
+    },
+    {
+        "title": "Craftsman Torque iPad Magazine",
+        "client": "Sears/Craftsman",
+        "role": "Co-Developer / iOS Engineering",
+        "date": "Summer–Fall 2011",
+        "description": "Co-developed a custom iPad magazine app featuring sophisticated layouts, interactivity and video.",
+        "images":  [],
+        "tech": [
+            "UIKit",
+            "Core Graphics",
+            "Core Animation"
+        ]
+    },
+    {
+        "title": "Craftsman Toolchest Wizard",
+        "client": "Sears/Craftsman",
+        "role": "Architect/Engineer",
+        "date": "Spring 2009",
+        "description": "Designed and implemented sophisticated toolchest selection wizard. Created client side data model.",
+        "images":  [],
+        "tech": [
+            "Flex/AS3",
+            "PureMVC MultiCore",
+            "XML"
+        ],
+        "link": "http://www.craftsman.com/shc/s/nb_10155_12602_NB_custom+toolbox?sessionKey=null"
+    },
+    {
+        "title": "Kenmore Live Studio",
+        "client": "Kenmore",
+        "role": "Front End Lead",
+        "date": "Spring – Summer 2010",
+        "description": "Designed and led client-side implementation of a Facebook hosted app integrating video streaming and realtime Facebook updates of live cooking events from Kenmore's studio in downtown Chicago. Also integrated with archive of past events on YouTube, and Facebook calendar integration for future events.",
+        "images":  [],
+        "tech": [
+            "Flex/AS3",
+            "PureMVC",
+            "Facebook",
+            "Twitter",
+            "YouTube"
+        ]
+    },
+    {
+        "title": "TimeClock Desktop Application",
+        "client": "Personal Project",
+        "role": "Client/Architect/Engineer",
+        "date": "2010",
+        "description": "Created TimeClock  as an easy to use time tracking application. Tasks are grouped by project and can be displayed in concise daily and weekly report views. Persistence layer is built on the Core Data API.",
+        "images":  [],
+        "tech": [
+            "Foundation framework",
+            "AppKit framework",
+            "Core Data framework"
+        ]
+    },
+    {
+        "title": "Graphics/Interactive Experiments",
+        "client": "Personal Projects",
+        "role": "Architect/Engineer/Imaginator",
+        "date": "ongoing",
+        "description": "Creative exploration of interavtive digital art experiments. Current projects in development include a screen saver and a mobile interavtive pattern generator.",
+        "images":  [],
+        "tech": [
+            "ScreenSaver framework",
+            "Core Graphics framework",
+            "Core Animation framework",
+            "UIKit"
+        ]
+    }
+]

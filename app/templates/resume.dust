@@ -27,6 +27,9 @@
                         <li><strong>{role}:&nbsp;&nbsp;</strong>{description}</li>
                     {/items}
                 </ul>
+                {?outro}
+                    <p>{outro}</p>
+                {/outro}
             {/subsections}
         </section>
     </div>

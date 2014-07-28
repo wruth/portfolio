@@ -57,14 +57,14 @@
         },
 
         resume: function () {
-            var resumeView = new Portfolio.views.ResumeView();
+            var resumeView = new Portfolio.views.CollectionView({name: 'resume'});
             console.log('resume!');
             this.navCollection.setActivePage('resume');
             _updateCurrentView.call(this, resumeView);
         },
 
         portfolio: function () {
-            var portfolioView = new Portfolio.views.PortfolioView();
+            var portfolioView = new Portfolio.views.PortfolioView({name: 'portfolio'});
             console.log('portfolio!');
             this.navCollection.setActivePage('portfolio');
             _updateCurrentView.call(this, portfolioView);

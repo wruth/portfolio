@@ -1,17 +1,33 @@
 (function (Portfolio, Backbone, dust, _) {
 
-    Portfolio.views.ResumeView = Backbone.View.extend({
+    Portfolio.views.CollectionView = Backbone.View.extend({
+
+        name: null,
 
         tagName: 'section',
 
-        className: 'resume container-12',
+        //className: 'portfolio container-12',
+        className: function () {
+            return this.name + ' container-12';
+        },
+
+        constructor: function (options) {
+
+            if (options.name) {
+                this.name = options.name;
+                Backbone.View.prototype.constructor.call(this, options);
+            }
+            else {
+                throw new Error('CollectionView option object must have a name property!');
+            }
+        },
 
         initialize: function (options) {
             _.bindAll(this, 'render');
 
             if (!this.constructor.collection) {
                 var collection = new Backbone.Collection();
-                collection.url = '/data/resume.json';
+                collection.url = '/data/' + this.name + '.json';
 
                 this.listenTo(collection, 'sync', this.render);
                 this.listenTo(collection, 'error', function () {
@@ -32,7 +48,7 @@
             var _this = this;
 
             if (this.constructor.collection.length > 0) {
-                dust.render('resume', this.constructor.collection.toJSON(), function (err, output) {
+                dust.render(this.name, this.constructor.collection.toJSON(), function (err, output) {
 
                     if (err) {
                         throw err;
@@ -43,7 +59,7 @@
             }
             else {
                 // TODO: render loading view
-                console.log('loading resume...');
+                console.log('loading ' + this.name + '...');
             }
 
             // TODO: handle possible error view state
