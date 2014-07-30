@@ -39,16 +39,14 @@
             li {
                 display: inline-block;
                 @include rem-px(padding, 0, 0.625rem);
-                font-family: $menuFont;
-                @include font-size($sz-small);
-                text-transform: uppercase;
-                letter-spacing: 0.1em;
+                @extend %control;
                 @include rem-px(line-height, $navHeight);
                 color: $mediumGrey;
 
                 a {
                     text-decoration: none;
                     color: $mediumGrey;
+                    transition: color 0.25s;
 
                     &:hover {
                         color: $lightGrey;

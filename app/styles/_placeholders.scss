@@ -18,3 +18,10 @@
     list-style: square outside;
     @include rem-px(margin-left, 1rem);
 }
+
+%control {
+    font-family: $menuFont;
+    @include font-size($sz-small);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}

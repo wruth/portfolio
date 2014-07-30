@@ -5,20 +5,20 @@
 
         .portfolio-section {
             width: 100%;
-            @include rem-px(margin-bottom, 2rem);
+            @include rem-px(margin-bottom, 3rem);
+
+            .project-container {
+                @include background-image(linear-gradient(top, #111, $darkGrey));
+                @include rem-px(padding-top, 1rem);
+            }
 
             h4 {
                 text-align: right;
-
-                &.client {
-                    text-align: left;
-                    color: #fff;
-                }
-
             }
 
             .scroller {
                 height: 240px;
+                width: 100%;
                 background-color: #000;
             }
 
@@ -27,11 +27,7 @@
             }
 
             .tech {
-                height: 100%;
-                @include background-image(linear-gradient(left, #111, $darkGrey));
-                @include border-top-left-radius(1rem);
-                @include border-bottom-left-radius(1rem);
-                @include rem-px(padding, 1rem, 1rem, 1.5rem);
+                @include rem-px(padding, 0, 1rem);
 
                 ul {
                     color: $mediumGrey;
@@ -41,6 +37,24 @@
                     @include font-size($sz-small);
                     margin-bottom: 0;
                     @extend %bullet-list;
+                }
+            }
+
+            a {
+                display: block;
+                @include rem-px(height, 2rem);
+                @include rem-px(line-height, 2rem);
+                @include single-box-shadow(#b38a00, 0, 0, 5px, 3px, true);
+                @extend %control;
+                background: $buttonBackground;
+                color: $mediumGrey;
+                text-decoration: none;
+                text-align: center;
+                transition: background-color 0.4s;
+
+                &:hover {
+                    @include single-box-shadow($buttonBackground, 0, 0, 5px, 3px, true);
+                    background: tint($buttonBackground, 75%);
                 }
             }
         }

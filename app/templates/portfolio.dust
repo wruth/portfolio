@@ -3,20 +3,21 @@
 {#.}
     <section class="portfolio-section">
 
-        <div class="row">
-            <h2 class="col-7 prefix-4 suffix-1">{title}</h2>
-        </div>
-        <div class="row">
-            <h4 class="col-3 prefix-1">Client:</h4>
-            <h4 class="col-7 suffix-1 client">{client}</h4>
-        </div>
+        <header class="row">
+            <h2 class="col-5 prefix-4">{title}</h2>
+            {?link}
+                <a class="col-2" href="{link}" target="_blank">Launch</a>
+            {/link}
+        </header>
 
-        <div class="row leading-2">
-            <div class="scroller col-12"></div>
-        </div>
+        <div class="scroller"></div>
 
-        <div class="row">
+        <div class="row project-container">
             <div class="col-9">
+                <div class="row">
+                    <h4 class="col-4 alpha">Client:</h4>
+                    <p class="col-5 omega">{client}</p>
+                </div>
                 <div class="row">
                     <h4 class="col-4 alpha">Role:</h4>
                     <p class="col-5 omega">{role}</p>
