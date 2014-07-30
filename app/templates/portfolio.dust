@@ -12,7 +12,7 @@
         </div>
 
         <div class="row leading-2">
-            <div class="scroller col-10 prefix-1 suffix-1"></div>
+            <div class="scroller col-12"></div>
         </div>
 
         <div class="row">
