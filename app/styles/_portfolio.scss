@@ -4,7 +4,8 @@
     .portfolio {
 
         .portfolio-section {
-            @include rem-px(margin-bottom, 1rem);
+            width: 100%;
+            @include rem-px(margin-bottom, 2rem);
 
             h4 {
                 text-align: right;

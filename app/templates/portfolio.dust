@@ -1,30 +1,32 @@
 {>page-header name="portfolio" /}
 
 {#.}
-    <div class="row leading-2">
-        <section class="portfolio-section col-10 prefix-1 suffix-1">
-            <div class="row">
-                <h2 class="col-7 alpha omega push-3">{title}</h2>
-                <div class="row">
-                    <h4 class="col-7 alpha push-3 client">{client}</h4>
-                    <h4 class="col-3 omega pull-7">Client:</h4>
-                </div>
-            </div>
-            <div class="row leading-2">
-                <div class="scroller col-10 alpha omega"></div>
-            </div>
-            <div class="row">
-                <p class="col-7 alpha push-3">{role}</p>
-                <h4 class="col-3 omega pull-7">Role:</h4>
-            </div>
-            <div class="row">
-                <p class="col-7 alpha push-3">{date}</p>
-                <h4 class="col-3 omega pull-7">Date:</h4>
-            </div>
-            <div class="row">
-                <p class="col-5 alpha push-3 suffix-2">{description}</p>
-                <h4 class="col-3 omega pull-7">Description:</h4>
-            </div>
-        </section>
-    </div>
+    <section class="portfolio-section">
+
+        <div class="row">
+            <h2 class="col-7 prefix-4 suffix-1">{title}</h2>
+        </div>
+        <div class="row">
+            <h4 class="col-3 prefix-1">Client:</h4>
+            <h4 class="col-7 suffix-1 client">{client}</h4>
+        </div>
+
+        <div class="row leading-2">
+            <div class="scroller col-10 prefix-1 suffix-1"></div>
+        </div>
+
+        <div class="row">
+            <h4 class="col-3 prefix-1">Role:</h4>
+            <p class="col-7 suffix-1">{role}</p>
+        </div>
+        <div class="row">
+            <h4 class="col-3 prefix-1">Date:</h4>
+            <p class="col-7 suffix-1">{date}</p>
+        </div>
+        <div class="row">
+            <h4 class="col-3 prefix-1">Description:</h4>
+            <p class="col-5 suffix-3">{description}</p>
+        </div>
+
+    </section>
 {/.}
