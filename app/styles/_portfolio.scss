@@ -1,0 +1,29 @@
+
+#main-container {
+
+    .portfolio {
+
+        .portfolio-section {
+            @include rem-px(margin-bottom, 1rem);
+
+            h4 {
+                text-align: right;
+
+                &.client {
+                    text-align: left;
+                    color: #fff;
+                }
+
+            }
+
+            .scroller {
+                height: 240px;
+                background-color: #000;
+            }
+
+            p {
+                @include rem-px(margin-bottom, 0.5rem);
+            }
+        }
+    }
+}
