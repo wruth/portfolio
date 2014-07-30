@@ -16,16 +16,28 @@
         </div>
 
         <div class="row">
-            <h4 class="col-3 prefix-1">Role:</h4>
-            <p class="col-7 suffix-1">{role}</p>
-        </div>
-        <div class="row">
-            <h4 class="col-3 prefix-1">Date:</h4>
-            <p class="col-7 suffix-1">{date}</p>
-        </div>
-        <div class="row">
-            <h4 class="col-3 prefix-1">Description:</h4>
-            <p class="col-5 suffix-3">{description}</p>
+            <div class="col-9">
+                <div class="row">
+                    <h4 class="col-4 alpha">Role:</h4>
+                    <p class="col-5 omega">{role}</p>
+                </div>
+                <div class="row">
+                    <h4 class="col-4 alpha">Date:</h4>
+                    <p class="col-5 omega">{date}</p>
+                </div>
+                <div class="row">
+                    <h4 class="col-4 alpha">Description:</h4>
+                    <p class="col-5 omega">{description}</p>
+                </div>
+            </div>
+            <div class="col-3 tech">
+                <h5>technologies</h5>
+                <ul>
+                    {#tech}
+                        <li>{.}</li>
+                    {/tech}
+                </ul>
+            </div>
         </div>
 
     </section>

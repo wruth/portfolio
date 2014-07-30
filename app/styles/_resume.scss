@@ -10,8 +10,7 @@
             }
 
             ul {
-                list-style: square outside;
-                @include rem-px(margin-left, 1rem);
+                @extend %bullet-list;
 
                 strong {
                     font-family: $subheaderFont;

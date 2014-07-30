@@ -25,6 +25,24 @@
             p {
                 @include rem-px(margin-bottom, 0.5rem);
             }
+
+            .tech {
+                height: 100%;
+                @include background-image(linear-gradient(left, #111, $darkGrey));
+                @include border-top-left-radius(1rem);
+                @include border-bottom-left-radius(1rem);
+                @include rem-px(padding, 1rem, 1rem, 1.5rem);
+
+                ul {
+                    color: $mediumGrey;
+                }
+
+                li {
+                    @include font-size($sz-small);
+                    margin-bottom: 0;
+                    @extend %bullet-list;
+                }
+            }
         }
     }
 }
