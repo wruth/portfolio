@@ -3,13 +3,14 @@ $navHeight: 3rem;
 $contentWidth: 960px;
 
 // colors
-$darkBlue: #0016B3;
-$brightBlue: #0020FF;
-$keyYellow: #FFC500;
+$darkBlue: #005081;
+$brightBlue: #299db5;
+$keyYellow: #ffa000;
+
 $mediumGrey: #666;
 $lightGrey: #bbb;
 $darkGrey: #222;
-$buttonBackground: #ffd64e;
+$buttonBackground: lighten($keyYellow, 10%);
 
 // fonts
 $headerFont: 'futuralight';

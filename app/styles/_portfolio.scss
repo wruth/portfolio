@@ -44,17 +44,17 @@
                 display: block;
                 @include rem-px(height, 2rem);
                 @include rem-px(line-height, 2rem);
-                @include single-box-shadow(#b38a00, 0, 0, 5px, 3px, true);
+                @include single-box-shadow(shade($buttonBackground, 50%), 0, 0, 5px, 3px, true);
                 @extend %control;
                 background: $buttonBackground;
-                color: $mediumGrey;
+                color: $darkGrey;
                 text-decoration: none;
                 text-align: center;
                 transition: background-color 0.4s;
 
                 &:hover {
                     @include single-box-shadow($buttonBackground, 0, 0, 5px, 3px, true);
-                    background: tint($buttonBackground, 75%);
+                    background: lighten($buttonBackground, 20%);
                 }
             }
         }
