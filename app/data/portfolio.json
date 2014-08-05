@@ -5,7 +5,12 @@
         "role": "Front End Lead",
         "date": "Summer–Fall 2013",
         "description": "Led front end build of a T-Commerce (Television) shopping platform for a major electronics brand. Architected to scale to support thousands of brands, and provide economical brand on-boarding.",
-        "images":  [],
+        "numVisibleImages": 1,
+        "images": [
+            "tc01_780x439.jpg",
+            "tc02_780x439.jpg",
+            "tc03_780x439.jpg"
+        ],
         "tech": [
             "Backbone.js",
             "Marionette",
@@ -20,7 +25,14 @@
         "role": "Co-Architect/Front End Lead",
         "date": "2012, 2013",
         "description": "Team built a micro-site hosted by Home Depot for JELD-WEN Windows & Doors. Created a filtering product wizard that assists users in choosing models and features from multiple complex product lines.",
-        "images":  [],
+        "numVisibleImages": 1,
+        "images": [
+            "jw01_780x568.jpg",
+            "jw02_780x568.jpg",
+            "jw03_780x568.jpg",
+            "jw04_780x568.jpg",
+            "jw05_780x568.jpg"
+        ],
         "tech": [
             "Backbone.js",
             "dust",
@@ -35,7 +47,19 @@
         "role": "Co-Developer / iOS Engineering",
         "date": "Summer–Fall 2011",
         "description": "Co-developed a custom iPad magazine app featuring sophisticated layouts, interactivity and video.",
-        "images":  [],
+        "numVisibleImages": 2,
+        "images": [
+            "torque01_380x507.jpg",
+            "torque02_380x507.jpg",
+            "torque03_380x507.jpg",
+            "torque04_380x507.jpg",
+            "torque05_380x507.jpg",
+            "torque06_380x507.jpg",
+            "torque07_380x507.jpg",
+            "torque08_380x507.jpg",
+            "torque09_380x507.jpg",
+            "torque10_380x507.jpg"
+        ],
         "tech": [
             "UIKit",
             "Core Graphics",
@@ -48,7 +72,13 @@
         "role": "Architect/Engineer",
         "date": "Spring 2009",
         "description": "Designed and implemented sophisticated toolchest selection wizard. Created client side data model.",
-        "images":  [],
+        "numVisibleImages": 1,
+        "images": [
+            "toolchest01_780x527.jpg",
+            "toolchest01_780x527.jpg",
+            "toolchest01_780x527.jpg",
+            "toolchest01_780x527.jpg"
+        ],
         "tech": [
             "Flex/AS3",
             "PureMVC MultiCore",
@@ -62,7 +92,16 @@
         "role": "Front End Lead",
         "date": "Spring – Summer 2010",
         "description": "Designed and led client-side implementation of a Facebook hosted app integrating video streaming and realtime Facebook updates of live cooking events from Kenmore's studio in downtown Chicago. Also integrated with archive of past events on YouTube, and Facebook calendar integration for future events.",
-        "images":  [],
+        "numVisibleImages": 2,
+        "images": [
+            "kenmore01_380x343.jpg",
+            "kenmore02_380x343.jpg",
+            "kenmore03_380x343.jpg",
+            "kenmore04_380x343.jpg",
+            "kenmore05_380x343.jpg",
+            "kenmore06_380x343.jpg",
+            "kenmore07_380x343.jpg"
+        ],
         "tech": [
             "Flex/AS3",
             "PureMVC",
@@ -77,7 +116,14 @@
         "role": "Client/Architect/Engineer",
         "date": "2010",
         "description": "Created TimeClock  as an easy to use time tracking application. Tasks are grouped by project and can be displayed in concise daily and weekly report views. Persistence layer is built on the Core Data API.",
-        "images":  [],
+        "numVisibleImages": 2,
+        "images": [
+            "timeclock01_380x376.jpg",
+            "timeclock02_380x376.jpg",
+            "timeclock03_380x376.jpg",
+            "timeclock04_380x376.jpg",
+            "timeclock05_380x376.jpg"
+        ],
         "tech": [
             "Foundation framework",
             "AppKit framework",
@@ -90,7 +136,14 @@
         "role": "Architect/Engineer/Imaginator",
         "date": "ongoing",
         "description": "Creative exploration of interavtive digital art experiments. Current projects in development include a screen saver and a mobile interavtive pattern generator.",
-        "images":  [],
+        "numVisibleImages": 2,
+        "images": [
+            "mp01_340x348.jpg",
+            "mp01_340x348.jpg",
+            "mp01_340x348.jpg",
+            "r01_340x348.jpg",
+            "r02_340x348.jpg"
+        ],
         "tech": [
             "ScreenSaver framework",
             "Core Graphics framework",

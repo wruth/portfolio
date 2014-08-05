@@ -10,7 +10,15 @@
             {/link}
         </header>
 
-        <div class="scroller"></div>
+        <div class="scroller">
+            <div class="viewport">
+                <ul class="scrollContainer">
+                    {#images}
+                        <li><img src="/images/portfolio/{.}"></li>
+                    {/images}
+                </ul>
+            </div>
+        </div>
 
         <div class="row project-container">
             <div class="col-9">
