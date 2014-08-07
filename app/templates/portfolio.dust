@@ -11,13 +11,15 @@
         </header>
 
         <div class="scroller">
-            <div class="viewport">
+            <div class="viewport" style="height: {maxImageHeight}px;">
                 <ul class="scrollContainer">
                     {#images}
-                        <li><img src="/images/portfolio/{.}"></li>
+                        <li class="items-visible-{numVisibleImages}"><img src="/images/portfolio/{.}"></li>
                     {/images}
                 </ul>
             </div>
+            <div class="previous"></div>
+            <div class="next"></div>
         </div>
 
         <div class="row project-container">

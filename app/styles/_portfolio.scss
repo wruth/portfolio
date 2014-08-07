@@ -1,71 +1,87 @@
+.portfolio-section {
+    width: 100%;
+    @include rem-px(margin-bottom, 3rem);
 
-#main-container {
+    .project-container {
+        @include background-image(linear-gradient(top, #111, $darkGrey));
+        @include rem-px(padding-top, 1rem);
+    }
 
-    .portfolio {
+    h4 {
+        text-align: right;
+    }
 
-        .portfolio-section {
-            width: 100%;
-            @include rem-px(margin-bottom, 3rem);
+    .scroller {
+        position: relative;
+        width: 100%;
+        background-color: #000;
 
-            .project-container {
-                @include background-image(linear-gradient(top, #111, $darkGrey));
-                @include rem-px(padding-top, 1rem);
-            }
+        .viewport {
+            position: relative;
+            margin-left: 80px;
+            margin-right: 80px;
+            width: 800px;
 
-            h4 {
-                text-align: right;
-            }
+            .scrollContainer {
+                position: absolute;
 
-            .scroller {
-                height: 240px;
-                width: 100%;
-                background-color: #000;
-
-                .viewport {
-                    position: relative;
-                    width: 100%;
-
-                    .scrollContainer {
-                        position: absolute;
-                    }
-                }
-            }
-
-            p {
-                @include rem-px(margin-bottom, 0.5rem);
-            }
-
-            .tech {
-                @include rem-px(padding, 0, 1rem);
-
-                ul {
-                    color: $mediumGrey;
+                .items-visible-1 {
+                    @extend %scroller-item;
+                    width: 780px;
                 }
 
-                li {
-                    @include font-size($sz-small);
-                    margin-bottom: 0;
-                    @extend %bullet-list;
-                }
-            }
-
-            a {
-                display: block;
-                @include rem-px(height, 2rem);
-                @include rem-px(line-height, 2rem);
-                @include single-box-shadow(shade($buttonBackground, 50%), 0, 0, 5px, 3px, true);
-                @extend %control;
-                background: $buttonBackground;
-                color: $darkGrey;
-                text-decoration: none;
-                text-align: center;
-                transition: background-color 0.4s;
-
-                &:hover {
-                    @include single-box-shadow($buttonBackground, 0, 0, 5px, 3px, true);
-                    background: lighten($buttonBackground, 20%);
+                .items-visible-2 {
+                    @extend %scroller-item;
+                    width: 380px;
                 }
             }
         }
+
+        .previous {
+            @extend %scroller-nav;
+            left: 0;
+        }
+
+        .next {
+            @extend %scroller-nav;
+            right: 0;
+        }
+    }
+
+    p {
+        @include rem-px(margin-bottom, 0.5rem);
+    }
+
+    .tech {
+        @include rem-px(padding, 0, 1rem);
+
+        ul {
+            color: $mediumGrey;
+        }
+
+        li {
+            @include font-size($sz-small);
+            margin-bottom: 0;
+            @extend %bullet-list;
+        }
+    }
+
+    a {
+        display: block;
+        @include rem-px(height, 2rem);
+        @include rem-px(line-height, 2rem);
+        @include single-box-shadow(shade($buttonBackground, 50%), 0, 0, 5px, 3px, true);
+        @extend %control;
+        background: $buttonBackground;
+        color: $darkGrey;
+        text-decoration: none;
+        text-align: center;
+        transition: background-color 0.4s;
+
+        &:hover {
+            @include single-box-shadow($buttonBackground, 0, 0, 5px, 3px, true);
+            background: lighten($buttonBackground, 20%);
+        }
     }
 }
+

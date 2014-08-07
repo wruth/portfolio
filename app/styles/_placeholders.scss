@@ -25,3 +25,17 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
+
+%scroller-nav {
+    position: absolute;
+    top: 0;
+    @include rem-px(width, 2.5rem);
+    height: 100%;
+    background: rgba(255, 0, 0, 0.5);
+}
+
+%scroller-item {
+    margin: 0 10px;
+    float: left;
+    display: block;
+}

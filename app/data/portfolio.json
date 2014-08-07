@@ -6,6 +6,7 @@
         "date": "Summer–Fall 2013",
         "description": "Led front end build of a T-Commerce (Television) shopping platform for a major electronics brand. Architected to scale to support thousands of brands, and provide economical brand on-boarding.",
         "numVisibleImages": 1,
+        "maxImageHeight": 439,
         "images": [
             "tc01_780x439.jpg",
             "tc02_780x439.jpg",
@@ -26,6 +27,7 @@
         "date": "2012, 2013",
         "description": "Team built a micro-site hosted by Home Depot for JELD-WEN Windows & Doors. Created a filtering product wizard that assists users in choosing models and features from multiple complex product lines.",
         "numVisibleImages": 1,
+        "maxImageHeight": 568,
         "images": [
             "jw01_780x568.jpg",
             "jw02_780x568.jpg",
@@ -48,6 +50,7 @@
         "date": "Summer–Fall 2011",
         "description": "Co-developed a custom iPad magazine app featuring sophisticated layouts, interactivity and video.",
         "numVisibleImages": 2,
+        "maxImageHeight": 507,
         "images": [
             "torque01_380x507.jpg",
             "torque02_380x507.jpg",
@@ -73,11 +76,12 @@
         "date": "Spring 2009",
         "description": "Designed and implemented sophisticated toolchest selection wizard. Created client side data model.",
         "numVisibleImages": 1,
+        "maxImageHeight": 527,
         "images": [
             "toolchest01_780x527.jpg",
-            "toolchest01_780x527.jpg",
-            "toolchest01_780x527.jpg",
-            "toolchest01_780x527.jpg"
+            "toolchest02_780x527.jpg",
+            "toolchest03_780x527.jpg",
+            "toolchest04_780x527.jpg"
         ],
         "tech": [
             "Flex/AS3",
@@ -93,6 +97,7 @@
         "date": "Spring – Summer 2010",
         "description": "Designed and led client-side implementation of a Facebook hosted app integrating video streaming and realtime Facebook updates of live cooking events from Kenmore's studio in downtown Chicago. Also integrated with archive of past events on YouTube, and Facebook calendar integration for future events.",
         "numVisibleImages": 2,
+        "maxImageHeight": 343,
         "images": [
             "kenmore01_380x343.jpg",
             "kenmore02_380x343.jpg",
@@ -117,6 +122,7 @@
         "date": "2010",
         "description": "Created TimeClock  as an easy to use time tracking application. Tasks are grouped by project and can be displayed in concise daily and weekly report views. Persistence layer is built on the Core Data API.",
         "numVisibleImages": 2,
+        "maxImageHeight": 376,
         "images": [
             "timeclock01_380x376.jpg",
             "timeclock02_380x376.jpg",
@@ -137,6 +143,7 @@
         "date": "ongoing",
         "description": "Creative exploration of interavtive digital art experiments. Current projects in development include a screen saver and a mobile interavtive pattern generator.",
         "numVisibleImages": 2,
+        "maxImageHeight": 348,
         "images": [
             "mp01_340x348.jpg",
             "mp01_340x348.jpg",

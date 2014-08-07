@@ -56,6 +56,10 @@
 
                     _this.$el.html(output);
                 });
+
+                if (this.afterRender) {
+                    this.afterRender();
+                }
             }
             else {
                 // TODO: render loading view

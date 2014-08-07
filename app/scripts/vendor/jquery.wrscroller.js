@@ -3,144 +3,162 @@
     // private methods
 
     var _stopScrolling = function () {
-            var $scrollContainer = $(this.children()[0]);
-            $scrollContainer.stop();
+            this.$scrollContainer.stop();
         },
 
-        _scrollToPosition = function (options, position) {
+        _scrollToPosition = function (position) {
 
-            if (options.scrollDuration) {
-                options.$scrollContainer.animate(
+            if (this.scrollDuration) {
+                this.$scrollContainer.animate(
                     {left: position},
-                    options.scrollDuration);
+                    this.scrollDuration);
             }
             else {
-                options.$scrollContainer.css('left', position);
+                this.$scrollContainer.css('left', position);
             }
 
         },
 
-        _scrollPrevious = function (options) {
-            var newScrollPosition,
-                callbackParams = {};
+        _computeAndApplyScrollContainerWidth = function () {
+            var scrollChildrenWidth = 0;
 
-            //
-            // scrollContainer left edge is to the left of the viewport's left
-            // edge, so can be scrolled to the right
-            //
-            if (options.scrollContainerPosition.left < 0) {
+            this.$scrollContainer.children().each(function () {
+                scrollChildrenWidth += $(this).outerWidth(true);
+            });
 
-                // previous scroll will end up at beginning or rightmost position
-                if (Math.abs(options.scrollContainerPosition.left) <= options.viewportWidth) {
-                    newScrollPosition = 0;
-                    callbackParams.willScrollToStart = true;
+            this.$scrollContainer.css('width', scrollChildrenWidth + 'px');
+            return scrollChildrenWidth;
+        },
+
+        _generateStepPositions = function (fromStart) {
+            var stepPositions = new Array(this.numSteps),
+                stepMinX = this.viewportWidth - this.scrollChildrenWidth,
+                lastIndex = this.numSteps - 1,
+                i,
+                j;
+
+            stepPositions[0] = 0;
+            stepPositions[lastIndex] = stepMinX;
+
+            if (fromStart) {
+
+                for (i = 1; i < lastIndex; i++) {
+                    stepPositions[i] = -(i * this.viewportWidth);
                 }
-                else {
-                    newScrollPosition = options.scrollContainerPosition.left + options.viewportWidth;
-                }
-
-                options.scrollStartCallback(callbackParams);
-                _scrollToPosition(options, newScrollPosition);
             }
-            //
-            // scrollContainer left edge is at or to the right of the viewport's
-            // left edge, so cannot be scrolled to the right
-            //
+            // from end
             else {
-                options.scrollStartCallback(false);
+
+                for (i = lastIndex - 1, j = 1; i > 0; i--, j++) {
+                    stepPositions[i] = stepMinX + j * this.viewportWidth;
+                }
+            }
+
+            this.stepPositions = stepPositions;
+        },
+
+        _attachHandlers = function () {
+            if (this.$previous) {
+                this.$previous.click($.proxy(this.previous, this));
+            }
+
+            if (this.$next) {
+                this.$next.click($.proxy(this.next, this));
             }
         },
 
-        _scrollNext = function (options) {
-            var newScrollPosition,
-                callbackParams = {},
-                minLeft = options.viewportWidth - options.scrollContainerWidth;
+        _enableControls = function () {
 
-            //
-            // scrollContainer left edge is greater than the minimum (or
-            // leftmost) left position, so it can be scrolled to the left
-            //
-            if (options.scrollContainerPosition.left > minLeft) {
-
-                // next scroll will end up at end or leftmost position
-                if (options.scrollContainerPosition.left - options.scrollContainerWidth <= minLeft) {
-                    newScrollPosition = minLeft;
-                    callbackParams.willScrollToEnd = true;
-                }
-                else {
-                    newScrollPosition = options.scrollContainerPosition.left  - options.viewportWidth;
-                }
-
-                options.scrollStartCallback(callbackParams);
-                _scrollToPosition(options, newScrollPosition);
-            }
-            //
-            // scrollContainer left edge is less than or equal to the minimum
-            // (or leftmost) position it can be in, so cannot be scrolled to the
-            // left
-            //
-            else {
-                options.scrollStartCallback(false);
-            }
-        },
-
-        _scrollError = function (options, message) {
-            console.error(message);
-            options.scrollStartCallback(false);
-        },
-
-        _startScrolling = function (options) {
-            options.$scrollContainer = $(this.children()[0]);
-            options.viewportWidth = this.outerWidth();
-            options.scrollContainerWidth = options.$scrollContainer.outerWidth();
-            options.scrollContainerPosition = options.$scrollContainer.position();
-
-            _stopScrolling.call(this);
-
-            if (options.command) {
-
-                if (options.command === 'previous') {
-                    _scrollPrevious.call(this, options);
-                }
-                else if (options.command === 'next') {
-                    _scrollNext.call(this, options);
-                }
-                else {
-                    _scrollError(options, 'wrscroller valid commands are \'previous\' or \'next\'');
-                }
-            }
-            else {
-                _scrollError(options, 'wrscroller options needs to be invoked with a command property.');
+            if (this.$previous) {
+                this.$previous.removeClass('disabled');
             }
 
+            if (this.$next) {
+                this.$next.removeClass('disabled');
+            }
         };
 
+    $.WRScroller = function (el, settings) {
+        var $el = $(el);
 
-    $.fn.wrscroller = function (commandOrOptions) {
+        this.$previous = $el.find(settings.previouseSelector);
+        this.$next = $el.find(settings.nextSelector);
+        this.$viewport = $el.find(settings.viewportSelector);
+        this.$scrollContainer = $(this.$viewport.children()[0]);
+        this.scrollDuration = settings.scrollDuration;
+        this.viewportWidth = this.$viewport.outerWidth();
+        this.scrollChildrenWidth = _computeAndApplyScrollContainerWidth.call(this);
+        this.numSteps = Math.ceil(this.scrollChildrenWidth / this.viewportWidth);
+        this.stepIndex = 0;
 
-        if (commandOrOptions === 'stop') {
+        _generateStepPositions.call(this, true);
+
+        //
+        //  ensure left control starts out disabled, since the scroll container
+        //  should initially be at it's rightmost position
+        //
+        if (this.$previous) {
+            this.$previous.addClass('disabled');
+        }
+
+        _attachHandlers.call(this);
+
+        //
+        // :TODO: should probably add a check if scrolling is necessary at all,
+        // and hide the scrolling ui if not
+        //
+    };
+
+    $.WRScroller.prototype.previous = function () {
+
+       if (this.stepIndex > 0) {
             _stopScrolling.call(this);
-        }
-        else {
+            _scrollToPosition.call(this, this.stepPositions[--this.stepIndex]);
+            _enableControls.call(this);
 
-            var argOpts = (typeof commandOrOptions === 'string') ? {command: commandOrOptions} : commandOrOptions,
+            if (this.stepIndex === 0) {
+                this.$previous.addClass('disabled');
+                _generateStepPositions.call(this, true);
+            }
+       }
+    };
 
-                options = $.extend(
-                        {},
-                        $.fn.wrscroller.defaults,
-                        argOpts || {}
-                    );
+    $.WRScroller.prototype.next = function () {
 
-            _startScrolling.call(this, options);
-        }
-        return this;
+       if (this.stepIndex < this.numSteps - 1) {
+            _stopScrolling.call(this);
+            _scrollToPosition.call(this, this.stepPositions[++this.stepIndex]);
+            _enableControls.call(this);
+
+            if (this.stepIndex === this.numSteps - 1) {
+                this.$next.addClass('disabled');
+                _generateStepPositions.call(this, false);
+            }
+       }
+    };
+
+    $.fn.wrscroller = function (options) {
+
+        var settings = $.extend(
+                {},
+                $.fn.wrscroller.defaults,
+                options || {}
+            );
+
+       return this.each(function () {
+            var $this = $(this);
+
+            if (!$this.data('wrscroller')) {
+                $this.data('wrscroller', new $.WRScroller(this, settings));
+            }
+       });
     };
 
     $.fn.wrscroller.defaults = {
         scrollDuration: 250,
-        scrollStartCallback: function (params) {
-            // noop
-        }
+        viewportSelector: '.viewport',
+        previouseSelector: '.previous',
+        nextSelector: '.next'
     };
 
 })(jQuery);
