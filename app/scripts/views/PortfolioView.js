@@ -3,7 +3,9 @@
     Portfolio.views.PortfolioView = Portfolio.views.CollectionView.extend({
 
         afterRender: function () {
-            this.$el.find('.scroller').wrscroller();
+            _.defer(function (view) {
+                view.$el.find('.scroller').wrscroller();
+            }, this);
         }
 
     });
