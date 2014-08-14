@@ -29,13 +29,34 @@
 %scroller-nav {
     position: absolute;
     top: 0;
-    @include rem-px(width, 2.5rem);
+    width: 80px;
     height: 100%;
-    background: rgba(255, 0, 0, 0.5);
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+%no-scroller-nav {
+    cursor: default;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 1);
+
+    .arrow {
+        opacity: 0;
+    }
 }
 
 %scroller-item {
     margin: 0 10px;
     float: left;
     display: block;
+}
+
+/*
+    technique explained here:
+    http://www.smashingmagazine.com/2013/08/09/absolute-horizontal-vertical-centering-css/
+ */
+%absolute-center {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
 }

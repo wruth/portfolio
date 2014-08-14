@@ -22,6 +22,14 @@
     @return $num / ($num * 0 + 1);
 }
 
+@function invert-direction ($direction) {
+    @if $direction == left {
+        @return right;
+    } @else {
+        @return left;
+    }
+}
+
 @mixin rem-px ($property, $values...) {
     $max: length($values);
     $pxValues: '';
@@ -52,4 +60,53 @@
 
     #{$property}: $pxValues;
     #{$property}: $remValues;
+}
+
+/**
+ * Mixin for generating left and right scroller type arrows. Dimensions are
+ * assumed to be rems.
+ *
+ * @property $direction 'left' or 'right' are the two valid values
+ */
+@mixin scroller-arrow ($arrowDirection, $width, $height, $color) {
+    width: 0;
+    height: 0;
+    $direction: invert-direction($arrowDirection);
+    @include rem-px(border-top-width, ($height / 2));
+    border-top-style: solid;
+    border-top-color: transparent;
+    @include rem-px(border-bottom-width, ($height / 2));
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    @include rem-px(border-#{$direction}-width, $width);
+    border-#{$direction}-style: solid;
+    border-#{$direction}-color: $color;
+    transition: border-#{$direction}-color 0.25s, opacity 0.5s;
+}
+
+@mixin scroller-nav ($arrowDirection) {
+    @extend %scroller-nav;
+    #{$arrowDirection}: 0;
+    $direction: invert-direction($arrowDirection);
+    transition: background-color 0.5s;
+    @include background-image(linear-gradient($arrowDirection, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)));
+
+    .arrow {
+        @extend %absolute-center;
+        @include scroller-arrow($arrowDirection, $scrollerNavWidth, $scrollerNavHeight, rgba(255, 160, 0, 0.7));
+    }
+
+    &:hover {
+        .arrow {
+            border-#{$direction}-color: rgba(255, 160, 0, 1);
+        }
+    }
+
+    &.disabled {
+        cursor: default;
+        pointer-events: none;
+        .arrow {
+            border-#{$direction}-color: rgba(255, 160, 0, 0);
+        }
+    }
 }

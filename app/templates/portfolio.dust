@@ -18,8 +18,12 @@
                     {/images}
                 </ul>
             </div>
-            <div class="previous"></div>
-            <div class="next"></div>
+            <div class="previous">
+                <div class="arrow"></div>
+            </div>
+            <div class="next">
+                <div class="arrow"></div>
+            </div>
         </div>
 
         <div class="row project-container">

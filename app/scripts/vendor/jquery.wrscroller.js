@@ -57,6 +57,14 @@
             this.stepPositions = stepPositions;
         },
 
+        _handleMouseEnter = function () {
+            this.$el.addClass('mouse-enter');
+        },
+
+        _handleMouseLeave = function () {
+            this.$el.removeClass('mouse-enter');
+        },
+
         _attachHandlers = function () {
             if (this.$previous) {
                 this.$previous.click($.proxy(this.previous, this));
@@ -65,6 +73,9 @@
             if (this.$next) {
                 this.$next.click($.proxy(this.next, this));
             }
+
+            this.$el.mouseenter($.proxy(_handleMouseEnter, this));
+            this.$el.mouseleave($.proxy(_handleMouseLeave, this));
         },
 
         _enableControls = function () {
@@ -80,7 +91,7 @@
 
     $.WRScroller = function (el, settings) {
         var $el = $(el);
-
+        this.$el = $el;
         this.$previous = $el.find(settings.previouseSelector);
         this.$next = $el.find(settings.nextSelector);
         this.$viewport = $el.find(settings.viewportSelector);

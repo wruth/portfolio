@@ -15,6 +15,7 @@
         position: relative;
         width: 100%;
         background-color: #000;
+        @include rem-px(padding, 1rem, 0);
 
         .viewport {
             position: relative;
@@ -38,13 +39,22 @@
         }
 
         .previous {
-            @extend %scroller-nav;
-            left: 0;
+            @include scroller-nav(left);
         }
 
         .next {
-            @extend %scroller-nav;
-            right: 0;
+            @include scroller-nav(right);
+        }
+
+        &:not(.mouse-enter) {
+
+            .previous {
+                @extend %no-scroller-nav;
+            }
+
+            .next {
+                @extend %no-scroller-nav;
+            }
         }
     }
 
