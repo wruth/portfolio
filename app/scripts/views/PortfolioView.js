@@ -4,7 +4,10 @@
 
         afterRender: function () {
             _.defer(function (view) {
-                view.$el.find('.scroller').wrscroller();
+                view.$el.find('.scroller').wrscroller({
+                    scrollDuration: 500,
+                    scrollEasing: 'easeInOutQuad'
+                });
             }, this);
         }
 
