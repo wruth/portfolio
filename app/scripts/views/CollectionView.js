@@ -6,7 +6,6 @@
 
         tagName: 'section',
 
-        //className: 'portfolio container-12',
         className: function () {
             return this.name + ' container-12';
         },

@@ -6,16 +6,16 @@
 
         className: 'container-12',
 
-        templateName: null,
+        name: null,
 
         initialize: function (options) {
-            this.templateName = options.templateName;
+            this.name = options.name;
         },
 
         render: function () {
             var _this = this;
 
-            dust.render(this.templateName, {}, function (err, output) {
+            dust.render(this.name, {}, function (err, output) {
 
                 if (err) {
                     throw err;

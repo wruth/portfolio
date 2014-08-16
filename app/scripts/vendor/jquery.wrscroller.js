@@ -145,8 +145,15 @@
                 this.$next.click($.proxy(this.next, this));
             }
 
-            this.$el.mouseenter(function () { $el.addClass('mouse-enter'); });
-            this.$el.mouseleave(function () { $el.removeClass('mouse-enter'); });
+            this.$el.mouseenter(function () {
+                    $el.addClass('mouse-enter');
+                    $el.data('mouse-enter', 'yes');
+                });
+
+            this.$el.mouseleave(function () {
+                    $el.removeClass('mouse-enter');
+                    $el.removeData('mouse-enter');
+                });
         },
 
         /**
