@@ -24,30 +24,24 @@
         initialize: function (options) {
             _.bindAll(this, 'render');
 
-            if (!this.constructor.collection) {
-                var collection = new Backbone.Collection();
-                collection.url = '/data/' + this.name + '.json';
-
-                this.listenTo(collection, 'sync', this.render);
-                this.listenTo(collection, 'error', function () {
+            if (this.collection.length === 0) {
+                this.listenTo(this.collection, 'sync', this.render);
+                this.listenTo(this.collection, 'error', function () {
                     //
                     // TODO: provide ui feedback, perhpas by setting flag and
                     // then render(), which will check for the flag
                     //
                     console.error('Error loading resume collection!');
                 });
-
-                collection.fetch();
-
-                this.constructor.collection = collection;
             }
+
         },
 
         render: function () {
             var _this = this;
 
-            if (this.constructor.collection.length > 0) {
-                dust.render(this.name, this.constructor.collection.toJSON(), function (err, output) {
+            if (this.collection.length > 0) {
+                dust.render(this.name, this.collection.toJSON(), function (err, output) {
 
                     if (err) {
                         throw err;

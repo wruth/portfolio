@@ -1,1 +1,9 @@
 {>page-header name="about" /}
+
+{#.}
+    <div class="row leading-2">
+        <section class="resume-section col-7 prefix-4 suffix-1">
+            <h2>{title}</h2>{body|s}
+        </section>
+    </div>
+{/.}

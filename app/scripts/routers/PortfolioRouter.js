@@ -1,17 +1,28 @@
 (function (Portfolio, Backbone) {
 
+    var _viewClasses = {
+            about: Portfolio.views.CollectionView,
+            resume: Portfolio.views.CollectionView,
+            portfolio: Portfolio.views.PortfolioView
+        },
+
         /**
-         * Takes care of housekeeping when showing a new current view. Call
-         * remove() on the previous currentView to cleanup, the save currentView
-         * reference to the new passed in view and call render() on it.
+         * Takes care of housekeeping when showing a new current view. Create
+         * the new view, call remove() on the previous currentView to cleanup,
+         * call render() on the new view. Also update active page on the
+         * navCollection to keep the nav ui in sync.
          *
          * @method  _updateCurrentView
          * @private
-         * @param  {Backbone.View} newView a new view to display
+         * @param  {String} viewName Name of a new view to display
          */
-    var _updateCurrentView = function (newView) {
+        _updateCurrentView = function (viewName) {
             var $main = $('#main-container'),
-                navModel;
+                navModel,
+                viewCollection,
+                newView/* = new (_viewClasses[viewName])({name: viewName})*/;
+
+            this.navCollection.setActivePage(viewName);
 
             if (this.currentView) {
                 navModel = this.navCollection.get(this.currentView.name);
@@ -19,9 +30,26 @@
                 this.currentView.remove();
             }
 
+            navModel = this.navCollection.get(viewName);
+
+            if (navModel.has('collection')) {
+                viewCollection = navModel.get('collection');
+            }
+            else {
+                viewCollection = new Backbone.Collection();
+                viewCollection.url = '/data/' + viewName + '.json';
+                viewCollection.fetch();
+            }
+
+            newView = new (_viewClasses[viewName])(
+                {
+                    name: viewName,
+                    collection: viewCollection
+                });
+
             this.currentView = newView;
             $main.append(newView.render().el);
-            navModel = this.navCollection.get(newView.name);
+
             $(window).scrollTop(navModel.get('scrollTop'));
         };
 
@@ -52,23 +80,15 @@
         //
 
         about: function () {
-            var staticView = new Portfolio.views.StaticView({
-                    name: 'about'
-                });
-            this.navCollection.setActivePage('about');
-            _updateCurrentView.call(this, staticView);
+            _updateCurrentView.call(this, 'about');
         },
 
         resume: function () {
-            var resumeView = new Portfolio.views.CollectionView({name: 'resume'});
-            this.navCollection.setActivePage('resume');
-            _updateCurrentView.call(this, resumeView);
+            _updateCurrentView.call(this, 'resume');
         },
 
         portfolio: function () {
-            var portfolioView = new Portfolio.views.PortfolioView({name: 'portfolio'});
-            this.navCollection.setActivePage('portfolio');
-            _updateCurrentView.call(this, portfolioView);
+            _updateCurrentView.call(this, 'portfolio');
         }
     });
 
