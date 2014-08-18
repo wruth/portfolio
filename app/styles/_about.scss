@@ -1,0 +1,17 @@
+
+#main-container {
+
+    .about {
+        @extend %aside-background;
+
+        .about-section {
+            h2 {
+                @include rem-px(margin-bottom, 0.5rem);
+            }
+
+            ul {
+                @extend %bullet-list;
+            }
+        }
+    }
+}

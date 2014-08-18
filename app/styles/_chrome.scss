@@ -31,17 +31,24 @@ body {
     left: 0;
     right: 0;
 
-     &:before {
+     .content-background {
         position: fixed;
         width: $contentWidth;
-        content: '';
         margin: 0 auto;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
         background-color: $darkGrey;
+
+        &.aside {
+            &:before {
+               @extend %aside-background;
+               top: 151px;
+            }
+        }
     }
+
 }
 
 h1 {

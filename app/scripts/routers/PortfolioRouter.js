@@ -10,7 +10,8 @@
          * Takes care of housekeeping when showing a new current view. Create
          * the new view, call remove() on the previous currentView to cleanup,
          * call render() on the new view. Also update active page on the
-         * navCollection to keep the nav ui in sync.
+         * navCollection to keep the nav ui in sync, and create and load the
+         * CollectionView's collection if necessary.
          *
          * @method  _updateCurrentView
          * @private

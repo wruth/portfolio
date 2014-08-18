@@ -9,6 +9,7 @@
                     label: 'About',
                     route: '/#',
                     active: false,
+                    aside: true,
                     scrollTop: 0
                 },
                 {
@@ -16,6 +17,7 @@
                     label: 'Resume',
                     route: '/#resume',
                     active: false,
+                    aside: true,
                     scrollTop: 0
                 },
                 {
@@ -23,6 +25,7 @@
                     label: 'Portfolio',
                     route: '/#portfolio',
                     active: false,
+                    aside:  false,
                     scrollTop: 0
                 }
             ];
