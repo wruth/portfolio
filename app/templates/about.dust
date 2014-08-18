@@ -2,8 +2,14 @@
 
 {#.}
     <div class="row leading-2">
-        <section class="about-section col-7 prefix-4 suffix-1">
-            <h2>{title}</h2>{body|s}
+        {@if cond="{$idx} == 0"}
+            <aside class="col-3 prefix-1">
+                <div class="avatar"></div>
+            </aside>
+        {/if}
+        <section class="about-section col-7 {@if cond="{$idx} > 0"}prefix-4{/if} suffix-1">
+            <h2>{title}</h2>
+            <p>{body|s}</p>
         </section>
     </div>
 {/.}

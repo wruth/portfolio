@@ -92,3 +92,21 @@ h5 {
         color: $lightGrey;
     }
 }
+
+a {
+    &:link {
+        color: $keyYellow;
+    }
+
+    &:visited {
+        color: $brightBlue;
+    }
+
+    &:hover {
+        color: $keyYellow;
+    }
+
+    &:active {
+        color: $keyYellow;
+    }
+}

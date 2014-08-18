@@ -4,6 +4,15 @@
     .about {
         @extend %aside-background;
 
+        .avatar {
+            width: 140px;
+            height: 140px;
+            background: url("/images/avatar_140x140.jpg") no-repeat;
+            @include border-radius(70px);
+            @include rem-px(margin-top, 4rem);
+            @include single-box-shadow(rgba(0, 0, 0, 0.7), 3px, 3px, 10px, 0px, true);
+        }
+
         .about-section {
             h2 {
                 @include rem-px(margin-bottom, 0.5rem);
