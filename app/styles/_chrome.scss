@@ -94,6 +94,9 @@ h5 {
 }
 
 a {
+    font-family: $bodyFont;
+    @include font-size($sz-regular);
+
     &:link {
         color: $keyYellow;
     }

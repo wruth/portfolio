@@ -2,18 +2,25 @@
 
 {#.}
     <div class="row leading-2">
-        {?aside}
-            <aside class="col-3 prefix-1">
-                {#aside}
-                    <h5>{title}</h5>
-                    <ul>
-                        {#items}
-                            <li>{.}</li>
-                        {/items}
-                    </ul>
-                {/aside}
+        {@if cond="{$idx} == 0"}
+            <aside class="col-3 prefix-1 download">
+                <a href='/documents/ward-ruth-resume.pdf' download><img src="/images/pdficon_small.png">Download PDF</a>
             </aside>
-        {/aside}
+        {:else}
+            {?aside}
+                <aside class="col-3 prefix-1">
+                    {#aside}
+                        <h5>{title}</h5>
+                        <ul>
+                            {#items}
+                                <li>{.}</li>
+                            {/items}
+                        </ul>
+                    {/aside}
+                </aside>
+            {/aside}
+        {/if}
+
         <section class="resume-section col-7 {^aside}prefix-4 {/aside}suffix-1">
             <h2>{title}</h2>
             {?body}

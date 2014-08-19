@@ -21,6 +21,19 @@
         aside {
             text-align: right;
 
+            &.download {
+                text-align: left;
+            }
+
+            a {
+                display: block;
+                @include rem-px(margin-top, 3rem);
+
+                img {
+                    @include rem-px(margin-right, 1rem);
+                }
+            }
+
             @include rem-px(padding-right, 3rem);
 
             ul {

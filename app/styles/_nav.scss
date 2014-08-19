@@ -39,11 +39,11 @@
             li {
                 display: inline-block;
                 @include rem-px(padding, 0, 0.625rem);
-                @extend %control;
                 @include rem-px(line-height, $navHeight);
                 color: $mediumGrey;
 
                 a {
+                    @extend %control;
                     text-decoration: none;
                     color: $mediumGrey;
                     transition: color 0.25s;
