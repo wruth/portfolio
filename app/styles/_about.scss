@@ -9,7 +9,7 @@
             height: 140px;
             background: url("/images/avatar_140x140.jpg") no-repeat;
             @include border-radius(70px);
-            @include rem-px(margin-top, 4rem);
+            @include rem-px(margin, 4rem, 0, 2rem);
             @include single-box-shadow(rgba(0, 0, 0, 0.7), 3px, 3px, 10px, 0px, true);
         }
 

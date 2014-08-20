@@ -9,24 +9,21 @@
                     label: 'About',
                     route: '/#',
                     active: false,
-                    aside: true,
-                    scrollTop: 0
+                    aside: true
                 },
                 {
                     id: 'resume',
                     label: 'Resume',
                     route: '/#resume',
                     active: false,
-                    aside: true,
-                    scrollTop: 0
+                    aside: true
                 },
                 {
                     id: 'portfolio',
                     label: 'Portfolio',
                     route: '/#portfolio',
                     active: false,
-                    aside:  false,
-                    scrollTop: 0
+                    aside:  false
                 }
             ];
 

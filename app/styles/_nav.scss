@@ -47,6 +47,8 @@
                     text-decoration: none;
                     color: $mediumGrey;
                     transition: color 0.25s;
+                    display: block;
+                    height: 100%;
 
                     &:hover {
                         color: $lightGrey;
@@ -62,6 +64,7 @@
 
                     a {
                         color: #fff;
+                        cursor: default;
                     }
                 }
 

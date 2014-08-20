@@ -1,4 +1,4 @@
-(function (Portfolio, Backbone) {
+(function (Portfolio, Backbone, $) {
 
     var _viewClasses = {
             about: Portfolio.views.CollectionView,
@@ -21,13 +21,11 @@
             var $main = $('#main-container'),
                 navModel,
                 viewCollection,
-                newView/* = new (_viewClasses[viewName])({name: viewName})*/;
+                newView;
 
             this.navCollection.setActivePage(viewName);
 
             if (this.currentView) {
-                navModel = this.navCollection.get(this.currentView.name);
-                navModel.set('scrollTop', $(window).scrollTop());
                 this.currentView.remove();
             }
 
@@ -50,8 +48,6 @@
 
             this.currentView = newView;
             $main.append(newView.render().el);
-
-            $(window).scrollTop(navModel.get('scrollTop'));
         };
 
     Portfolio.routers.PortfolioRouter = Backbone.Router.extend({
@@ -93,4 +89,4 @@
         }
     });
 
-}(window.Portfolio, Backbone));
+}(window.Portfolio, Backbone, jQuery));
