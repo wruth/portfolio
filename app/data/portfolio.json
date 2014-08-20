@@ -32,8 +32,7 @@
             "jw01_780x568.jpg",
             "jw02_780x568.jpg",
             "jw03_780x568.jpg",
-            "jw04_780x568.jpg",
-            "jw05_780x568.jpg"
+            "jw04_780x568.jpg"
         ],
         "tech": [
             "Backbone.js",
@@ -60,7 +59,6 @@
             "torque06_380x507.jpg",
             "torque07_380x507.jpg",
             "torque08_380x507.jpg",
-            "torque09_380x507.jpg",
             "torque10_380x507.jpg"
         ],
         "tech": [
@@ -100,10 +98,7 @@
         "maxImageHeight": 343,
         "images": [
             "kenmore01_380x343.jpg",
-            "kenmore02_380x343.jpg",
             "kenmore03_380x343.jpg",
-            "kenmore04_380x343.jpg",
-            "kenmore05_380x343.jpg",
             "kenmore06_380x343.jpg",
             "kenmore07_380x343.jpg"
         ],
@@ -127,8 +122,7 @@
             "timeclock01_380x376.jpg",
             "timeclock02_380x376.jpg",
             "timeclock03_380x376.jpg",
-            "timeclock04_380x376.jpg",
-            "timeclock05_380x376.jpg"
+            "timeclock04_380x376.jpg"
         ],
         "tech": [
             "Foundation framework",
@@ -147,9 +141,7 @@
         "images": [
             "mp01_340x348.jpg",
             "mp02_340x348.jpg",
-            "mp03_340x348.jpg",
-            "r01_340x348.jpg",
-            "r02_340x348.jpg"
+            "r01_340x348.jpg"
         ],
         "tech": [
             "ScreenSaver framework",
