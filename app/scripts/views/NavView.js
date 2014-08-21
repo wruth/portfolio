@@ -1,4 +1,4 @@
-/**
+/*
  * NavView module defines NavView Class definition and attaches to the
  * Portfolio.views namespace. Renders simple nav bar for the app, stays in sync
  * with state of NavCollection instance provided.
@@ -22,6 +22,11 @@
             a = '@',
             g = 'gmail',
             c = 'com';
+
+        if (ga) {
+            ga('send', 'event', 'button', 'click', 'mailto');
+        }
+
         window.location = 'ma' + 'ilto:' + n1 + '.' + n2 + a + g + '.' + c;
     };
 

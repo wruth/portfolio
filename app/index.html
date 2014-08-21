@@ -41,7 +41,21 @@
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
+            ga('create','UA-54045903-1');
+
+            // localhost testing
+            /*
+            ga('create','UA-54045903-1', {
+                'cookieDomain': 'none'
+            });
+            */
+            //
+            // TRICKY: avoiding the usual example/practice of sending a pageview
+            // here because the router will do this itself momentarily.
+            // Otherwise unwittingly sending a pageview twice in a row would
+            // artificially lower bounce rates (to zero, probably)
+            //
+            //ga('send','pageview');
         </script>
 
         <!-- build:js scripts/vendor.js -->

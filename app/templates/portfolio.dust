@@ -10,7 +10,7 @@
             {/link}
         </header>
 
-        <div class="scroller">
+        <div class="scroller" data-gacategory="scroller" data-galabel="{id}">
             <div class="viewport" style="height: {maxImageHeight}px;">
                 <ul class="scrollContainer">
                     {#images}
@@ -18,10 +18,10 @@
                     {/images}
                 </ul>
             </div>
-            <div class="previous">
+            <div class="previous" data-gacategory="button" data-galabel="scroller previous">
                 <div class="arrow"></div>
             </div>
-            <div class="next">
+            <div class="next" data-gacategory="button" data-galabel="scroller next">
                 <div class="arrow"></div>
             </div>
         </div>

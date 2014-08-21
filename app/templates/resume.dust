@@ -4,7 +4,7 @@
     <div class="row leading-2">
         {@if cond="{$idx} == 0"}
             <aside class="col-3 prefix-1 download">
-                <a href='/documents/ward-ruth-resume.pdf' download><img src="/images/pdficon_small.png">Download PDF</a>
+                <a href='/documents/ward-ruth-resume.pdf' download data-gacategory="button" data-galabel="download resume"><img src="/images/pdficon_small.png">Download PDF</a>
             </aside>
         {:else}
             {?aside}

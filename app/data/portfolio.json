@@ -1,5 +1,6 @@
 [
     {
+        "id": "T-Commerce",
         "title": "T-Commerce",
         "client": "Not Disclosed",
         "role": "Front End Lead",
@@ -21,6 +22,7 @@
         ]
     },
     {
+        "id": "JWHDMS",
         "title": "JELD-WEN Home Depot Micro Site",
         "client": "JELD-WEN",
         "role": "Co-Architect/Front End Lead",
@@ -43,6 +45,7 @@
         "link": "http://homedepot.jeld-wen.com/"
     },
     {
+        "id": "Torque",
         "title": "Craftsman Torque iPad Magazine",
         "client": "Sears/Craftsman",
         "role": "Co-Developer / iOS Engineering",
@@ -68,6 +71,7 @@
         ]
     },
     {
+        "id": "Craftsman Toolchest",
         "title": "Craftsman Toolchest Wizard",
         "client": "Sears/Craftsman",
         "role": "Architect/Engineer",
@@ -89,6 +93,7 @@
         "link": "http://www.craftsman.com/shc/s/nb_10155_12602_NB_custom+toolbox?sessionKey=null"
     },
     {
+        "id": "Kenmore Live Studio",
         "title": "Kenmore Live Studio",
         "client": "Kenmore",
         "role": "Front End Lead",
@@ -111,6 +116,7 @@
         ]
     },
     {
+        "id": "TimeClock",
         "title": "TimeClock Desktop Application",
         "client": "Personal Project",
         "role": "Client/Architect/Engineer",
@@ -131,6 +137,7 @@
         ]
     },
     {
+        "id": "Personal Projects",
         "title": "Graphics/Interactive Experiments",
         "client": "Personal Projects",
         "role": "Architect/Engineer/Imaginator",

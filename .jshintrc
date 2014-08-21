@@ -31,7 +31,8 @@
         "it": false,
         "assert": true,
         "expect": true,
-        "should": true
+        "should": true,
+        "ga": false
     },
     "maxerr": 1000
 }

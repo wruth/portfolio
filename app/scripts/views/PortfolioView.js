@@ -78,8 +78,15 @@
 
             if ($scroller.isOnScreen(1) && !$scroller.data('uiFlashed')) {
                 _flashScrollerUI.call(this, $scroller);
-            }
 
+                if (ga) {
+                    //
+                    // send an analytics event for the scroller becoming fully
+                    // visible
+                    //
+                    ga('send', 'event', 'scroller', 'visible', $scroller.data('galabel'));
+                }
+            }
         },
 
         /**
