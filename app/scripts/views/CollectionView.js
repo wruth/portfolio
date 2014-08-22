@@ -35,7 +35,8 @@
          * custom css class selector on the element for this view, as well as to
          * look up the dust template to use for rendering the view.
          *
-         * @property {String} name
+         * @property name
+         * @type String
          */
         name: null,
 
@@ -79,10 +80,8 @@
          * loaded.
          *
          * @method initialize
-         *
-         * @param  {Object} options A parameter Object.
          */
-        initialize: function (options) {
+        initialize: function () {
             _.bindAll(this, 'render');
 
             if (this.collection.length === 0) {

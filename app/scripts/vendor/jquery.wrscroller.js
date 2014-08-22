@@ -50,11 +50,15 @@
          *                           valid css scalar value, such as '123px'
          */
         _scrollToPosition = function (position) {
+                var _this = this;
 
                 this.$scrollContainer.animate(
                     {transform: 'translateX(' + position + ')'},
                     this.scrollDuration,
-                    this.scrollEasing);
+                    this.scrollEasing,
+                    function () {
+                        _this.completeCallback(_this);
+                    });
 
         },
 
@@ -173,6 +177,45 @@
             if (this.$next) {
                 this.$next.removeClass('disabled');
             }
+        },
+
+        /**
+         * Discover internal elements, compute width of scrolling container,
+         * determine number of scroll steps.
+         *
+         * @method _init
+         * @param  {Object} settings Parameter object with initialization
+         *                           settings
+         */
+        _init = function (settings) {
+            var $el = this.$el;
+            this.$previous = $el.find(settings.previouseSelector);
+            this.$next = $el.find(settings.nextSelector);
+            this.$viewport = $el.find(settings.viewportSelector);
+            this.$scrollContainer = $(this.$viewport.children()[0]);
+            this.scrollDuration = settings.scrollDuration;
+            this.completeCallback = settings.completeCallback;
+            this.viewportWidth = this.$viewport.outerWidth();
+            this.scrollChildrenWidth = _computeAndApplyScrollContainerWidth.call(this);
+            this.numSteps = Math.ceil(this.scrollChildrenWidth / this.viewportWidth);
+            this.stepIndex = 0;
+
+            _generateStepPositions.call(this, true);
+
+            //
+            //  ensure left control starts out disabled, since the scroll container
+            //  should initially be at it's rightmost position
+            //
+            if (this.$previous) {
+                this.$previous.addClass('disabled');
+            }
+
+            _attachHandlers.call(this);
+
+            //
+            // :TODO: should probably add a check if scrolling is necessary at
+            // all, and hide the scrolling ui if not
+            //
         };
 
     /**
@@ -189,34 +232,10 @@
      *                          defaults.
      */
     $.WRScroller = function (el, settings) {
-        var $el = $(el);
-        this.$el = $el;
-        this.$previous = $el.find(settings.previouseSelector);
-        this.$next = $el.find(settings.nextSelector);
-        this.$viewport = $el.find(settings.viewportSelector);
-        this.$scrollContainer = $(this.$viewport.children()[0]);
-        this.scrollDuration = settings.scrollDuration;
-        this.viewportWidth = this.$viewport.outerWidth();
-        this.scrollChildrenWidth = _computeAndApplyScrollContainerWidth.call(this);
-        this.numSteps = Math.ceil(this.scrollChildrenWidth / this.viewportWidth);
-        this.stepIndex = 0;
+        this.el = el;
+        this.$el = $(el);
 
-        _generateStepPositions.call(this, true);
-
-        //
-        //  ensure left control starts out disabled, since the scroll container
-        //  should initially be at it's rightmost position
-        //
-        if (this.$previous) {
-            this.$previous.addClass('disabled');
-        }
-
-        _attachHandlers.call(this);
-
-        //
-        // :TODO: should probably add a check if scrolling is necessary at all,
-        // and hide the scrolling ui if not
-        //
+        _init.call(this, settings);
     };
 
     /**
@@ -302,13 +321,19 @@
      *                                     Default is '.previous'.
      * @property {String} nextSelector A selector for the next control. Default
      *                                 is '.next'.
+     * @property {Function} completeCallback A callback to invoke once a scroll
+     *                                       animation is completed. The
+     *                                       WRScroller instance is passed in as
+     *                                       an argument.
      */
     $.fn.wrscroller.defaults = {
         scrollDuration: 250,
         scrollEasing: 'swing',
         viewportSelector: '.viewport',
         previouseSelector: '.previous',
-        nextSelector: '.next'
+        nextSelector: '.next',
+        /* jshint unused: false */
+        completeCallback: function (wrscroller) {}
     };
 
 })(jQuery);

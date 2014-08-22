@@ -106,13 +106,22 @@
 
     Portfolio.routers.PortfolioRouter = Backbone.Router.extend({
 
+        /**
+         * Provided collection containing models defining basic page structure
+         * of the site. The router uses this to cache the individual
+         * collections for the various CollectionView's.
+         *
+         * @property navCollection
+         * @type Backbone.Collection
+         */
         navCollection: null,
 
         /**
          * Handle to the current view being displayed so that remove() can be
          * called on it to cleanup before showing a new view.
          *
-         * @type {Backbone.View}
+         * @property currentView
+         * @type Backbone.View
          */
         currentView: null,
 

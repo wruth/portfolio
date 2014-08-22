@@ -5,7 +5,10 @@
         {@if cond="{$idx} == 0"}
             <aside class="col-3 prefix-1">
                 <div class="avatar"></div>
-                <a href="https://www.linkedin.com/pub/ward-ruth/1/810/44a" target="_blank" data-gacategory="button" data-galabel="linkedin">Linkedin</a>
+                <ul>
+                    <li><a href="https://www.linkedin.com/pub/ward-ruth/1/810/44a" target="_blank" data-gacategory="button" data-galabel="linkedin">Linkedin</a></li>
+                    <li><a href="https://github.com/wardmruth" target="_blank" data-gacategory="button" data-galabel="github">GitHub</a></li>
+                </ul>
             </aside>
         {/if}
         <section class="about-section col-7 {@if cond="{$idx} > 0"}prefix-4{/if} suffix-1">
