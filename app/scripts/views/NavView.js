@@ -16,7 +16,7 @@
      * @private
      * @method  _handleContact
      */
-    var _handleContact = function () {
+    function _handleContact () {
         var n1 = 'ward',
             n2 = 'ruth',
             a = '@',
@@ -28,7 +28,7 @@
         }
 
         window.location = 'ma' + 'ilto:' + n1 + '.' + n2 + a + g + '.' + c;
-    };
+    }
 
     Portfolio.views.NavView = Backbone.View.extend({
 

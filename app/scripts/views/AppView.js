@@ -6,7 +6,7 @@
  */
 (function (Portfolio, Backbone, dust, _, $) {
 
-    var _handleRouteChange = function (name) {
+    function _handleRouteChange (name) {
 
         var navModel = this.collection.get(name),
             $background = this.$el.find('.background > .content-background');
@@ -17,7 +17,7 @@
         else {
             $background.removeClass('aside');
         }
-    };
+    }
 
     Portfolio.views.AppView = Backbone.View.extend({
 

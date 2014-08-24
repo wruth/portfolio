@@ -7,7 +7,7 @@
                 <div class="avatar"></div>
                 <ul>
                     <li><a href="https://www.linkedin.com/pub/ward-ruth/1/810/44a" target="_blank" data-gacategory="button" data-galabel="linkedin">Linkedin</a></li>
-                    <li><a href="https://github.com/wardmruth" target="_blank" data-gacategory="button" data-galabel="github">GitHub</a></li>
+                    <li><a href="https://github.com/wruth" target="_blank" data-gacategory="button" data-galabel="github">GitHub</a></li>
                 </ul>
             </aside>
         {/if}
