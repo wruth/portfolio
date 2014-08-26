@@ -1,55 +1,52 @@
 
-#main-container {
+.resume {
+    @extend %aside-background;
 
-    .resume {
-        @extend %aside-background;
+    .resume-section {
+        h2 {
+            @include rem-px(margin-bottom, 0.5rem);
+        }
 
-        .resume-section {
-            h2 {
-                @include rem-px(margin-bottom, 0.5rem);
+        ul {
+            @extend %bullet-list;
+
+            strong {
+                font-family: $subheaderFont;
             }
+        }
+    }
 
-            ul {
-                @extend %bullet-list;
+    aside {
+        text-align: right;
 
-                strong {
-                    font-family: $subheaderFont;
-                }
+        &.download {
+            text-align: left;
+        }
+
+        a {
+            display: block;
+            @include rem-px(margin-top, 3rem);
+
+            img {
+                @include rem-px(margin-right, 1rem);
             }
         }
 
-        aside {
-            text-align: right;
+        @include rem-px(padding-right, 3rem);
 
-            &.download {
-                text-align: left;
-            }
-
-            a {
-                display: block;
-                @include rem-px(margin-top, 3rem);
-
-                img {
-                    @include rem-px(margin-right, 1rem);
-                }
-            }
-
-            @include rem-px(padding-right, 3rem);
-
-            ul {
-                @include rem-px(margin-bottom, 1rem);
-                color: $mediumGrey;
-            }
-
-            li {
-                @include font-size($sz-small);
-                margin-bottom: 0;
-            }
+        ul {
+            @include rem-px(margin-bottom, 1rem);
+            color: $mediumGrey;
         }
 
-        .references {
-            font-family: $subheaderFont;
-            text-transform: uppercase;
+        li {
+            @include font-size($sz-small);
+            margin-bottom: 0;
         }
+    }
+
+    .references {
+        font-family: $subheaderFont;
+        text-transform: uppercase;
     }
 }

@@ -92,24 +92,3 @@ h5 {
         color: $lightGrey;
     }
 }
-
-a {
-    font-family: $bodyFont;
-    @include font-size($sz-regular);
-
-    &:link {
-        color: $keyYellow;
-    }
-
-    &:visited {
-        color: $brightBlue;
-    }
-
-    &:hover {
-        color: $keyYellow;
-    }
-
-    &:active {
-        color: $keyYellow;
-    }
-}

@@ -36,7 +36,26 @@ p, li {
     hyphens: auto;
 }
 
-// TODO: consider hyperlink styling
+a {
+    font-family: $bodyFont;
+    @include font-size($sz-regular);
+
+    &:link {
+        color: $keyYellow;
+    }
+
+    &:visited {
+        color: $brightBlue;
+    }
+
+    &:hover {
+        color: $keyYellow;
+    }
+
+    &:active {
+        color: $keyYellow;
+    }
+}
 
 strong { font-weight: bold; }
 em     { font-style: italic; }
