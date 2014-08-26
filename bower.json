@@ -8,7 +8,8 @@
     "dustjs-linkedin": "~2.4.0",
     "dustjs-linkedin-helpers": "~1.2.0",
     "digi-grid": "~1.2.2",
-    "jquery-transform": "*"
+    "jquery-transform": "*",
+    "wrscroller": "~0.2.0-alpha"
   },
   "devDependencies": {},
   "resolutions": {
