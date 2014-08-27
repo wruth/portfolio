@@ -1,7 +1,6 @@
 (function (Portfolio, Backbone, $) {
 
     var _viewClasses = {
-            about: Portfolio.views.CollectionView,
             resume: Portfolio.views.CollectionView,
             portfolio: Portfolio.views.PortfolioView
         };
@@ -84,7 +83,6 @@
      */
      function _updateCurrentView (viewName) {
         var $main = $('#main-container'),
-            viewCollection = _getViewCollection.call(this, viewName),
             newView;
 
         this.navCollection.setActivePage(viewName);
@@ -93,11 +91,17 @@
             this.currentView.remove();
         }
 
-        newView = new (_viewClasses[viewName])(
-            {
-                name: viewName,
-                collection: viewCollection
-            });
+        if (viewName !== 'about') {
+            newView = new (_viewClasses[viewName])(
+                {
+                    name: viewName,
+                    collection: _getViewCollection.call(this, viewName)
+                });
+        }
+        // about
+        else {
+            newView = new Portfolio.views.PageView({name: 'about'});
+        }
 
         this.currentView = newView;
         $main.append(newView.render().el);

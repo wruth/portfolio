@@ -42,6 +42,10 @@
     </div>
 {/.}
 
-<div class="row leading-2">
-    <p class="references col-7 prefix-4 suffix-1">references available upon request</p>
-</div>
+{@select key=.length }
+    {@gte value=1}
+        <div class="row leading-2">
+            <p class="references col-7 prefix-4 suffix-1">references available upon request</p>
+        </div>
+    {/gte}
+{/select}

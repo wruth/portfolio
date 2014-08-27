@@ -86,9 +86,9 @@ h5 {
     margin: $navHeight auto 0;
     @include rem-px(padding-top, 2rem);
 
-    p, ul {
+    //p, ul {
         font-family: $bodyFont;
-        @include font-size($sz-regular);
+        //@include font-size($sz-regular);
         color: $lightGrey;
-    }
+    //}
 }

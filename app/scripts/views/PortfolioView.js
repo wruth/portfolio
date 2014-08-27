@@ -122,7 +122,7 @@
 
         $scrollers: null,
 
-        afterRender: function () {
+        postRender: function () {
 
             _.defer(function (view) {
 

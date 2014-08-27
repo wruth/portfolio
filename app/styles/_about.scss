@@ -16,8 +16,7 @@
             @include rem-px(margin-bottom, 0.5rem);
         }
 
-        ul {
-            @extend %bullet-list;
-        }
+        @include font-size($sz-regular);
     }
+
 }

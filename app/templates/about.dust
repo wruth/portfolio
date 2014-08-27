@@ -1,19 +1,16 @@
 {>page-header name="about" /}
 
-{#.}
-    <div class="row leading-2">
-        {@if cond="{$idx} == 0"}
-            <aside class="col-3 prefix-1">
-                <div class="avatar"></div>
-                <ul>
-                    <li><a href="https://www.linkedin.com/pub/ward-ruth/1/810/44a" target="_blank" data-gacategory="button" data-galabel="linkedin">Linkedin</a></li>
-                    <li><a href="https://github.com/wruth" target="_blank" data-gacategory="button" data-galabel="github">GitHub</a></li>
-                </ul>
-            </aside>
-        {/if}
-        <section class="about-section col-7 {@if cond="{$idx} > 0"}prefix-4{/if} suffix-1">
-            <h2>{title}</h2>
-            <p>{body|s}</p>
-        </section>
-    </div>
-{/.}
+<div class="row leading-2">
+    <aside class="col-3 prefix-1">
+        <div class="avatar"></div>
+        <ul>
+            <li><a href="https://www.linkedin.com/pub/ward-ruth/1/810/44a" target="_blank" data-gacategory="button" data-galabel="linkedin">Linkedin</a></li>
+            <li><a href="https://github.com/wruth" target="_blank" data-gacategory="button" data-galabel="github">GitHub</a></li>
+        </ul>
+    </aside>
+    <section class="about-section col-7 suffix-1">
+        <h2>me</h2>
+        <p>Hi, I’m Ward Ruth, a highly skilled Senior Software Engineer living in the San Francisco Bay Area. Specializing in Front End development, I have been creating interactive user experiences since the late nineties. I enjoy big challenges like architecting new sites and features from scratch, and leading and working with smart dedicated teams to deliver awesome solutions.</p>
+        <p>I’m looking for a company where I can make a difference. Drop me a line and let’s chat about what I can do for you.</p>
+    </section>
+</div>

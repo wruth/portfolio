@@ -2,6 +2,7 @@
 .portfolio-section {
     width: 100%;
     @include rem-px(margin-bottom, 3rem);
+    @include font-size($sz-regular);
 
     .project-container {
         @include background-image(linear-gradient(top, #111, $darkGrey));
