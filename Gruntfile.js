@@ -240,11 +240,36 @@ module.exports = function (grunt) {
                     src: [
                         '<%= yeoman.dist %>/scripts/{,*/}*.js',
                         '<%= yeoman.dist %>/styles/{,*/}*.css',
-                        '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
                         '/styles/fonts/{,*/}*.*',
                         'bower_components/sass-bootstrap/fonts/*.*'
                     ]
                 }
+            }
+        },
+        ver: {
+            dist: {
+                phases: [
+                    {
+                        files: [
+                            '<%= yeoman.dist %>/data/{,*/}*.json',
+                            '<%= yeoman.dist %>/documents/{,*/}*.pdf'
+                        ],
+                        references: [
+                            '<%= yeoman.dist %>/scripts/*.main.js'
+                        ]
+                    },
+                    {
+                        files: [
+                            '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
+                        ],
+                        references: [
+                            '<%= yeoman.dist %>/styles/{,*/}*.css',
+                            '<%= yeoman.dist %>/data/{,*/}*.json',
+                            '<%= yeoman.dist %>/scripts/*.main.js'
+                        ]
+                    }
+                ],
+                versionFile: '<%= yeoman.dist %>/version.json'
             }
         }
     });
@@ -316,7 +341,7 @@ module.exports = function (grunt) {
     ]);
     */
 
-   grunt.registerTask('build', function (target) {
+    grunt.registerTask('build', function (target) {
 
         if (target === 'dev') {
             grunt.task.run([
@@ -344,16 +369,17 @@ module.exports = function (grunt) {
                 'uglify',
                 'copy',
                 'rev',
-                'usemin'
+                'usemin',
+                'ver'
             ]);
 
         }
-   });
+    });
 
 
     grunt.registerTask('default', [
         'jshint',
         'test',
-        'build'
+        'build:dist'
     ]);
 };

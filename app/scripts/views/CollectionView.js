@@ -3,7 +3,7 @@
  * to JSON in render for it's template. The template is expected to iterate over
  * and render the Collection.
  */
-(function (Portfolio, Backbone, dust, _, $) {
+(function (Portfolio, Backbone, dust, _) {
 
 
 
@@ -44,4 +44,4 @@
 
     });
 
-}(window.Portfolio, Backbone, dust, _, jQuery));
+}(window.Portfolio, Backbone, dust, _));

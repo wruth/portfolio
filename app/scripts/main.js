@@ -16,7 +16,7 @@ window.Portfolio = {
                 collection: navCollection,
                 router: router,
                 el: $('body')[0]
-           });
+            });
 
         appView.render();
 

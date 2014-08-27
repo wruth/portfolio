@@ -3,6 +3,12 @@
     var _viewClasses = {
             resume: Portfolio.views.CollectionView,
             portfolio: Portfolio.views.PortfolioView
+        },
+
+        // broken out here so they can be cache busted in the build process
+        _jsonPaths = {
+            resume: '/data/resume.json',
+            portfolio: '/data/portfolio.json'
         };
 
     /**
@@ -17,7 +23,7 @@
      * @param  {String} viewName Name of a View
      * @return {Collection}      A Collection for the View
      */
-     function _getViewCollection (viewName) {
+    function _getViewCollection (viewName) {
         var navModel = this.navCollection.get(viewName),
             viewCollection,
             startTime;
@@ -27,7 +33,7 @@
         }
         else {
             viewCollection = new Backbone.Collection();
-            viewCollection.url = '/data/' + viewName + '.json';
+            viewCollection.url = _jsonPaths[viewName];
 
             if (ga) {
                 startTime = new Date().getTime();
@@ -53,7 +59,7 @@
      * @method _trackPage
      * @private
      */
-     function _trackPage () {
+    function _trackPage () {
         var url = Backbone.history.getFragment();
 
         // prepend a slash if necessary
@@ -81,7 +87,7 @@
      * @private
      * @param  {String} viewName Name of a new view to display
      */
-     function _updateCurrentView (viewName) {
+    function _updateCurrentView (viewName) {
         var $main = $('#main-container'),
             newView;
 

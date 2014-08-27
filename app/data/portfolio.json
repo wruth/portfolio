@@ -9,9 +9,9 @@
         "numVisibleImages": 1,
         "maxImageHeight": 439,
         "images": [
-            "tc01_780x439.jpg",
-            "tc02_780x439.jpg",
-            "tc03_780x439.jpg"
+            "/images/portfolio/tc01_780x439.jpg",
+            "/images/portfolio/tc02_780x439.jpg",
+            "/images/portfolio/tc03_780x439.jpg"
         ],
         "tech": [
             "Backbone.js",
@@ -31,10 +31,10 @@
         "numVisibleImages": 1,
         "maxImageHeight": 568,
         "images": [
-            "jw01_780x568.jpg",
-            "jw02_780x568.jpg",
-            "jw03_780x568.jpg",
-            "jw04_780x568.jpg"
+            "/images/portfolio/jw01_780x568.jpg",
+            "/images/portfolio/jw02_780x568.jpg",
+            "/images/portfolio/jw03_780x568.jpg",
+            "/images/portfolio/jw04_780x568.jpg"
         ],
         "tech": [
             "Backbone.js",
@@ -54,15 +54,15 @@
         "numVisibleImages": 2,
         "maxImageHeight": 507,
         "images": [
-            "torque01_380x507.jpg",
-            "torque02_380x507.jpg",
-            "torque03_380x507.jpg",
-            "torque04_380x507.jpg",
-            "torque05_380x507.jpg",
-            "torque06_380x507.jpg",
-            "torque07_380x507.jpg",
-            "torque08_380x507.jpg",
-            "torque10_380x507.jpg"
+            "/images/portfolio/torque01_380x507.jpg",
+            "/images/portfolio/torque02_380x507.jpg",
+            "/images/portfolio/torque03_380x507.jpg",
+            "/images/portfolio/torque04_380x507.jpg",
+            "/images/portfolio/torque05_380x507.jpg",
+            "/images/portfolio/torque06_380x507.jpg",
+            "/images/portfolio/torque07_380x507.jpg",
+            "/images/portfolio/torque08_380x507.jpg",
+            "/images/portfolio/torque10_380x507.jpg"
         ],
         "tech": [
             "UIKit",
@@ -80,10 +80,10 @@
         "numVisibleImages": 1,
         "maxImageHeight": 527,
         "images": [
-            "toolchest01_780x527.jpg",
-            "toolchest02_780x527.jpg",
-            "toolchest03_780x527.jpg",
-            "toolchest04_780x527.jpg"
+            "/images/portfolio/toolchest01_780x527.jpg",
+            "/images/portfolio/toolchest02_780x527.jpg",
+            "/images/portfolio/toolchest03_780x527.jpg",
+            "/images/portfolio/toolchest04_780x527.jpg"
         ],
         "tech": [
             "Flex/AS3",
@@ -102,10 +102,10 @@
         "numVisibleImages": 2,
         "maxImageHeight": 343,
         "images": [
-            "kenmore01_380x343.jpg",
-            "kenmore03_380x343.jpg",
-            "kenmore06_380x343.jpg",
-            "kenmore07_380x343.jpg"
+            "/images/portfolio/kenmore01_380x343.jpg",
+            "/images/portfolio/kenmore03_380x343.jpg",
+            "/images/portfolio/kenmore06_380x343.jpg",
+            "/images/portfolio/kenmore07_380x343.jpg"
         ],
         "tech": [
             "Flex/AS3",
@@ -125,10 +125,10 @@
         "numVisibleImages": 2,
         "maxImageHeight": 376,
         "images": [
-            "timeclock01_380x376.jpg",
-            "timeclock02_380x376.jpg",
-            "timeclock03_380x376.jpg",
-            "timeclock04_380x376.jpg"
+            "/images/portfolio/timeclock01_380x376.jpg",
+            "/images/portfolio/timeclock02_380x376.jpg",
+            "/images/portfolio/timeclock03_380x376.jpg",
+            "/images/portfolio/timeclock04_380x376.jpg"
         ],
         "tech": [
             "Foundation framework",
@@ -146,9 +146,9 @@
         "numVisibleImages": 2,
         "maxImageHeight": 348,
         "images": [
-            "mp01_340x348.jpg",
-            "mp02_340x348.jpg",
-            "r01_340x348.jpg"
+            "/images/portfolio/mp01_340x348.jpg",
+            "/images/portfolio/mp02_340x348.jpg",
+            "/images/portfolio/r01_340x348.jpg"
         ],
         "tech": [
             "ScreenSaver framework",

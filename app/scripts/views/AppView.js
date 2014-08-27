@@ -4,7 +4,7 @@
  * property in order to render the aside background grad or not.
  * Second to simply instatiate and add the navView element to the DOM.
  */
-(function (Portfolio, Backbone, dust, _, $) {
+(function (Portfolio, Backbone) {
 
     function _handleRouteChange (name) {
 
@@ -37,4 +37,4 @@
         }
     });
 
-}(window.Portfolio, Backbone, dust, _, jQuery));
+}(window.Portfolio, Backbone));
