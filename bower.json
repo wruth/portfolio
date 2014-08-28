@@ -9,7 +9,8 @@
     "dustjs-linkedin-helpers": "~1.2.0",
     "digi-grid": "~1.2.2",
     "jquery-transform": "*",
-    "wrscroller": "~0.2.0-alpha"
+    "wrscroller": "~0.2.0-alpha",
+    "76d-social-icons": "~1.0.3"
   },
   "devDependencies": {},
   "resolutions": {

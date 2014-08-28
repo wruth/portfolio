@@ -3,7 +3,6 @@
     @extend %aside-background;
 
     .resume-section {
-        @include font-size($sz-regular);
 
         h2 {
             @include rem-px(margin-bottom, 0.5rem);

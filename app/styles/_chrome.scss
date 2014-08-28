@@ -81,14 +81,37 @@ h5 {
     text-transform: capitalize;
 }
 
+.social {
+    display: inline-block;
+    margin-right: 12px;
+
+    &:first-child {
+        margin-left: 10px;
+    }
+
+    a {
+        .si-circle {
+            color: $darkGrey;
+            background-color: $keyYellow;
+            transition: background-color 0.5s;
+        }
+
+        &:hover {
+            .si-circle {
+                background-color: #fff;
+            }
+        }
+    }
+}
+
+
+
 #main-container {
     width: $contentWidth;
     margin: $navHeight auto 0;
     @include rem-px(padding-top, 2rem);
 
-    //p, ul {
-        font-family: $bodyFont;
-        //@include font-size($sz-regular);
-        color: $lightGrey;
-    //}
+    font-family: $bodyFont;
+    @include font-size($sz-regular);
+    color: $lightGrey;
 }
