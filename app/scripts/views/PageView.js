@@ -21,11 +21,11 @@
         if (ga) {
             ga('send', 'event', 'button', 'click', label);
         }
-
-        console.log('_handleAnalyticsUIClick()!!!');
-
     }
 
+    /**
+     * @class PageView
+     */
     Portfolio.views.PageView = Backbone.View.extend({
 
         /**
@@ -71,10 +71,29 @@
             }
         },
 
+        /**
+         * Template method which concrete subclasses (like CollectionView) can
+         * override to return a JSON object to be used for data injection into
+         * the template.
+         *
+         * @method getRenderData
+         *
+         * @return {Object} This should be a JSON formatted object that is
+         *                  usable by the template. That is, either an Object or
+         *                  an Array.
+         */
         getRenderData: function () {
             return {};
         },
 
+        /**
+         * Utilizes dust.render. Will call getRenderData() template method for
+         * a data object to inject into the template, and will call postRender()
+         * once rendering is complete.
+         *
+         * @method render
+         * @return {View} A Backbone.View.
+         */
         render: function () {
             var _this = this;
 
@@ -91,6 +110,15 @@
             return this;
         },
 
+        /**
+         * Template method that is called out of render once the template has
+         * been rendered to this view's DOM fragment. Other operations that need
+         * to execute on the fragment can be kicked off here. The view's DOM
+         * fragment will have already been appended to the document DOM by
+         * PortfolioRouter.
+         *
+         * @method postRender
+         */
         postRender: function () {
             // no op
         }

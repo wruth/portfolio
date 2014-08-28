@@ -1,5 +1,11 @@
+/*
+ * View for about, just adds event handling for obfuscated mailto.
+ */
 (function (Portfolio) {
 
+    /**
+     * @class AboutView
+     */
     Portfolio.views.AboutView = Portfolio.views.PageView.extend({
 
         events: function () {

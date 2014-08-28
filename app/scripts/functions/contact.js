@@ -17,8 +17,6 @@
             ga('send', 'event', 'button', 'click', 'contact');
         }
 
-        console.log('Portfolio.functions.contact!');
-
         window.location = 'ma' + 'ilto:' + y + '.' + a + x + b + '.' + c;
     };
 

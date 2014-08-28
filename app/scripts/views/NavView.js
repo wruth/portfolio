@@ -2,15 +2,12 @@
  * NavView module defines NavView Class definition and attaches to the
  * Portfolio.views namespace. Renders simple nav bar for the app, stays in sync
  * with state of NavCollection instance provided.
- *
- * @param  {Object} Portfolio Portfolio app namespace object
- * @param  {Object} Backbone  framework
- * @param  {Object} dust      templating
- * @param  {Object} _         underscore utility
  */
 (function (Portfolio, Backbone, dust, _) {
 
-
+    /**
+     * @class NavView
+     */
     Portfolio.views.NavView = Backbone.View.extend({
 
         tagName: 'nav',

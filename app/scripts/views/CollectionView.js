@@ -5,10 +5,8 @@
  */
 (function (Portfolio, Backbone, dust, _) {
 
-
-
     /**
-     * Class definition
+     * @class CollectionView
      */
     Portfolio.views.CollectionView = Portfolio.views.PageView.extend({
 
@@ -38,6 +36,13 @@
 
         },
 
+        /**
+         * Overrides placeholder template implementation to return the
+         * collection as JSON.
+         *
+         * @method getRenderData
+         * @return {Array} View's collection as JSON.
+         */
         getRenderData: function () {
             return this.collection.toJSON();
         }

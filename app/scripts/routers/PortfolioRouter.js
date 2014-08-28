@@ -1,3 +1,6 @@
+/*
+ * PortfolioRouter module, the router for the app.
+ */
 (function (Portfolio, Backbone, $) {
 
     var _viewClasses = {
@@ -112,10 +115,14 @@
         }
 
         this.currentView = newView;
-        $main.append(newView.render().el);
+        $main.append(newView.el);
+        newView.render();
         _trackPage.call(this);
     }
 
+    /**
+     * @class PortfolioRouter
+     */
     Portfolio.routers.PortfolioRouter = Backbone.Router.extend({
 
         /**

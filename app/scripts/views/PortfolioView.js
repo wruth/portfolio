@@ -1,3 +1,6 @@
+/*
+ * Module defining the PortfolioView.
+ */
 (function (Portfolio, Backbone, dust, _, $) {
 
     /**
@@ -118,23 +121,35 @@
         $(window).on('scroll.portfolio', _.debounce(_.bind(_testAllScrollers, this), 250));
     }
 
+    /**
+     * @class PortfolioView
+     */
     Portfolio.views.PortfolioView = Portfolio.views.CollectionView.extend({
 
         $scrollers: null,
 
+        /**
+         * Create WRScroller's on any '.scroller' elements in the Portfolio's
+         * DOM fragment.
+         *
+         * @method postRender
+         */
         postRender: function () {
+            var _this = this;
 
-            _.defer(function (view) {
+            _scrollMonitor.call(this,
+                _this.$el.find('.scroller').wrscroller({
+                    scrollDuration: 500,
+                    scrollEasing: 'easeInOutQuad'
+                }));
 
-                _scrollMonitor.call(view,
-                    view.$el.find('.scroller').wrscroller({
-                        scrollDuration: 500,
-                        scrollEasing: 'easeInOutQuad'
-                    }));
-
-            }, this);
         },
 
+        /**
+         * Stop listenining for window scroll events!
+         *
+         * @method remove
+         */
         remove: function () {
             $(window).off('scroll.portfolio');
             Portfolio.views.CollectionView.prototype.remove.call(this);
