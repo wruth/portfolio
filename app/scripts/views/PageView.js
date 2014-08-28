@@ -21,6 +21,9 @@
         if (ga) {
             ga('send', 'event', 'button', 'click', label);
         }
+
+        console.log('_handleAnalyticsUIClick()!!!');
+
     }
 
     Portfolio.views.PageView = Backbone.View.extend({
@@ -41,8 +44,10 @@
             return this.name + ' container-12';
         },
 
-        events: {
-            'click [data-gacategory=button]' : _handleAnalyticsUIClick
+        events: function () {
+            return {
+                'click [data-gacategory=button]' : _handleAnalyticsUIClick
+            };
         },
 
         /**

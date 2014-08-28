@@ -6,6 +6,7 @@ window.Portfolio = {
     collections: {},
     views: {},
     routers: {},
+    functions: {},
 
     init: function () {
 

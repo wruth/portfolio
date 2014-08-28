@@ -10,32 +10,13 @@
  */
 (function (Portfolio, Backbone, dust, _) {
 
-    /**
-     * Attempt to obfuscate address through js handling.
-     *
-     * @private
-     * @method  _handleContact
-     */
-    function _handleContact () {
-        var n1 = 'ward',
-            n2 = 'ruth',
-            a = '@',
-            g = 'gmail',
-            c = 'com';
-
-        if (ga) {
-            ga('send', 'event', 'button', 'click', 'mailto');
-        }
-
-        window.location = 'ma' + 'ilto:' + n1 + '.' + n2 + a + g + '.' + c;
-    }
 
     Portfolio.views.NavView = Backbone.View.extend({
 
         tagName: 'nav',
 
         events: {
-            'click .contact': _handleContact
+            'click .contact': Portfolio.functions.contact
         },
 
         /**

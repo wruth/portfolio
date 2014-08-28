@@ -106,7 +106,9 @@
         }
         // about
         else {
-            newView = new Portfolio.views.PageView({name: 'about'});
+            newView = new Portfolio.views.AboutView({
+                name: 'about'
+            });
         }
 
         this.currentView = newView;
