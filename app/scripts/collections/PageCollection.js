@@ -1,14 +1,15 @@
 /*
  * Maintains notion of the navigation state of the app. That is, what page the
  * app should be displaying. Updated by the PortfolioRouter, and listened to by
- * the NavView for it to keep selected navigation in sync.
+ * the NavView for it to keep selected navigation in sync, and by the AppView
+ * for keeping the background chrome rendered properly.
  */
 (function (Portfolio, Backbone) {
 
     /**
-     * @class NavCollection
+     * @class PageCollection
      */
-    Portfolio.collections.NavCollection = Backbone.Collection.extend({
+    Portfolio.collections.PageCollection = Backbone.Collection.extend({
 
         initialize: function () {
             var models = [

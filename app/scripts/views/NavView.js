@@ -1,7 +1,7 @@
 /*
  * NavView module defines NavView Class definition and attaches to the
  * Portfolio.views namespace. Renders simple nav bar for the app, stays in sync
- * with state of NavCollection instance provided.
+ * with state of PageCollection instance provided.
  */
 (function (Portfolio, Backbone, dust, _) {
 
@@ -32,7 +32,7 @@
 
             //
             // only render once the router has set an active page on the
-            // NavCollection
+            // PageCollection
             //
             if (this.collection.getActivePage()) {
 

@@ -1,5 +1,5 @@
 /*
- * Module defining the PortfolioView.
+ * Module defining the PortfolioPageView.
  */
 (function (Portfolio, Backbone, dust, _, $) {
 
@@ -122,9 +122,9 @@
     }
 
     /**
-     * @class PortfolioView
+     * @class PortfolioPageView
      */
-    Portfolio.views.PortfolioView = Portfolio.views.CollectionView.extend({
+    Portfolio.views.PortfolioPageView = Portfolio.views.CollectionPageView.extend({
 
         $scrollers: null,
 
@@ -152,7 +152,7 @@
          */
         remove: function () {
             $(window).off('scroll.portfolio');
-            Portfolio.views.CollectionView.prototype.remove.call(this);
+            Portfolio.views.CollectionPageView.prototype.remove.call(this);
         }
 
     });

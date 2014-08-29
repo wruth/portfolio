@@ -4,9 +4,9 @@
 (function (Portfolio) {
 
     /**
-     * @class AboutView
+     * @class AboutPageView
      */
-    Portfolio.views.AboutView = Portfolio.views.PageView.extend({
+    Portfolio.views.AboutPageView = Portfolio.views.PageView.extend({
 
         events: function () {
             var superEvents = Portfolio.views.PageView.prototype.events();

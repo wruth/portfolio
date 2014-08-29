@@ -1,7 +1,7 @@
 /**
  * AppView has two global chrome responsibilities:
- * First to listen for route changes in order to check for a nav model aside
- * property in order to render the aside background grad or not.
+ * First to listen for active page changes in order to check for a page model
+ * aside property in order to render the aside background grad or not.
  * Second to simply instatiate and add the navView element to the DOM.
  */
 (function (Portfolio, Backbone) {
@@ -10,20 +10,19 @@
      * Because the aside background graphic element has to exist in the
      * background element context outside the element managed by any PageView,
      * the AppView takes care of monitoring this by checking for the 'aside'
-     * property on the relevent page Model whenever the route changes, and
-     * keeping the aside class in sync on the background element.
+     * property on the relevent page Model whenever a new page becomes active,
+     * and keeping the aside class in sync on the background element.
      *
-     * @method  _handleRouteChange
+     * @method  _handlePageChange
      * @private
      *
-     * @param  {String} name Named route
+     * @param  {Model} pageModel page Model of the new active page
      */
-    function _handleRouteChange (name) {
+    function _handlePageChange (pageModel) {
 
-        var navModel = this.collection.get(name),
-            $background = this.$el.find('.background > .content-background');
+        var $background = this.$el.find('.background > .content-background');
 
-        if (navModel.get('aside')) {
+        if (pageModel.get('aside')) {
             $background.addClass('aside');
         }
         else {
@@ -38,12 +37,11 @@
 
         navView: null,
 
-        initialize: function (options) {
-
-            this.listenTo(options.router, 'route', _handleRouteChange);
+        initialize: function () {
+            this.listenTo(this.collection, 'change:active', _handlePageChange);
 
             this.navView = new Portfolio.views.NavView({
-                collection: options.collection
+                collection: this.collection
             });
         },
 

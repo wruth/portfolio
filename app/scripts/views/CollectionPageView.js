@@ -1,14 +1,14 @@
 /*
- * CollectionView expects to have a Collection provided to it which it converts
- * to JSON in render for it's template. The template is expected to iterate over
- * and render the Collection.
+ * CollectionPageView expects to have a Collection provided to it which it
+ * converts to JSON in render for it's template. The template is expected to
+ * iterate over and render the Collection.
  */
 (function (Portfolio, Backbone, dust, _) {
 
     /**
-     * @class CollectionView
+     * @class CollectionPageView
      */
-    Portfolio.views.CollectionView = Portfolio.views.PageView.extend({
+    Portfolio.views.CollectionPageView = Portfolio.views.PageView.extend({
 
         /**
          * The collection will have been cached after the first time this view

@@ -22,17 +22,15 @@
 
         init: function () {
 
-            var navCollection = new this.collections.NavCollection(),
-               router = new this.routers.PortfolioRouter({navCollection: navCollection}),
+            var pageCollection = new this.collections.PageCollection(),
 
-               appView = new this.views.AppView({
-                    collection: navCollection,
-                    router: router,
+                appView = new this.views.AppView({
+                    collection: pageCollection,
                     el: $('body')[0]
                 });
 
+            this.router = new this.routers.PortfolioRouter({pageCollection: pageCollection});
             appView.render();
-
             Backbone.history.start();
         }
     };

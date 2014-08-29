@@ -4,8 +4,8 @@
 (function (Portfolio, Backbone, $) {
 
     var _viewClasses = {
-            resume: Portfolio.views.CollectionView,
-            portfolio: Portfolio.views.PortfolioView
+            resume: Portfolio.views.CollectionPageView,
+            portfolio: Portfolio.views.PortfolioPageView
         },
 
         // broken out here so they can be cache busted in the build process
@@ -27,7 +27,7 @@
      * @return {Collection}      A Collection for the View
      */
     function _getViewCollection (viewName) {
-        var navModel = this.navCollection.get(viewName),
+        var navModel = this.pageCollection.get(viewName),
             viewCollection,
             startTime;
 
@@ -83,8 +83,8 @@
     /**
      * Takes care of housekeeping when showing a new current view. Create the
      * new view, call remove() on the previous currentView to cleanup, call
-     * render() on the new view. Also update active page on the navCollection to
-     * keep the nav ui in sync.
+     * render() on the new view. Also update active page on the pageCollection
+     * to keep the nav ui in sync.
      *
      * @method  _updateCurrentView
      * @private
@@ -94,7 +94,7 @@
         var $main = $('#main-container'),
             newView;
 
-        this.navCollection.setActivePage(viewName);
+        this.pageCollection.setActivePage(viewName);
 
         if (this.currentView) {
             this.currentView.remove();
@@ -109,7 +109,7 @@
         }
         // about
         else {
-            newView = new Portfolio.views.AboutView({
+            newView = new Portfolio.views.AboutPageView({
                 name: 'about'
             });
         }
@@ -130,10 +130,10 @@
          * of the site. The router uses this to cache the individual
          * collections for the various CollectionView's.
          *
-         * @property navCollection
+         * @property pageCollection
          * @type Backbone.Collection
          */
-        navCollection: null,
+        pageCollection: null,
 
         /**
          * Handle to the current view being displayed so that remove() can be
@@ -151,7 +151,7 @@
         },
 
         initialize: function (options) {
-            this.navCollection = options.navCollection;
+            this.pageCollection = options.pageCollection;
         },
 
         //
