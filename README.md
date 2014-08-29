@@ -24,7 +24,7 @@ A lot goes into the mix of developing a modern webapp. This isn't an exhaustive 
 
 ## Application Design
 The architecture of the app is pretty simple. This diagram shows the major classes and relationships:
-![Class Diagram](/uml/class_diagram.png?raw=true "Portfolio Class Diagram")
+![Class Diagram](uml/class_diagram.png?raw=true "Portfolio Class Diagram")
 There's a bit of an inheritence hiearchy in the view classes, but that is in the interests of keeping things DRY. Here's an outline of the main roles and responsibilities of some of these classes:
 
 * **`PageCollection`:**  This collection maintains the logical state of the app, and is effectively it's model. It has three model instances representing the three pages of the app. It is used directly by the `NavView` to render the nav menu items. The `PortfolioRouter` will call it to update the current page, and the `NavView` listens for these updates in order to keep the selected state rendering of it's nav items up to date. The `AppView` also listens for these updates to keep the rendering of the background in sync with the current page.
