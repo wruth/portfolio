@@ -1,6 +1,12 @@
 {
   "name": "portfolio",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "author": "Ward Ruth",
+  "description": "Portfolio application",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wruth/portfolio"
+  },
   "dependencies": {},
   "devDependencies": {
     "connect-livereload": "~0.3.2",
@@ -20,8 +26,9 @@
     "grunt-mocha": "~0.4.10",
     "grunt-open": "~0.2.3",
     "grunt-rev": "~0.1.0",
-    "grunt-ver": "~0.5.1",
+    "grunt-shell": "^1.1.0",
     "grunt-usemin": "~0.1.12",
+    "grunt-ver": "~0.5.1",
     "jshint-stylish": "~0.1.5",
     "load-grunt-tasks": "~0.3.0",
     "time-grunt": "~0.2.8"

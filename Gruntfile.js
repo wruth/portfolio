@@ -280,6 +280,11 @@ module.exports = function (grunt) {
                 ],
                 versionFile: '<%= yeoman.dist %>/version.json'
             }
+        },
+        shell: {
+            stamp: {
+                command: 'git show --format="' + 'window.build_stamp = \'rev: %h date: %ci\';%n' + '" --quiet > .tmp/scripts/stamp.js'
+            }
         }
     });
 
@@ -356,6 +361,7 @@ module.exports = function (grunt) {
             grunt.task.run([
                 'clean:dist',
                 'dustjs',
+                'shell:stamp',
                 'compass:dist',
                 'useminPrepare',
                 'imagemin',
@@ -369,6 +375,7 @@ module.exports = function (grunt) {
             grunt.task.run([
                 'clean:dist',
                 'dustjs',
+                'shell:stamp',
                 'compass:dist',
                 'useminPrepare',
                 'imagemin',
