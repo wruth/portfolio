@@ -5,5 +5,7 @@ test/temp
 app/bower_components
 .tmp
 test/bower_components/
+host.*.json
+host.json
 
 *.DS_Store

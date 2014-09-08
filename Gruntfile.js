@@ -14,6 +14,49 @@ var mountFolder = function (connect, dir) {
 // templateFramework: 'lodash'
 
 module.exports = function (grunt) {
+
+    /**
+     * Callback from the shell:save-stamp task. The stamp is a git formatted
+     * show for the latest commit, comprised of a short commit sha followed by
+     * a formatted date. This splits off the time of day part of the date (which
+     * would result in an unusable file name), and then saves the grunt config
+     * buildstamp property. This is called with the result of a shell command.
+     *
+     * @function saveStamp
+     *
+     * @param  {String}   err    Error description
+     * @param  {String}   stdout Results of shell command
+     * @param  {String}   stderr Error description
+     * @param  {Function} cb     Task requires that this be called at the end
+     *                           of this callback.
+     */
+    function saveStamp (err, stdout, stderr, cb) {
+        var stamp = stdout.split(' ')[0];
+        grunt.log.writeln('stamp = ' + stamp);
+        grunt.config.set('buildstamp', stamp);
+        cb();
+    }
+
+    /**
+     * Read host configuration to use for deploy tasks. If ssh keys are
+     * available for authentication, check that here since it cannot be
+     * determned from the config file itself. Provide to the configuration as
+     * the property 'agent' if available.
+     *
+     * @function readConfig
+     *
+     * @param  {String} fileName Path to cofig file to read.
+     */
+    function readConfig (fileName) {
+        var config = grunt.file.readJSON(fileName);
+
+        if (process.env.SSH_AUTH_SOCK) {
+            config.agent = process.env.SSH_AUTH_SOCK;
+        }
+
+        return config;
+    }
+
     // show elapsed time at the end
     require('time-grunt')(grunt);
     // load all grunt tasks
@@ -26,7 +69,11 @@ module.exports = function (grunt) {
     };
 
     grunt.initConfig({
+        host: grunt.file.readJSON('host.json'),
         yeoman: yeomanConfig,
+        sshconfig: {
+            production: readConfig('host.production.json')
+        },
         watch: {
             options: {
                 nospawn: true,
@@ -284,6 +331,44 @@ module.exports = function (grunt) {
         shell: {
             stamp: {
                 command: 'git show --format="' + 'window.build_stamp = \'rev: %h date: %ci\';%n' + '" --quiet > .tmp/scripts/stamp.js'
+            },
+            'save-stamp': {
+                command: 'git show --format="%h_%ci" --quiet',
+                options: {
+                    callback: saveStamp
+                }
+            },
+            'archive-dist': {
+                command: [
+                    'cd dist',
+                    'tar --exclude=.DS_Store -c -z -f ../<%= buildstamp %>.tar.gz .',
+                    'cd ..'
+                ].join('&&')
+            },
+            'clean-dist': {
+                command: 'rm <%= buildstamp %>.tar.gz'
+            }
+        },
+        sshexec: {
+            'do-release': {
+                command: [
+                    'mkdir -p <%= host.base %>/releases',
+                    'mkdir <%= host.base %>/releases/<%= buildstamp %>',
+                    'tar -xzf <%= host.base %>/<%= buildstamp %>.tar.gz -C <%= host.base %>/releases/<%= buildstamp %>',
+                    'rm <%= host.base %>/<%= buildstamp %>.tar.gz',
+                    'rm -rf <%= host.docroot %>',
+                    'ln -s <%= host.base %>/releases/<%= buildstamp %> <%= host.docroot %>'
+                ].join('&&')
+            }
+        },
+        sftp: {
+            'push-up': {
+                files: {
+                    './': '<%= buildstamp %>.tar.gz'
+                },
+                options: {
+                    showProgress: true
+                }
             }
         }
     });
@@ -338,23 +423,6 @@ module.exports = function (grunt) {
         }
     });
 
-    /*
-    grunt.registerTask('build', [
-        'clean:dist',
-        'dustjs',
-        'compass:dist',
-        'useminPrepare',
-        'imagemin',
-        'htmlmin',
-        'concat',
-        'cssmin',
-        'uglify',
-        'copy',
-        'rev',
-        'usemin'
-    ]);
-    */
-
     grunt.registerTask('build', function (target) {
 
         if (target === 'dev') {
@@ -388,14 +456,20 @@ module.exports = function (grunt) {
                 'usemin',
                 'ver'
             ]);
-
         }
     });
-
 
     grunt.registerTask('default', [
         'jshint',
         'test',
         'build:dist'
+    ]);
+
+    grunt.registerTask('deploy', [
+        'shell:save-stamp',
+        'shell:archive-dist',
+        'sftp:push-up',
+        'sshexec:do-release',
+        'shell:clean-dist'
     ]);
 };

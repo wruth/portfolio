@@ -7,6 +7,38 @@ Portfolio uses a Grunt based build, so you'll need to install Node and Grunt fir
 2. `bower install` — to install application build dependencies
 3. `grunt serve:dist` — to build and serve the app via localhost:9000
 
+## Grunt Build and Deploy Tasks
+This summarizes the main Grunt based build and deploy tasks:
+### Build Tasks
+* `grunt server:dist` — as noted in **Installation**, this task performs a distribution build and serves the app locally on port 9000.
+* `grunt build:dev` — Perform a development build of the app. Files are not minified, and runtime loaded image and data files are not cache busted.
+* `grunt build:dist` — Perform a distribution build suitable for production deployment. Source files are concatenated and minified, and runtime resources are renamed and referenced using a hash value.
+
+### Deploy Task
+A deploy task is defined as a convenvience for deploying a build to a remote server: `grunt deploy --config production`. This task behaves similarly to a simple cap deploy task, and in brief does the foillowing:
+
+1. An archive of the dist directory is created, with a filename according to the pattern `<sha>_YYYY-MM-DD.tar.gz`, where `<sha>` is the short sha of the current commit, and the formatted date is the date of this commit (e.g. `a1b2c3d_2014-09-01.tar.gz`).
+2. The archive is sftp'd to a designated `"base"` directory on the remote server.
+3. On the remove server the archive is unarchived into a `releases` directory under the base directory using the same name as the archive without extensions, e.g. `/my/base/directory/releases/a1b2c3d_2014-09-01/`
+4. The archive is deleted on the remote server.
+5. A symbolic link for the docroot is created pointing to this release directory.
+6. The local copy of the archive is deleted.
+
+The `production` flag indicates this deployment is against a production environment (other environments could be specified, but they would need to be added to the `sshconfig` property in the Gruntfile). Additionally host specific connection properties are externalized into their own config files that are read by the Gruntfile, and their file patterns are in `.gitignore` since these should not be under source control. These files are:
+* `host.json`— this JSON file should define two properties:
+	* `"base"` — an absolute path on the remote server to upload the release archive to and maintain a `releases/` subdirectory under for any of the deploy environments.
+	* `"docroot"` — an absolute path on the remote server where a symbolic link should be created, linked to the latest release.
+* `host.<server>.json` — a JSON file containing remote host access properties for the Grunt sshexec and sftp tasks to use. Currently only `host.production.json` is supported, but other environments could easily be added. Below is an example of the format of this file (if the remote account is not set up to accept rsa keys, a `"password"` field can also be added):
+
+```JSON
+{
+    "host": "my.server",
+    "port": 22,
+    "username": "user",
+    "path": "/path/on/server"
+}
+```
+
 ## Technologies Used
 A lot goes into the mix of developing a modern webapp. This isn't an exhaustive (or recursive :wink:) list, but provides an overview of the more significant technologies used:
 
