@@ -1,5 +1,6 @@
 
 body {
+    background: url('/images/stamped_60px.png') #666 repeat fixed;
 
     &::-webkit-scrollbar {
         width: 16px;
@@ -25,28 +26,36 @@ body {
  */
 .background {
     position: fixed;
-    background: url('/images/stamped_60px.png') #666 repeat fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
 
-     .content-background {
-        position: fixed;
-        width: $contentWidth;
-        margin: 0 auto;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: $darkGrey;
+    width: $contentWidth;
+    margin: 0 auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $darkGrey;
 
-        &.aside {
+    &.aside {
+
+        &:before {
+           @extend %aside-background;
+           top: 151px;
+        }
+
+        @include until($bp-narrow-screen) {
             &:before {
-               @extend %aside-background;
-               top: 151px;
+                display: none;
             }
         }
+    }
+
+    @include until($bp-wide-screen) {
+        width: 100%;
+        margin: 0;
     }
 
 }
@@ -104,9 +113,8 @@ h5 {
     }
 }
 
-
-
 #main-container {
+    position: relative;
     width: $contentWidth;
     margin: $navHeight auto 0;
     @include rem-px(padding-top, 2rem);
@@ -114,4 +122,17 @@ h5 {
     font-family: $bodyFont;
     @include font-size($sz-regular);
     color: $lightGrey;
+
+    @include until($bp-wide-screen) {
+        width: 100%;
+        margin: $navHeight 0 0;
+    }
+}
+
+.page-header {
+    @include grid-block (10, 1, 1);
+}
+
+.page-aside {
+    @include grid-block (3, 1);
 }

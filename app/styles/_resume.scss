@@ -1,8 +1,10 @@
 
 .resume {
+
     @extend %aside-background;
 
     .resume-section {
+        @include grid-block(7, 4, 1);
 
         h2 {
             @include rem-px(margin-bottom, 0.5rem);
@@ -13,6 +15,12 @@
 
             strong {
                 font-family: $subheaderFont;
+            }
+        }
+
+        @include at-least($bp-narrow-screen) {
+            &.with-aside {
+                margin-left: span-col(0, false);
             }
         }
     }
@@ -47,7 +55,27 @@
     }
 
     .references {
+        @include grid-block(7, 4, 1);
         font-family: $subheaderFont;
         text-transform: uppercase;
+        @include rem-px(margin-top, 1rem);
+    }
+
+    @include until($bp-narrow-screen) {
+        &:before {
+            display: none;
+        }
+
+        aside {
+            display: none;
+        }
+
+        .resume-section {
+            @include grid-block(10, 1, 1);
+        }
+
+        .references {
+            @include grid-block(10, 1, 1);
+        }
     }
 }

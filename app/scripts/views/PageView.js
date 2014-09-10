@@ -41,7 +41,7 @@
         tagName: 'section',
 
         className: function () {
-            return this.name + ' container-12';
+            return this.name;
         },
 
         events: function () {

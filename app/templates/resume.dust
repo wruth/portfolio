@@ -3,12 +3,12 @@
 {#.}
     <div class="row leading-2">
         {@if cond="{$idx} == 0"}
-            <aside class="col-3 prefix-1 download">
+            <aside class="page-aside download">
                 <a href='/documents/ward-ruth-resume.pdf' download data-gacategory="button" data-galabel="download resume"><img src="/images/pdficon_small.png">Download PDF</a>
             </aside>
         {:else}
             {?aside}
-                <aside class="col-3 prefix-1">
+                <aside class="page-aside">
                     {#aside}
                         <h5>{title}</h5>
                         <ul>
@@ -21,7 +21,7 @@
             {/aside}
         {/if}
 
-        <section class="resume-section col-7 {^aside}prefix-4 {/aside}suffix-1">
+        <section class="resume-section {?aside}with-aside{/aside}">
             <h2>{title}</h2>
             {?body}
                 <p>{body}</p>

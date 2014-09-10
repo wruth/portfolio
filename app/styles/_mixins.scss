@@ -110,3 +110,27 @@
         }
     }
 }
+
+//
+// simple breakpoint mix-ins
+// http://css-tricks.com/naming-media-queries/
+// http://codepen.io/imathis/pen/BDzcI?editors=010
+//
+
+/**
+ * min-width to apply a rule from
+ */
+@mixin at-least($device-width) {
+    @media screen and (min-width: $device-width) {
+        @content
+    }
+}
+
+/**
+ * max-width to apply a rule until
+ */
+@mixin until($device-width) {
+    @media screen and (max-width: $device-width - 1) {
+        @content
+    }
+}

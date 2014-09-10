@@ -1,7 +1,68 @@
 
 .portfolio-section {
     width: 100%;
+    overflow: hidden;
     @include rem-px(margin-bottom, 3rem);
+
+    .section-title {
+        @include grid-block(5, 4);
+    }
+
+    .section-link {
+        @include grid-block(2);
+    }
+
+    .project-specs {
+        @include grid-block(9);
+
+        .label {
+            @include grid-block(4, 0, 0, true, false, 700px, 9);
+        }
+
+        .content {
+            @include grid-block(5, 0, 0, false, true, 700px, 9);
+        }
+    }
+
+    @include until($bp-narrow-screen) {
+
+        .section-title {
+            @include grid-block(7, 1);
+        }
+
+        .section-link {
+            @include grid-block(3);
+        }
+
+        .project-specs {
+            width: 100%;
+            margin: 0;
+
+            .label {
+                @include grid-block(3, 1);
+            }
+
+            .content {
+                @include grid-block(7);
+            }
+        }
+
+        .tech {
+            display: none;
+        }
+    }
+
+    @include until($bp-xx-narrow-screen) {
+
+        .section-title {
+            @include grid-block(10, 1, 1);
+        }
+
+        .section-link {
+            @include grid-block(4, 4, 4);
+            @include rem-px(margin-bottom, 1rem);
+        }
+    }
 
     .project-container {
         @include background-image(linear-gradient(top, #111, $darkGrey));
@@ -65,6 +126,7 @@
 
     .tech {
         @include rem-px(padding, 0, 1rem);
+        @include grid-block(3);
 
         ul {
             color: $mediumGrey;

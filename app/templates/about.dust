@@ -1,7 +1,7 @@
 {>page-header name="about" /}
 
-<div class="row leading-2">
-    <aside class="col-3 prefix-1">
+<div class="row">
+    <aside class="page-aside">
         <div class="avatar"></div>
         <ul>
             <li class="social"><a href="https://www.linkedin.com/pub/ward-ruth/1/810/44a" target="_blank" data-gacategory="button" data-galabel="linkedin"><i class="si-circle si-linkedin"></i></a></li>
@@ -9,7 +9,7 @@
             <li class="social"><a data-label="contact"><i class="si-circle si-mail"></i></a></li>
         </ul>
     </aside>
-    <section class="about-section col-7 suffix-1">
+    <section class="about-section">
         <h2>me</h2>
         <p>Hi, I’m Ward Ruth, a highly skilled Senior Software Engineer living in the San Francisco Bay Area. Specializing in Front End development, I have been creating interactive user experiences since the late nineties. I enjoy big challenges like architecting new sites and features from scratch, and leading and working with smart dedicated teams to deliver awesome solutions.</p>
         <p>I’m looking for a company where I can make a difference. Drop me a line and let’s chat about what I can do for you.</p>

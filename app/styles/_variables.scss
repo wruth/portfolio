@@ -3,6 +3,7 @@ $navHeight: 3rem;
 $contentWidth: 960px;
 $scrollerNavWidth: 2.5rem;
 $scrollerNavHeight: 7.5rem;
+$leading: 0.625rem; // 10px
 
 // colors
 $darkBlue: #005081;
@@ -33,3 +34,13 @@ $sz-large:      1.625;  // 26/16
 $sz-x-large:    2.125;  // 34/16
 $sz-xx-large:   2.625;  // 42/16
 $sz-xxx-large:  3.4375; // 55/16
+
+
+//
+// breakpoint variables
+//
+$bp-wide-screen:        960px;
+$bp-medium-screen:      850px;
+$bp-narrow-screen:      700px;
+$bp-x-narrow-screen:    600px;
+$bp-xx-narrow-screen:   520px;

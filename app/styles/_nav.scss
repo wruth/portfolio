@@ -30,6 +30,14 @@
                 @include font-size($sz-small);
                 letter-spacing: 0.1em;
             }
+
+            @include until($bp-x-narrow-screen) {
+                @include font-size($sz-x-large);
+            }
+
+            @include until($bp-wide-screen) {
+                margin-left: $gridGutterWidth / 2;
+            }
         }
 
         nav {
@@ -73,6 +81,27 @@
                     padding: 0 0;
                     @include rem-px(margin-left, 2rem);
                 }
+            }
+
+            @include until($bp-narrow-screen) {
+                .contact {
+                    display: none;
+                }
+            }
+
+            @include until($bp-wide-screen) {
+                margin-right: $gridGutterWidth / 2;
+            }
+        }
+
+        @include until($bp-wide-screen) {
+            width: 100%;
+            margin: 0;
+        }
+
+        @include until($bp-medium-screen) {
+            .slash, .engineer {
+                display: none;
             }
         }
     }

@@ -1,3 +1,126 @@
-@import "digi-grid/src/grid";
 
-@include grid-system-complete($columns: 12, $rows: 0, $gridWidth: 960px, $gutterWidth: 20px, $leading: 10px);
+// idealized 'pixel' grid specs
+$gridBaseWidth: 960px !default;
+$gridBaseNumColumns: 12 !default;
+$gridBaseGutter: 20px !default;
+$leading: 0.25rem !default;
+
+// convert to percentages
+
+/**
+ * Compute a grid column width in percent based on metrical proportions at a
+ * base pixel size.
+ *
+ * @function grid-col-width
+ *
+ * @param {px} $gBaseWidth Base pixel width of a grid
+ * @param {int} $gBaseNumColumns Number of columns in a grid
+ * @param {px} $gBaseGutter Base pixel width of a gutter between columns
+ * @return {%} Width of a column in percent
+ */
+@function grid-col-width ($gBaseWidth, $gBaseNumColumns, $gBaseGutter: $gridBaseGutter) {
+    @return ($gBaseWidth - ($gBaseGutter * $gBaseNumColumns)) / $gBaseWidth * 100% / $gBaseNumColumns;
+}
+
+/**
+ * Compute a grid gutter percent width based on metrical proportion of overall
+ * grid base pixel width and gutter base pixel width.
+ *
+ * @function grid-gutter-width
+ *
+ * @param {px} $gBaseWidth Base pixel width of a grid
+ * @param {px} $gBaseGutter Base pixel width of a gutter between columns
+ * @@return {%} Width of a gutter in percent
+ */
+@function grid-gutter-width ($gBaseWidth, $gBaseGutter: $gridBaseGutter) {
+    @return $gBaseGutter / $gBaseWidth * 100%;
+}
+
+$gridColumnWidth: grid-col-width($gridBaseWidth, $gridBaseNumColumns);
+$gridGutterWidth: grid-gutter-width($gridBaseWidth);
+
+/**
+ * Compute width of a given span of columns in percent for a grid.
+ *
+ * @function span-col
+ * @param {int} $numCols Number of columns to span
+ * @param {Boolean} $flush If not flush add half gutter margin widths for both
+ *                         the left and right edge, othewise do not
+ * @param {%} $gColumnWidth Percent width of a column
+ * @param {%} $gGutterWidth Percent width of a gutter
+ * @return {%} Width of the spanned columns
+ */
+@function span-col (
+        $numCols,
+        $flush: true,
+        $gColumnWidth: $gridColumnWidth,
+        $gGutterWidth: $gridGutterWidth) {
+
+    @if ($flush) {
+        @return $numCols * $gColumnWidth + $numCols * $gGutterWidth;
+    } @else {
+        @return $gGutterWidth / 2 + $numCols * $gColumnWidth + $numCols * $gGutterWidth;
+    }
+
+}
+
+/**
+ * Mixin to set width and left and right margins (in percent), as well as a
+ * left float for a container to use as one or more grid sections.
+ *
+ * @param {int} $nColumns Number of columns to span
+ * @param {int} $prefix Number of spacer columns to the left of the block
+ * @param {int} $suffix Number of spacer columns to the right of the block
+ * @param {Boolean} $alpha If true don't add left margin
+ * @param {Boolean} $omega If true don't add right margin
+ * @param {px} $gBaseWidth Base pixel width of a grid
+ * @param {int} $gBaseNumColumns Number of columns in a grid
+ * @param {px} $gBaseGutter Base pixel width of a gutter between columns
+ */
+@mixin grid-block (
+        $nColumns,
+        $prefix: 0,
+        $suffix: 0,
+        $alpha: false,
+        $omega: false,
+        $gBaseWidth: $gridBaseWidth,
+        $gBaseNumColumns: $gridBaseNumColumns,
+        $gBaseGutter: $gridBaseGutter) {
+
+    $gridColumnWidth: grid-col-width($gBaseWidth, $gBaseNumColumns, $gBaseGutter);
+    $gridGutterWidth: grid-gutter-width($gBaseWidth, $gBaseGutter);
+
+    float: left;
+    width: $gridColumnWidth * $nColumns + $gridGutterWidth * ($nColumns - 1);
+
+    @if ($alpha) {
+        margin-left: 0;
+    } @else {
+        margin-left: span-col($prefix, false, $gridColumnWidth, $gridGutterWidth);
+    }
+
+    @if ($omega) {
+        margin-right: 0;
+    } @else {
+        margin-right: span-col($suffix, false, $gridColumnWidth, $gridGutterWidth);
+    }
+}
+
+@mixin grid-leading ($leading: $leading) {
+  $through: 12;
+
+  @for $n from 1 through $through {
+    .leading-#{$n} {
+      @include rem-px(margin-bottom, ($n*$leading));
+    }
+  }
+}
+
+.row {
+    width: 100%;
+    @include clearfix;
+    position: relative;
+    //overflow: hidden;
+}
+
+@include grid-leading($leading);

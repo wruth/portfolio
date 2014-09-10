@@ -4,9 +4,9 @@
     &:before {
         position: absolute;
         visibility: visible;
-        top: 71px;
+        top: 103px;
         bottom: 0;
-        width: 310px;
+        width: 310px / $gridBaseWidth * 100%;
         height: 100%;
         content: '';
         @include background-image(linear-gradient(left, $darkGrey 10px, #111));

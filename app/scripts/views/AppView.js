@@ -20,7 +20,7 @@
      */
     function _handlePageChange (pageModel) {
 
-        var $background = this.$el.find('.background > .content-background');
+        var $background = this.$el.find('.background');
 
         if (pageModel.get('aside')) {
             $background.addClass('aside');

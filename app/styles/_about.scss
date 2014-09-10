@@ -1,5 +1,6 @@
 
 .about {
+
     @extend %aside-background;
 
     .avatar {
@@ -12,8 +13,38 @@
     }
 
     .about-section {
+        @include grid-block(7, 0, 1);
+
         h2 {
             @include rem-px(margin-bottom, 0.5rem);
+        }
+    }
+
+    @include until($bp-narrow-screen) {
+        &:before {
+            display: none;
+        }
+
+        .about-section {
+            @include grid-block(6, 0, 1);
+        }
+
+        .page-aside {
+            @include grid-block(4, 1);
+        }
+    }
+
+    @include until($bp-xx-narrow-screen) {
+        .about-section {
+            @include grid-block(10, 1, 1);
+        }
+
+        .page-aside {
+            @include grid-block(10, 1, 1);
+        }
+
+        .avatar {
+            @include rem-px(margin-top, 2rem);
         }
     }
 

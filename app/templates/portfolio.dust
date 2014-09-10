@@ -4,9 +4,9 @@
     <section class="portfolio-section">
 
         <header class="row">
-            <h2 class="col-5 prefix-4">{title}</h2>
+            <h2 class="section-title">{title}</h2>
             {?link}
-                <a class="col-2" href="{link}" target="_blank">Launch</a>
+                <a class="section-link" href="{link}" target="_blank">Launch</a>
             {/link}
         </header>
 
@@ -27,25 +27,25 @@
         </div>
 
         <div class="row project-container">
-            <div class="col-9">
+            <div class="project-specs">
                 <div class="row">
-                    <h4 class="col-4 alpha">Client:</h4>
-                    <p class="col-5 omega">{client}</p>
+                    <h4 class="label">Client:</h4>
+                    <p class="content">{client}</p>
                 </div>
                 <div class="row">
-                    <h4 class="col-4 alpha">Role:</h4>
-                    <p class="col-5 omega">{role}</p>
+                    <h4 class="label">Role:</h4>
+                    <p class="content">{role}</p>
                 </div>
                 <div class="row">
-                    <h4 class="col-4 alpha">Date:</h4>
-                    <p class="col-5 omega">{date}</p>
+                    <h4 class="label">Date:</h4>
+                    <p class="content">{date}</p>
                 </div>
                 <div class="row">
-                    <h4 class="col-4 alpha">Description:</h4>
-                    <p class="col-5 omega">{description}</p>
+                    <h4 class="label">Description:</h4>
+                    <p class="content">{description}</p>
                 </div>
             </div>
-            <div class="col-3 tech">
+            <div class="tech">
                 <h5>technologies</h5>
                 <ul>
                     {#tech}
