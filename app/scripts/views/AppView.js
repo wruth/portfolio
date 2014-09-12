@@ -46,6 +46,7 @@
         },
 
         render: function () {
+            this.navView.render();
             this.$el.find('.nav-container').append(this.navView.el);
         }
     });
