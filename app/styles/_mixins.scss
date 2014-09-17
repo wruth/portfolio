@@ -66,7 +66,7 @@
  * Mixin for generating left and right scroller type arrows. Dimensions are
  * assumed to be rems.
  *
- * @property $direction 'left' or 'right' are the two valid values
+ * @property $arrowDirection 'left' or 'right' are the two valid values
  */
 @mixin scroller-arrow ($arrowDirection, $width, $height, $color) {
     width: 0;
@@ -88,8 +88,8 @@
     @extend %scroller-nav;
     #{$arrowDirection}: 0;
     $direction: invert-direction($arrowDirection);
-    transition: background-color 0.5s;
-    @include background-image(linear-gradient($arrowDirection, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)));
+    //transition: background-color 0.5s;
+    //@include background-image(linear-gradient($arrowDirection, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)));
 
     .arrow {
         @extend %absolute-center;

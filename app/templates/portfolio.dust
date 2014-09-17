@@ -11,12 +11,16 @@
         </header>
 
         <div class="scroller" data-gacategory="scroller" data-galabel="{id}">
-            <div class="viewport" style="height: {maxImageHeight}px;">
-                <ul class="scrollContainer">
-                    {#images}
-                        <li class="items-visible-{numVisibleImages}"><img data-imgsrc="{.}"></li>
-                    {/images}
-                </ul>
+            <div class="viewport-wrapper" style="height: {maxImageHeight}px;"">
+                <div class="viewport-edge left"></div>
+                <div class="viewport" style="height: {maxImageHeight}px;">
+                    <ul class="scrollContainer">
+                        {#images}
+                            <li class="items-visible-{numVisibleImages}"><img data-imgsrc="{.}"></li>
+                        {/images}
+                    </ul>
+                </div>
+                <div class="viewport-edge right"></div>
             </div>
             <div class="previous" data-gacategory="button" data-galabel="scroller previous">
                 <div class="arrow"></div>

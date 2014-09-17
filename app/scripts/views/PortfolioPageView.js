@@ -119,6 +119,8 @@
         _testAllScrollers.call(this);
 
         $(window).on('scroll.portfolio', _.debounce(_.bind(_testAllScrollers, this), 250));
+
+
     }
 
     /**
@@ -138,10 +140,41 @@
             var _this = this;
 
             _scrollMonitor.call(this,
-                _this.$el.find('.scroller').wrscroller({
-                    scrollDuration: 500,
-                    scrollEasing: 'easeInOutQuad'
-                }));
+                _this.$el.find('.scroller')
+                    //
+                    // creates the scrollers
+                    //
+                    .wrscroller({
+                        scrollDuration: 500,
+                        scrollEasing: 'easeInOutQuad'
+                    })
+                    //
+                    //  create the scaler for each scroller .viewport, along
+                    //  with a changeCallback that manages the scrollers height
+                    //  to follow the transformed height of the viewport
+                    //
+                    .each(function () {
+                        var $this = $(this),
+                            scrollerBaseHeight = $this.height(),
+                            vPadding = $this.outerHeight() - scrollerBaseHeight,
+
+                            changeCallback = function (changeObj) {
+                                var changeHeight;
+
+                                if (changeObj.type === 'transform-end') {
+                                    $this.css('height', '');
+                                }
+                                else {
+                                    changeHeight = (scrollerBaseHeight * changeObj.scale) + vPadding + 'px';
+                                    $this.css('height', changeHeight);
+                                }
+                            };
+
+                        $this.find('.viewport').wrscaler({
+                            threshold: 820,
+                            changeCallback: changeCallback
+                        });
+                    }));
 
         },
 

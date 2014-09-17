@@ -77,13 +77,36 @@
         position: relative;
         width: 100%;
         background-color: #000;
+        //background-color: #ff0;
         @include rem-px(padding, 1rem, 0);
 
+        .viewport-wrapper {
+            display: table;
+            width: 100%;
+
+            .viewport-edge {
+                display: table-cell;
+                position: relative;
+                background-color: rgba(0, 0, 0, 0);
+                z-index: 10;
+                transition: background-color 0.5s;
+
+                &.left {
+                    @include background-image(linear-gradient(left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)));
+                }
+
+                &.right {
+                    @include background-image(linear-gradient(right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)));
+                }
+            }
+        }
+
         .viewport {
+            display: table-cell;
             position: relative;
-            margin-left: 80px;
-            margin-right: 80px;
             width: 800px;
+            //background-color: #f00;
+            transform-origin: left top;
 
             .scrollContainer {
                 position: absolute;
@@ -116,6 +139,23 @@
 
             .next {
                 @extend %no-scroller-nav;
+            }
+
+            .viewport-edge {
+                background-color: rgba(0, 0, 0, 1);
+            }
+        }
+
+        @include until($bp-scroller) {
+
+            .viewport-wrapper {
+                .viewport-edge {
+                    display: none;
+                }
+            }
+
+            .viewport {
+                position: absolute;
             }
         }
     }

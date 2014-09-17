@@ -29,16 +29,17 @@
 %scroller-nav {
     position: absolute;
     top: 0;
-    width: 80px;
+    width: 54px;
     height: 100%;
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0);
+    //background-color: rgba(0, 0, 0, 0);
+    z-index: 20;
 }
 
 %no-scroller-nav {
     cursor: default;
     pointer-events: none;
-    background-color: rgba(0, 0, 0, 1);
+    //background-color: rgba(0, 0, 0, 1);
 
     .arrow {
         opacity: 0;
