@@ -142,16 +142,12 @@
             _scrollMonitor.call(this,
                 _this.$el.find('.scroller')
                     //
-                    // creates the scrollers
-                    //
-                    .wrscroller({
-                        scrollDuration: 500,
-                        scrollEasing: 'easeInOutQuad'
-                    })
-                    //
                     //  create the scaler for each scroller .viewport, along
                     //  with a changeCallback that manages the scrollers height
-                    //  to follow the transformed height of the viewport
+                    //  to follow the transformed height of the viewport.
+                    //  Important to do this first before creating the scrollers
+                    //  so that the scrollers have a properly sized and scaled
+                    //  element to work with.
                     //
                     .each(function () {
                             // an individual .scroller element
@@ -173,7 +169,7 @@
                                 }
                                 else {
 
-                                    if (changeObj.type === 'transform-start') {
+                                    if (changeObj.type === 'transform-will-start') {
                                         $edges.css('display', 'none');
                                         $viewport.css('position', 'absolute');
                                     }
@@ -184,6 +180,13 @@
                             threshold: 800,
                             changeCallback: changeCallback
                         });
+                    })
+                    //
+                    // creates the scrollers
+                    //
+                    .wrscroller({
+                        scrollDuration: 500,
+                        scrollEasing: 'easeInOutQuad'
                     }));
 
         },
