@@ -7,10 +7,10 @@
     "modernizr": "~2.7.1",
     "dustjs-linkedin": "~2.4.0",
     "dustjs-linkedin-helpers": "~1.2.0",
-    "digi-grid": "~1.2.2",
     "jquery-transform": "*",
     "wrscroller": "~0.2.0-alpha",
-    "76d-social-icons": "~1.0.3"
+    "76d-social-icons": "~1.0.3",
+    "wrscaler": "~0.1.0-alpha"
   },
   "devDependencies": {},
   "resolutions": {

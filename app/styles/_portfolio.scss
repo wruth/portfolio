@@ -145,19 +145,6 @@
                 background-color: rgba(0, 0, 0, 1);
             }
         }
-
-        @include until($bp-scroller) {
-
-            .viewport-wrapper {
-                .viewport-edge {
-                    display: none;
-                }
-            }
-
-            .viewport {
-                position: absolute;
-            }
-        }
     }
 
     p {

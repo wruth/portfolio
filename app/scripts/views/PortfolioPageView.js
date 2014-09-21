@@ -154,24 +154,34 @@
                     //  to follow the transformed height of the viewport
                     //
                     .each(function () {
+                            // an individual .scroller element
                         var $this = $(this),
-                            scrollerBaseHeight = $this.height(),
-                            vPadding = $this.outerHeight() - scrollerBaseHeight,
+                            $edges = $this.find('.viewport-edge'),
+                            $viewport = $this.find('.viewport'),
 
+                            //
+                            // mangage the breakpoint changes here in js instead
+                            // of splitting it between here and the sass/css.
+                            // Better if it's all in one place since that way
+                            // it's guaranteed to be handled consistently.
+                            //
                             changeCallback = function (changeObj) {
-                                var changeHeight;
 
                                 if (changeObj.type === 'transform-end') {
-                                    $this.css('height', '');
+                                    $edges.css('display', 'table-cell');
+                                    $viewport.css('position', 'relative');
                                 }
                                 else {
-                                    changeHeight = (scrollerBaseHeight * changeObj.scale) + vPadding + 'px';
-                                    $this.css('height', changeHeight);
+
+                                    if (changeObj.type === 'transform-start') {
+                                        $edges.css('display', 'none');
+                                        $viewport.css('position', 'absolute');
+                                    }
                                 }
                             };
 
-                        $this.find('.viewport').wrscaler({
-                            threshold: 820,
+                        $viewport.wrscaler({
+                            threshold: 800,
                             changeCallback: changeCallback
                         });
                     }));
