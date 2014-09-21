@@ -49,8 +49,8 @@ A lot goes into the mix of developing a modern webapp. This isn't an exhaustive 
 * [jQuery](http://jquery.com/) of course.
 * [Backbone.js](http://backbonejs.org/) for the MVC framework.
 * [LinkedIn's fork of Dust](https://github.com/linkedin/dustjs) for dynamic HTML templating.
-* [digi-grid](https://github.com/digitaljhelms/digi-grid) for a SASS based grid system.
 * My own [wrscroller](https://github.com/wruth/wrscroller) for a simple jQuery based content scroller.
+* Also my [wrscaler](https://github.com/wruth/wrscaler) for responsively scaling the scroller :wink:.
 * [grunt-ver](https://github.com/chrisdanford/grunt-ver) for cache busting loaded resources in the distribution build.
 * [76design Social Icons](https://github.com/76design/76d-social-icons) for a nice SASS and font based social icon set.
 
