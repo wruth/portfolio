@@ -40,8 +40,25 @@
             display: block;
             @include rem-px(margin-top, 3rem);
 
-            img {
+            /*
+            span {
+                display: inline-block;
+            }
+            */
+
+            span {
+                float: none;
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .pdf-icon {
+                display: inline-block;
+                width: 32px;
+                height: 32px;
+                float: left;
                 @include rem-px(margin-right, 1rem);
+                background: url(/images/pdficon_large.png) no-repeat;
             }
         }
 
@@ -80,6 +97,40 @@
 
         .references {
             @include grid-block(10, 1, 1);
+        }
+
+        .download {
+            @include grid-block(10, 1, 1);
+            display: block;
+
+            a {
+                margin-top: 0;
+                @include rem-px(margin-bottom, 2rem);
+
+                .pdf-icon {
+                    width: 32px;
+                    height: 32px;
+                    float: left;
+                    @include rem-px(margin-right, 1rem);
+                    background: url(/images/pdficon_large.png) no-repeat;
+                }
+
+               /*
+                span {
+                    margin-left: 0;
+                    margin-right: 0;
+                    float: none;
+                    //display: inline-block;
+                    //line-height: 32px;
+                }
+                */
+
+                span {
+                    float: none;
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+            }
         }
     }
 }
