@@ -40,12 +40,6 @@
             display: block;
             @include rem-px(margin-top, 3rem);
 
-            /*
-            span {
-                display: inline-block;
-            }
-            */
-
             span {
                 float: none;
                 margin-left: 0;
@@ -114,16 +108,6 @@
                     @include rem-px(margin-right, 1rem);
                     background: url(/images/pdficon_large.png) no-repeat;
                 }
-
-               /*
-                span {
-                    margin-left: 0;
-                    margin-right: 0;
-                    float: none;
-                    //display: inline-block;
-                    //line-height: 32px;
-                }
-                */
 
                 span {
                     float: none;
