@@ -3,14 +3,14 @@ This is the source project for my portfolio app, hosted at [engineer.moonb.us](h
 ## Installation
 Portfolio uses a Grunt based build, so you'll need to install Node and Grunt first if you haven't already. Then, from within the project directory after cloning this from github, on the CLI run:
 
-1. `npm install` — to install Grunt build dependencies
+1. `npm install` — to install Grunt build dependencies (may need to run as 
 2. `bower install` — to install application build dependencies
 3. `grunt serve:dist` — to build and serve the app via localhost:9000
 
 ## Grunt Build and Deploy Tasks
 This summarizes the main Grunt based build and deploy tasks:
 ### Build Tasks
-* `grunt server:dist` — as noted in **Installation**, this task performs a distribution build and serves the app locally on port 9000.
+* `grunt serve:dist` — as noted in **Installation**, this task performs a distribution build and serves the app locally on port 9000.
 * `grunt build:dev` — Perform a development build of the app. Files are not minified, and runtime loaded image and data files are not cache busted.
 * `grunt build:dist` — Perform a distribution build suitable for production deployment. Source files are concatenated and minified, and runtime resources are renamed and referenced using a hash value.
 

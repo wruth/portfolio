@@ -1,6 +1,6 @@
 
 body {
-    background: url('/images/stamped_60px.png') #666 repeat fixed;
+    background-color: #666;
 
     &::-webkit-scrollbar {
         width: 16px;
@@ -17,6 +17,10 @@ body {
         &:hover {
             background-color: #444;
         }
+    }
+
+    @include at-least($bp-wide-screen) {
+        background: url('/images/stamped_60px.png') #666 repeat fixed;
     }
 }
 

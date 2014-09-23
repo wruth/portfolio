@@ -10,6 +10,10 @@
             @include rem-px(margin-bottom, 0.5rem);
         }
 
+        h4 {
+            color: $keyYellow;
+        }
+
         ul {
             @extend %bullet-list;
 

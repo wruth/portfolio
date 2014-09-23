@@ -27,7 +27,8 @@
                 <p>{body}</p>
             {/body}
             {#subsections}
-                <h3>{title} {date}</h3>
+                <h3>{title}</h3>
+                <h4>{date}</h4>
                 <p>{intro}</p>
                 <ul>
                     {#items}

@@ -111,7 +111,8 @@ module.exports = function (grunt) {
             options: {
                 port: grunt.option('port') || SERVER_PORT,
                 // change this to '0.0.0.0' to access the server from outside
-                hostname: 'localhost'
+                //hostname: 'localhost'
+                hostname: '0.0.0.0'
             },
             livereload: {
                 options: {
@@ -457,6 +458,7 @@ module.exports = function (grunt) {
                 'ver'
             ]);
         }
+
     });
 
     grunt.registerTask('default', [
