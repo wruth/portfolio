@@ -106,7 +106,7 @@
             position: relative;
             width: 800px;
             //background-color: #f00;
-            transform-origin: left top;
+            @include transform-origin(0, 0);
 
             .scrollContainer {
                 position: absolute;

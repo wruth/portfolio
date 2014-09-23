@@ -28,7 +28,7 @@ The `production` flag indicates this deployment is against a production environm
 * `host.json`— this JSON file should define two properties:
 	* `"base"` — an absolute path on the remote server to upload the release archive to and maintain a `releases/` subdirectory under for any of the deploy environments.
 	* `"docroot"` — an absolute path on the remote server where a symbolic link should be created, linked to the latest release.
-* `host.<server>.json` — a JSON file containing remote host access properties for the Grunt sshexec and sftp tasks to use. Currently only `host.production.json` is supported, but other environments could easily be added. Below is an example of the format of this file (if the remote account is not set up to accept rsa keys, a `"password"` field can also be added):
+* `host.<server>.json` — a JSON file containing remote host access properties for the Grunt sshexec and sftp tasks to use. Currently only `host.production.json` is supported, but other environments could easily be added. Below is an example of the format of this file (if the remote account is not set up to accept rsa keys, a `"password"` field can also be added). The value of `"path"` :
 
 ```JSON
 {
