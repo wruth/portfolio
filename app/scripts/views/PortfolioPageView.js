@@ -185,8 +185,7 @@
                     // creates the scrollers
                     //
                     .wrscroller({
-                        scrollDuration: 500,
-                        scrollEasing: 'easeInOutQuad'
+                        scrollDuration: 500
                     }));
 
         },
