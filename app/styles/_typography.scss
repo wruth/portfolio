@@ -2,7 +2,9 @@
 // http://webdesign.tutsplus.com/articles/a-web-designers-typographic-boilerplate--webdesign-15234
 
 body, input, button {
-    text-rendering: optimizeLegibility;
+    // using this garbled gill sans in mobile safari on ios 5.1.1
+    // http://stackoverflow.com/questions/7327525/why-would-html-text-sometimes-appear-garbled-when-viewing-on-chrome-or-safari-on
+    //text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 }
 
