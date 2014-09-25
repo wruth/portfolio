@@ -4,29 +4,6 @@
 (function (Portfolio, Backbone, dust, _, $) {
 
     /**
-     * Load the images for a scroller. Image paths are stored on an 'imgsrc'
-     * attribute of an img. Apply this to the 'src' attribute to start
-     * image loading.
-     *
-     * @method _loadImagesForScroller
-     * @private
-     *
-     * @param  {jQuery} $scroller A jQuery wrapper for an individual scroller.
-     */
-    function _loadImagesForScroller ($scroller) {
-
-        $scroller.find('img').each(function () {
-            var $this = $(this);
-
-            if ($this.data('imgsrc')) {
-                $this.attr('src', $this.data('imgsrc'));
-            }
-        });
-
-        $scroller.data('imagesLoaded', 'yes');
-    }
-
-    /**
      * Flash the scroller's ui. The css is set-up to do this if the scroller
      * container has a 'mouse-enter' class. Remove the 'mouse-enter' class after
      * a short interval unless the mouse is really over the scroller (the
@@ -54,10 +31,8 @@
 
     /**
      * Test an individual scroller to see if it is visible in the screen's
-     * viewport or not. If this is the first time the scroller has become even
-     * partially visible, initiate loading of it's images. Additionally, if the
-     * scroller is fully visible in the viewport, flash it's ui to prompt the
-     * user to scroll it's content.
+     * viewport or not. If the scroller is fully visible in the viewport, flash
+     * it's ui to prompt the user to scroll it's content.
      *
      * @method _testScroller
      * @private
@@ -66,13 +41,7 @@
      */
     function _testScroller ($scroller) {
 
-        if ($scroller.isOnScreen(0)) {
-
-            if (!$scroller.data('imagesLoaded')) {
-                _loadImagesForScroller.call(this, $scroller);
-            }
-        }
-        else {
+        if (!$scroller.isOnScreen(0)) {
             $scroller.removeData('uiFlashed');
         }
 
@@ -105,22 +74,26 @@
     }
 
     /**
-     * Initiate scroll monitoring for flashing scroller ui and lazy loading
-     * scroller images.
+     * Initiate scroll monitoring for flashing scroller ui, and kickoff
+     * prioritized loading of scroller images.
      *
-     * @method _scrollMonitor
+     * @method _scrollSetup
      * @private
      *
      * @param  {jQuery} $el Wrapped jQuery set of all project scrollers on the
      *                      page.
      */
-    function _scrollMonitor ($el) {
+    function _scrollSetup ($el) {
         this.$scrollers = $el;
         _testAllScrollers.call(this);
 
         $(window).on('scroll.portfolio', _.debounce(_.bind(_testAllScrollers, this), 250));
 
+        var batchImageLoader = this.batchImageLoader = new Portfolio.utilities.BatchImageLoader();
 
+        this.$scrollers.each(function () {
+           batchImageLoader.addBatch($(this).find('img').get());
+        });
     }
 
     /**
@@ -139,7 +112,7 @@
         postRender: function () {
             var _this = this;
 
-            _scrollMonitor.call(this,
+            _scrollSetup.call(this,
                 _this.$el.find('.scroller')
                     //
                     //  create the scaler for each scroller .viewport, along

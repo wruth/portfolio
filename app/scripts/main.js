@@ -19,6 +19,7 @@
         views: {},
         routers: {},
         functions: {},
+        utilities: {},
 
         init: function () {
 

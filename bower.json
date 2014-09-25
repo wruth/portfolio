@@ -10,7 +10,8 @@
     "jquery-transform": "*",
     "wrscroller": "~0.3.0-alpha",
     "76d-social-icons": "~1.0.3",
-    "wrscaler": "~0.2.0-alpha"
+    "wrscaler": "~0.2.0-alpha",
+    "imagesloaded": "~3.1.8"
   },
   "devDependencies": {},
   "resolutions": {
