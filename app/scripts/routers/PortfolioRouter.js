@@ -14,6 +14,66 @@
             portfolio: '/data/portfolio.json'
         };
 
+
+
+    /**
+     * @class PortfolioRouter
+     */
+    Portfolio.routers.PortfolioRouter = Backbone.Router.extend({
+
+        /**
+         * Provided collection containing models defining basic page structure
+         * of the site. The router uses this to cache the individual
+         * collections for the various CollectionView's.
+         *
+         * @property pageCollection
+         * @type Backbone.Collection
+         */
+        pageCollection: null,
+
+        /**
+         * Handle to the current view being displayed so that remove() can be
+         * called on it to cleanup before showing a new view.
+         *
+         * @property currentView
+         * @type Backbone.View
+         */
+        currentView: null,
+
+        routes: {
+            '': 'about',
+            'resume': 'resume',
+            'portfolio': 'portfolio'
+        },
+
+        initialize: function (options) {
+            this.pageCollection = options.pageCollection;
+        },
+
+        //
+        // routes
+        //
+
+        about: function () {
+            _updateCurrentView.call(this, 'about');
+        },
+
+        resume: function () {
+            _updateCurrentView.call(this, 'resume');
+        },
+
+        portfolio: function () {
+            _updateCurrentView.call(this, 'portfolio');
+        }
+    });
+
+
+    //--------------------------------------------------------------------------
+    //
+    // private methods
+    //
+    //--------------------------------------------------------------------------
+
     /**
      * Get the Collection from the Model for the specified View if it has
      * previously been created and cached. If not create a Collection for this
@@ -119,56 +179,5 @@
         newView.render();
         _trackPage.call(this);
     }
-
-    /**
-     * @class PortfolioRouter
-     */
-    Portfolio.routers.PortfolioRouter = Backbone.Router.extend({
-
-        /**
-         * Provided collection containing models defining basic page structure
-         * of the site. The router uses this to cache the individual
-         * collections for the various CollectionView's.
-         *
-         * @property pageCollection
-         * @type Backbone.Collection
-         */
-        pageCollection: null,
-
-        /**
-         * Handle to the current view being displayed so that remove() can be
-         * called on it to cleanup before showing a new view.
-         *
-         * @property currentView
-         * @type Backbone.View
-         */
-        currentView: null,
-
-        routes: {
-            '': 'about',
-            'resume': 'resume',
-            'portfolio': 'portfolio'
-        },
-
-        initialize: function (options) {
-            this.pageCollection = options.pageCollection;
-        },
-
-        //
-        // routes
-        //
-
-        about: function () {
-            _updateCurrentView.call(this, 'about');
-        },
-
-        resume: function () {
-            _updateCurrentView.call(this, 'resume');
-        },
-
-        portfolio: function () {
-            _updateCurrentView.call(this, 'portfolio');
-        }
-    });
 
 }(window.Portfolio, Backbone, jQuery));

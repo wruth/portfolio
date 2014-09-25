@@ -4,6 +4,92 @@
 (function (Portfolio, Backbone, dust, _, $) {
 
     /**
+     * @class PortfolioPageView
+     */
+    Portfolio.views.PortfolioPageView = Portfolio.views.CollectionPageView.extend({
+
+        $scrollers: null,
+
+        /**
+         * Create WRScroller's on any '.scroller' elements in the Portfolio's
+         * DOM fragment.
+         *
+         * @method postRender
+         */
+        postRender: function () {
+            var _this = this;
+
+            _scrollSetup.call(this,
+                _this.$el.find('.scroller')
+                    //
+                    //  create the scaler for each scroller .viewport, along
+                    //  with a changeCallback that manages the scrollers height
+                    //  to follow the transformed height of the viewport.
+                    //  Important to do this first before creating the scrollers
+                    //  so that the scrollers have a properly sized and scaled
+                    //  element to work with.
+                    //
+                    .each(function () {
+                            // an individual .scroller element
+                        var $this = $(this),
+                            $edges = $this.find('.viewport-edge'),
+                            $viewport = $this.find('.viewport'),
+
+                            //
+                            // mangage the breakpoint changes here in js instead
+                            // of splitting it between here and the sass/css.
+                            // Better if it's all in one place since that way
+                            // it's guaranteed to be handled consistently.
+                            //
+                            changeCallback = function (changeObj) {
+
+                                if (changeObj.type === 'transform-end') {
+                                    $edges.css('display', 'table-cell');
+                                    $viewport.css('position', 'relative');
+                                }
+                                else {
+
+                                    if (changeObj.type === 'transform-will-start') {
+                                        $edges.css('display', 'none');
+                                        $viewport.css('position', 'absolute');
+                                    }
+                                }
+                            };
+
+                        $viewport.wrscaler({
+                            threshold: 800,
+                            changeCallback: changeCallback
+                        });
+                    })
+                    //
+                    // creates the scrollers
+                    //
+                    .wrscroller({
+                        scrollDuration: 500
+                    }));
+
+        },
+
+        /**
+         * Stop listenining for window scroll events!
+         *
+         * @method remove
+         */
+        remove: function () {
+            $(window).off('scroll.portfolio');
+            Portfolio.views.CollectionPageView.prototype.remove.call(this);
+        }
+
+    });
+
+
+    //--------------------------------------------------------------------------
+    //
+    // private methods
+    //
+    //--------------------------------------------------------------------------
+
+    /**
      * Flash the scroller's ui. The css is set-up to do this if the scroller
      * container has a 'mouse-enter' class. Remove the 'mouse-enter' class after
      * a short interval unless the mouse is really over the scroller (the
@@ -95,84 +181,5 @@
            batchImageLoader.addBatch($(this).find('img').get());
         });
     }
-
-    /**
-     * @class PortfolioPageView
-     */
-    Portfolio.views.PortfolioPageView = Portfolio.views.CollectionPageView.extend({
-
-        $scrollers: null,
-
-        /**
-         * Create WRScroller's on any '.scroller' elements in the Portfolio's
-         * DOM fragment.
-         *
-         * @method postRender
-         */
-        postRender: function () {
-            var _this = this;
-
-            _scrollSetup.call(this,
-                _this.$el.find('.scroller')
-                    //
-                    //  create the scaler for each scroller .viewport, along
-                    //  with a changeCallback that manages the scrollers height
-                    //  to follow the transformed height of the viewport.
-                    //  Important to do this first before creating the scrollers
-                    //  so that the scrollers have a properly sized and scaled
-                    //  element to work with.
-                    //
-                    .each(function () {
-                            // an individual .scroller element
-                        var $this = $(this),
-                            $edges = $this.find('.viewport-edge'),
-                            $viewport = $this.find('.viewport'),
-
-                            //
-                            // mangage the breakpoint changes here in js instead
-                            // of splitting it between here and the sass/css.
-                            // Better if it's all in one place since that way
-                            // it's guaranteed to be handled consistently.
-                            //
-                            changeCallback = function (changeObj) {
-
-                                if (changeObj.type === 'transform-end') {
-                                    $edges.css('display', 'table-cell');
-                                    $viewport.css('position', 'relative');
-                                }
-                                else {
-
-                                    if (changeObj.type === 'transform-will-start') {
-                                        $edges.css('display', 'none');
-                                        $viewport.css('position', 'absolute');
-                                    }
-                                }
-                            };
-
-                        $viewport.wrscaler({
-                            threshold: 800,
-                            changeCallback: changeCallback
-                        });
-                    })
-                    //
-                    // creates the scrollers
-                    //
-                    .wrscroller({
-                        scrollDuration: 500
-                    }));
-
-        },
-
-        /**
-         * Stop listenining for window scroll events!
-         *
-         * @method remove
-         */
-        remove: function () {
-            $(window).off('scroll.portfolio');
-            Portfolio.views.CollectionPageView.prototype.remove.call(this);
-        }
-
-    });
 
 }(window.Portfolio, Backbone, dust, _, jQuery));

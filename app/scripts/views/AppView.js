@@ -7,6 +7,34 @@
 (function (Portfolio, Backbone) {
 
     /**
+     * @class AppView
+     */
+    Portfolio.views.AppView = Backbone.View.extend({
+
+        navView: null,
+
+        initialize: function () {
+            this.listenTo(this.collection, 'change:active', _handlePageChange);
+
+            this.navView = new Portfolio.views.NavView({
+                collection: this.collection
+            });
+        },
+
+        render: function () {
+            this.navView.render();
+            this.$el.find('.nav-container').append(this.navView.el);
+        }
+    });
+
+
+    //--------------------------------------------------------------------------
+    //
+    // private methods
+    //
+    //--------------------------------------------------------------------------
+
+    /**
      * Because the aside background graphic element has to exist in the
      * background element context outside the element managed by any PageView,
      * the AppView takes care of monitoring this by checking for the 'aside'
@@ -29,26 +57,5 @@
             $background.removeClass('aside');
         }
     }
-
-    /**
-     * @class AppView
-     */
-    Portfolio.views.AppView = Backbone.View.extend({
-
-        navView: null,
-
-        initialize: function () {
-            this.listenTo(this.collection, 'change:active', _handlePageChange);
-
-            this.navView = new Portfolio.views.NavView({
-                collection: this.collection
-            });
-        },
-
-        render: function () {
-            this.navView.render();
-            this.$el.find('.nav-container').append(this.navView.el);
-        }
-    });
 
 }(window.Portfolio, Backbone));

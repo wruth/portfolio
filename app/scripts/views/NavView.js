@@ -6,51 +6,6 @@
 (function (Portfolio, Backbone, dust) {
 
     /**
-     * Updates the active state of the nav items so that the appropriate one is
-     * highlighted. Remove active class from all, then determine index of
-     * current active item and apply active class.
-     *
-     * @method _updateActiveNavItem
-     * @private
-     */
-    function _updateActiveNavItem () {
-        var activeModel = this.collection.findWhere({active: true}),
-            activeIndex = this.collection.indexOf(activeModel),
-            activeEl;
-
-        activeEl = this.$el.find('li')
-            .removeClass('active')
-            .get(activeIndex);
-
-        if (activeEl) {
-            $(activeEl).addClass('active');
-        }
-    }
-
-    /**
-     * Handler for the menu nav icon displayed in the nav lists's collapsed
-     * state. Toggles a 'show' class on the nav list, which shows and hides
-     * the list (by toggle display:none or display:block).
-     *
-     * @method _navIconClick
-     * @private
-     */
-    function _handleNavIconClick () {
-        this.$el.find('.nav-list').toggleClass('show');
-    }
-
-    /**
-     * Handler for clicks in the nav list. Ensures the nav list is hidden on a
-     * click when displayed compressed below a narrow breakpoint.
-     *
-     * @method  _handleNavListClick
-     * @param {$.Event} ev jQuery Event object
-     */
-    function _handleNavListClick (ev) {
-        $(ev.currentTarget).removeClass('show');
-    }
-
-    /**
      * @class NavView
      */
     Portfolio.views.NavView = Backbone.View.extend({
@@ -119,5 +74,57 @@
         }
 
     });
+
+
+    //--------------------------------------------------------------------------
+    //
+    // private methods
+    //
+    //--------------------------------------------------------------------------
+
+    /**
+     * Updates the active state of the nav items so that the appropriate one is
+     * highlighted. Remove active class from all, then determine index of
+     * current active item and apply active class.
+     *
+     * @method _updateActiveNavItem
+     * @private
+     */
+    function _updateActiveNavItem () {
+        var activeModel = this.collection.findWhere({active: true}),
+            activeIndex = this.collection.indexOf(activeModel),
+            activeEl;
+
+        activeEl = this.$el.find('li')
+            .removeClass('active')
+            .get(activeIndex);
+
+        if (activeEl) {
+            $(activeEl).addClass('active');
+        }
+    }
+
+    /**
+     * Handler for the menu nav icon displayed in the nav lists's collapsed
+     * state. Toggles a 'show' class on the nav list, which shows and hides
+     * the list (by toggle display:none or display:block).
+     *
+     * @method _navIconClick
+     * @private
+     */
+    function _handleNavIconClick () {
+        this.$el.find('.nav-list').toggleClass('show');
+    }
+
+    /**
+     * Handler for clicks in the nav list. Ensures the nav list is hidden on a
+     * click when displayed compressed below a narrow breakpoint.
+     *
+     * @method  _handleNavListClick
+     * @param {$.Event} ev jQuery Event object
+     */
+    function _handleNavListClick (ev) {
+        $(ev.currentTarget).removeClass('show');
+    }
 
 }(window.Portfolio, Backbone, dust));

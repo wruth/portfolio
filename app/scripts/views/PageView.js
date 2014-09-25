@@ -3,26 +3,6 @@
  */
 (function (Portfolio, Backbone, dust, _, $) {
 
-    // private methods
-
-    /**
-     * Handle clicks on any UI elements which have a data-galabel property in
-     * order to report them as Google Analytics events. These will be reported
-     * with the ga category 'button' and the ga action 'click'.
-     *
-     * @method _handleAnalyticsUIClick
-     * @private
-     *
-     * @param  {jQuery Event} ev jQuery event object
-     */
-    function _handleAnalyticsUIClick (ev) {
-        var label = $(ev.currentTarget).data('galabel');
-
-        if (ga) {
-            ga('send', 'event', 'button', 'click', label);
-        }
-    }
-
     /**
      * @class PageView
      */
@@ -123,5 +103,29 @@
             // no op
         }
     });
+
+    //--------------------------------------------------------------------------
+    //
+    // private methods
+    //
+    //--------------------------------------------------------------------------
+
+    /**
+     * Handle clicks on any UI elements which have a data-galabel property in
+     * order to report them as Google Analytics events. These will be reported
+     * with the ga category 'button' and the ga action 'click'.
+     *
+     * @method _handleAnalyticsUIClick
+     * @private
+     *
+     * @param  {jQuery Event} ev jQuery event object
+     */
+    function _handleAnalyticsUIClick (ev) {
+        var label = $(ev.currentTarget).data('galabel');
+
+        if (ga) {
+            ga('send', 'event', 'button', 'click', label);
+        }
+    }
 
 }(window.Portfolio, Backbone, dust, _, jQuery));
