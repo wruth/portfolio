@@ -4,8 +4,13 @@
     overflow: hidden;
     @include rem-px(margin-bottom, 3rem);
 
+    header {
+        @include rem-px(padding-top, 0.5rem);
+        @include background-image(linear-gradient(top, #000, #111));
+    }
+
     .section-title {
-        @include grid-block(5, 4);
+        @include grid-block(8, 1);
     }
 
     .section-link {
