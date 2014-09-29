@@ -22,7 +22,6 @@
         mql: null,
 
         events: {
-            'click .contact': Portfolio.functions.contact,
             'click .nav-icon': _handleNavIconClick,
             'click .nav-list': _handleNavListClick
         },

@@ -6,7 +6,7 @@
         <ul>
             <li class="social"><a href="https://www.linkedin.com/pub/ward-ruth/1/810/44a" target="_blank" data-gacategory="button" data-galabel="linkedin"><i class="si-circle si-linkedin"></i></a></li>
             <li class="social"><a href="https://github.com/wruth" target="_blank" data-gacategory="button" data-galabel="github"><i class="si-circle si-github"></i></a></li>
-            <li class="social"><a data-label="contact"><i class="si-circle si-mail"></i></a></li>
+            <li class="social"><a href="mailto:ward.ruth@gmail.com" data-galabel="contact"><i class="si-circle si-mail"></i></a></li>
         </ul>
     </aside>
     <section class="about-section">

@@ -3,5 +3,5 @@
     {#.}
         <li {?active}class="active"{/active}><a href="{route}">{label}</a></li>
     {/.}
-    <li class="contact"><a>contact</a></li>
+    <li class="contact"><a href="mailto:ward.ruth@gmail.com">contact</a></li>
 </ul>
