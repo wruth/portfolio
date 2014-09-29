@@ -6,6 +6,7 @@
 
     header {
         @include rem-px(padding-top, 0.5rem);
+        border-top: $darkBlue 1px solid;
         @include background-image(linear-gradient(top, #000, #111));
     }
 
