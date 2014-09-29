@@ -14,6 +14,8 @@
 
         .site-title {
             float: left;
+            display: block;
+            text-decoration: none;
             height: $navHeight;
             color: $keyYellow;
             font-family: futuralight;
