@@ -35,31 +35,33 @@
     $pxValues: '';
     $remValues: '';
 
-    @for $i from 1 through $max {
-        $rawValue: nth($values, $i);
-        $value: strip-unit($rawValue);
-        $unit: unit($rawValue);
+    @if $max > 0 {
+        @for $i from 1 through $max {
+            $rawValue: nth($values, $i);
+            $value: strip-unit($rawValue);
+            $unit: unit($rawValue);
 
-        @if $value != 0 {
-            @if $unit == rem or $unit == em {
-                $pxValues: #{$pxValues + $value*16}px;
+            @if $value != 0 {
+                @if $unit == rem or $unit == em {
+                    $pxValues: #{$pxValues + $value*16}px;
+                } @else {
+                    $pxValues: #{$pxValues + $rawValue};
+                }
+                $remValues: #{$remValues + $rawValue};
             } @else {
-                $pxValues: #{$pxValues + $rawValue};
+                $pxValues: #{$pxValues + $value*16};
+                $remValues: #{$remValues + $value};
             }
-            $remValues: #{$remValues + $rawValue};
-        } @else {
-            $pxValues: #{$pxValues + $value*16};
-            $remValues: #{$remValues + $value};
+
+            @if $i < $max {
+                $pxValues: #{$pxValues + " "};
+                $remValues: #{$remValues + " "};
+            }
         }
 
-        @if $i < $max {
-            $pxValues: #{$pxValues + " "};
-            $remValues: #{$remValues + " "};
-        }
+        #{$property}: $pxValues;
+        #{$property}: $remValues;
     }
-
-    #{$property}: $pxValues;
-    #{$property}: $remValues;
 }
 
 /**

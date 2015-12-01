@@ -2,7 +2,7 @@
 
 {#.}
     <div class="row leading-2">
-        {@if cond="{$idx} == 0"}
+        {@eq key=aside value="yes"}
             <aside class="page-aside download">
                 <a href='/documents/ward-ruth-resume.pdf' download data-gacategory="button" data-galabel="download resume"><span class="pdf-icon"></span><span class="download">Download PDF</span></a>
             </aside>
@@ -19,7 +19,7 @@
                     {/aside}
                 </aside>
             {/aside}
-        {/if}
+        {/eq}
 
         <section class="resume-section {?aside}with-aside{/aside}">
             <h2>{title}</h2>
