@@ -12,10 +12,28 @@
         "title": "career highlights",
         "subsections": [
             {
+                "title": "AppNexus, San Francisco",
+                "date": "[2014 – 2015]",
+                "intro": "AppNexus bills themselves as “the world’s leading independent ad tech platform.”  I worked in the San Francisco office as a <strong>Senior Software Engineer</strong> on an independent product initiative called Twixt. Twixt was a sophisticated web-app that linked ad buyers and web-publishers, enabling direct and secure negotiations of ad campaign placements. Although the project has just been cancelled due to financial pressures within AppNexus, I and the rest of the team are immensely proud of it. Notable roles and duties included:",
+                "items": [
+                    {
+                        "description": "As a lead I created story tickets, ran daily sprint stand-ups, and provided feedback and guidance in code-review sessions."
+                    },
+                    {
+                        "description": "Contributed key software designs and implementations for the Angular front-end, and ensured code quality with rigorous unit tests."
+                    },
+                    {
+                        "description": "Coordinated with the back-end team to review and validate APIs."
+                    },
+                    {
+                        "description": "Reviewed and tightened acceptance criteria with the Product Owner to ensure the team’s efforts were properly focused."
+                    }
+                ]
+            },
+            {
                 "title": "Fluid Inc., San Francisco",
-                "date": "[2006 – present]",
-                "intro": "Fluid is a leading e-commerce interactive agency, producing award-winning work for major brand retailers. In addition to helping develop Fluid’s on-demand ecommerce product suite, I have been a key contributor to many of Fluid’s most notable and innovative projects. Standouts include:",
-                "outro": "Promoted in March 2013 to Senior Software Engineer.",
+                "date": "[2006 – 2014]",
+                "intro": "Fluid is a leading e-commerce interactive agency, producing award-winning work for major brand retailers. In addition to helping develop Fluid’s on-demand ecommerce product suite, I was a key contributor to many of Fluid’s most notable and innovative projects. Standouts include:",
                 "items": [
                     {
                         "role": "Front End Lead",
@@ -46,7 +64,7 @@
                     },
                     {
                         "role": "Architect / Team Trainer",
-                        "description": "Developed presentation engine for a course catalog for EDS using XML and Flash supporting a suite of custom learning content modules. Designed an efficiently scalable solution for mass localization. Oversaw onsite training of remote team in Hyderabad, India in core OOP principles and for building out this solution."
+                        "description": "Developed presentation engine for a course catalog for EDS using XML and Flash supporting a suite of custom learning content modules. Designed an efficiently scalable solution for mass localization. Oversaw on-site training of remote team in Hyderabad, India in core OOP principles and for building out this solution."
                     },
                     {
                         "role": "Solution Architect",
@@ -106,7 +124,11 @@
             {
                 "title": "web development",
                 "items": [
-                    "JavaScript",
+                    "ECMAScript",
+                    "AngularJS",
+                    "Backbone.js",
+                    "dust",
+                    "Marionette",
                     "OOD",
                     "JSON",
                     "XML",
@@ -118,13 +140,13 @@
                     "Grunt",
                     "RequireJS",
                     "CommonJS",
-                    "Backbone.js",
-                    "dust",
-                    "Marionette",
                     "Underscore",
+                    "Ramda",
                     "JQuery",
                     "UML",
+                    "Karma",
                     "Jasmine",
+                    "Protractor",
                     "REST",
                     "SOAP",
                     "Facebook",
@@ -153,11 +175,11 @@
             {
                 "title": "languages",
                 "items": [
-                    "PostScript",
                     "ECMA Script",
                     "Java",
                     "C",
-                    "Objective-C"
+                    "Objective-C",
+                    "PostScript"
                 ]
             },
             {
@@ -177,6 +199,8 @@
                     "Sublime",
                     "Eclipse",
                     "bash",
+                    "Vagrant",
+                    "Virtual Box",
                     "XCode"
                 ]
             }

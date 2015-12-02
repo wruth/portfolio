@@ -89,8 +89,7 @@
             "Flex/AS3",
             "PureMVC MultiCore",
             "XML"
-        ],
-        "link": "http://www.craftsman.com/shc/s/nb_10155_12602_NB_custom+toolbox?sessionKey=null"
+        ]
     },
     {
         "id": "Kenmore Live Studio",
@@ -113,6 +112,30 @@
             "Facebook",
             "Twitter",
             "YouTube"
+        ]
+    },
+    {
+        "id": "Twixt",
+        "title": "Twixt",
+        "client": "AppNexus",
+        "role": "Senior Software Engineer",
+        "date": "2014 – 2015",
+        "description": "Front end engineer on product team creating direct negotiation tool for on-line ad placements.",
+        "numVisibleImages": 1,
+        "maxImageHeight": 479,
+        "images": [
+            "/images/portfolio/twixt01_780x479.jpg",
+            "/images/portfolio/twixt02_780x479.jpg",
+            "/images/portfolio/twixt03_780x479.jpg",
+            "/images/portfolio/twixt04_780x479.jpg",
+            "/images/portfolio/twixt05_780x479.jpg",
+            "/images/portfolio/twixt06_780x479.jpg",
+            "/images/portfolio/twixt07_780x479.jpg"
+        ],
+        "tech": [
+            "AngularJS",
+            "LESS",
+            "Karma"
         ]
     },
     {

@@ -29,10 +29,10 @@
             {#subsections}
                 <h3>{title}</h3>
                 <h4>{date}</h4>
-                <p>{intro}</p>
+                <p>{intro|s}</p>
                 <ul>
                     {#items}
-                        <li><strong>{role}:&nbsp;&nbsp;</strong>{description}</li>
+                        <li>{?role}<strong>{role}:&nbsp;&nbsp;</strong>{/role}{description}</li>
                     {/items}
                 </ul>
                 {?outro}
