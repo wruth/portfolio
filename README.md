@@ -1,7 +1,7 @@
 # Portfolio
 This is the source project for my portfolio app, hosted at [engineer.moonb.us](http://engineer.moonb.us). This app in itself serves  as a good example of many techniques I have used on recent professional projects. It's free to be used as the basis for a similar site of one's own, although I haven't spent a lot of effort beyond good organization of styles and such to promote themability or ease of customization.
 ## Installation
-Portfolio uses a Grunt based build, so you'll need to install Node and Grunt first if you haven't already. Then, from within the project directory after cloning this from github, on the CLI run:
+Portfolio uses a Grunt based build, so you'll need to install Node, Bower and Grunt first if you haven't already. Then, from within the project directory after cloning this from github, on the CLI run:
 
 1. `npm install` — to install Grunt build dependencies (may need to run as 
 2. `bower install` — to install application build dependencies
