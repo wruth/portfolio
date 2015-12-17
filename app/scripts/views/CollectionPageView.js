@@ -27,7 +27,7 @@
                 this.listenTo(this.collection, 'sync', this.render);
                 this.listenTo(this.collection, 'error', function () {
                     //
-                    // TODO: provide ui feedback, perhpas by setting flag and
+                    // TODO: provide ui feedback, perhaps by setting flag and
                     // then render(), which will check for the flag
                     //
                     console.error('Error loading resume collection!');
